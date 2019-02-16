@@ -1,1 +1,0 @@
-# parenyukln.github.io
