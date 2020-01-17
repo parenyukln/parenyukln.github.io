@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./static/styles/normalize.css">
     <link rel="stylesheet" href="./static/styles/style.css">
     <link href="./static/images/favicon.png" rel="icon">
+    <script src="./static/javascript/prefixfree.js"></script>
 </head>
 <body>
     <div class="body__container">
@@ -31,16 +32,18 @@
                
                <div class="header__search flex-cnt">
                    <a href="#" class="header__language">RU</a>
+                   <a class="menu-mobile" href="#"><img src="./static/images/menu.png" alt="Menu"></a>
                    <a href="#"><img src="./static/images/search.png" alt="Search"></a>
                </div>
             </div>
         </header>
+
         <aside class="main__aside">
             <div class="aside__wrapper flex-cnt">
                 <div class="aside__content flex-cnt fl-jst-space cl-white">
                     <div class="main__point flex-cnt main__point-active">
                         <div class="point__left">01</div>
-                        <div class="point__right">Home</div>
+                        <div class="point__right">Главная</div>
                     </div>
                     <div class="sub__point"></div>
                     <div class="sub__point"></div>
@@ -70,16 +73,36 @@
                         <div class="point__left"></div>
                         <div class="point__right">05</div>
                     </div>
+                    <div class="sub__point"></div>
+                    <div class="sub__point"></div>
+                    <div class="sub__point"></div>
+                    <div class="main__point flex-cnt">
+                        <div class="point__left"></div>
+                        <div class="point__right">06</div>
+                    </div>
                 </div>
             </div>
         </aside>
+
+        <section class="mobile__menu hidden">
+            <div class="mobile__menu-wrapper flex-cnt fl-dir-col fl-alg-st">
+                <a href="#" class="header__link header__link-active">Технологии</a>
+                <a href="#" class="header__link">Платформа</a>
+                <a href="#" class="header__link">Решения</a>
+                <a href="#" class="header__link">Команда</a>
+                <a href="#" class="header__link">Контакты</a>
+            </div>
+        </section>
+
         <section class="slide__one flex-cnt fl-jst-center content__slide">
             <main class="main__content flex-cnt">
-                <div class="text__block cl-white width-50">
-                    <h1 class="h1"><span class="main__title">MIRCOD</span><span class="sub__title">IoTaaS</span></h1>
-                    <div class="description__wrapper">
-                        <p class="description">MIRCOD -  это сервис для создания IoT-устройств «под ключ» в рамках концепции WHITE LABEL.</p>
-                        <p class="description">Мы создаем IoTaaS-платформу, внутри которой все процессы по созданию устройств для мира интернет вещей будут автоматизированы. Представители любых профессий, независимо от их квалификаций и погруженности в мир интернета вещей смогут с помощью платформы MIRCOD создать собственное устройство и решение для своих целей</p>
+                <div class="text__block cl-white width-50 flex-cnt fl-jst-center">
+                    <div class="text__block-wrapper">
+                        <h1 class="h1"><span class="main__title">MIRCOD</span><span class="sub__title">IoTaaS</span></h1>
+                        <div class="description__wrapper">
+                            <p class="description">MIRCOD -  это сервис для создания IoT-устройств «под ключ» в рамках концепции WHITE LABEL.</p>
+                            <p class="description">Мы создаем IoTaaS-платформу, внутри которой все процессы по созданию устройств для мира интернет вещей будут автоматизированы. Представители любых профессий, независимо от их квалификаций и погруженности в мир интернета вещей смогут с помощью платформы MIRCOD создать собственное устройство и решение для своих целей</p>
+                        </div>
                     </div>
                 </div>
                 <div class="image__block width-50">
@@ -89,54 +112,73 @@
             <footer class="footer">
                 <div class="footer__wrapper cl-white flex-cnt">
                     <div class="footer__item">
-                        <div class="footer__item-figure"></div>
-                        <div class="footer__item-head">
-                            WHITE LABEL
-                        </div>
-                        <div class="footer__item-text">
-                            Работа по концепции, в рамках которой происходит создание новых продуктов одной компанией, а их использование – другой, но под своим брендом.
+                        <div class="footer__item-wrapper">
+                            <div class="footer__item-figure"></div>
+                            <div class="footer__item-head">
+                                WHITE LABEL
+                            </div>
+                            <div class="footer__item-text">
+                                Работа по концепции, в рамках которой происходит создание новых продуктов одной компанией, а их использование – другой, но под своим брендом.
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="footer__item">
+                        <div class="footer__item-wrapper">
+                            <div class="footer__item-figure"></div>
+                            <div class="footer__item-head">
+                                ПРОТОТИП И ДОКУМЕНТАЦИЯ
+                            </div>
+                            <div class="footer__item-text">
+                                Передача заказчику работающего прототипа и всей необходимой технической документации для возможности масштабирования и выхода на массовое производство
+                            </div>
                         </div>
                     </div>
                     <div class="footer__item">
-                        <div class="footer__item-figure"></div>
-                        <div class="footer__item-head">
-                            ПРОТОТИП И ДОКУМЕНТАЦИЯ
-                        </div>
-                        <div class="footer__item-text">
-                            Передача заказчику работающего прототипа и всей необходимой технической документации для возможности масштабирования и выхода на массовое производство
-                        </div>
-                    </div>
-                    <div class="footer__item">
-                        <div class="footer__item-figure"></div>
-                        <div class="footer__item-head">
-                            ПО И ПРИЛОЖЕНИЯ
-                        </div>
-                        <div class="footer__item-text">
-                            Разработка всего необходимого программного обеспечения и приложений для удаленного контроля и сбора данных на любые платформы
+                        <div class="footer__item-wrapper">
+                            <div class="footer__item-figure"></div>
+                            <div class="footer__item-head">
+                                ПО И ПРИЛОЖЕНИЯ
+                            </div>
+                            <div class="footer__item-text">
+                                Разработка всего необходимого программного обеспечения и приложений для удаленного контроля и сбора данных на любые платформы
+                            </div>
                         </div>
                     </div>
                     <div class="footer__item">
-                        <div class="footer__item-figure"></div>
-                        <div class="footer__item-head">
-                            ПОМОЩЬ ЗАПУСКЕ СЕРИЙНОГО ПРОИЗВОДСТВА
-                        </div>
-                        <div class="footer__item-text">
-                            Передача контактов поставщиков сырья, помощь в переговорах и получении условий, поиск подходящих заводов производителей
+                        <div class="footer__item-wrapper">
+                            <div class="footer__item-figure"></div>
+                            <div class="footer__item-head">
+                                ПОМОЩЬ ЗАПУСКЕ СЕРИЙНОГО ПРОИЗВОДСТВА
+                            </div>
+                            <div class="footer__item-text">
+                                Передача контактов поставщиков сырья, помощь в переговорах и получении условий, поиск подходящих заводов производителей
+                            </div>
                         </div>
                     </div>
                     <div class="footer__item">
-                        <div class="footer__item-figure"></div>
-                        <div class="footer__item-head">
-                            ПОЛНАЯ ПОДДЕРЖКА
-                        </div>
-                        <div class="footer__item-text">
-                            Полная поддержка, от хранения на складах MIRCOD  комплектующих, до обновления програмного обеспечения  в соответствии с изменяющимися требованиями
-                        </div>
+                        <div class="footer__item-wrapper">
+                            <div class="footer__item-figure"></div>
+                            <div class="footer__item-head">
+                                ПОЛНАЯ ПОДДЕРЖКА
+                            </div>
+                            <div class="footer__item-text">
+                                Полная поддержка, от хранения на складах MIRCOD  комплектующих, до обновления програмного обеспечения  в соответствии с изменяющимися требованиями
+                            </div>
+                        </div>                 
+                    </div>
+                    <div class="carousel__nav">
+                        <a href="#" class="nav__dot nav__dot-active"></a>
+                        <a href="#" class="nav__dot"></a>
+                        <a href="#" class="nav__dot"></a>
+                        <a href="#" class="nav__dot"></a>
                     </div>
                 </div>
                 <img src="./static/images/slide_one/opacity_block.png" alt="Black opacity block footer" class="opacity__block">
             </footer>
             <img src="./static/images/slide_one/opacity_image_block.png" alt="Black opacity block section one" class="opacity__block">
+            <a href="#" class="next__slide-arrow">
+                <img src="./static/images/slide_one/down_arrow.png" alt="Next slide">
+            </a>
         </section>
 
         <section class="slide__two flex-cnt fl-jst-center hidden content__slide">
@@ -148,13 +190,13 @@
                 </div>
                 <div class="slide__two-main flex-cnt">
                     <div class="main-container flex-cnt fl-dir-col fl-alg-end pd-right-50 left-container">
-                        <div class="description__wrapper flex-cnt">
+                        <div class="description__wrapper flex-cnt description__wrapper--active">
                             <div class="description__wrapper-text pd-right-30">
                                 Питание напрямую от сети, съемные аккумуляторы или даже солнечные батареи. Исходя из потребностей, MIRCOD использует самые подходящие источники питания для ваших устройств.
                             </div>
                             <div class="description__wrapper-img flex-cnt">
                                 <div class="img__wrapper flex-cnt fl-jst-center">
-                                    <img src="./static/images/slide_two/circles.png" alt="Circles">
+                                    <img src="./static/images/slide_two/battery.png" alt="Circles">
                                 </div>
                             </div>
                         </div>
@@ -174,14 +216,14 @@
                             </div>
                             <div class="description__wrapper-img flex-cnt">
                                 <div class="img__wrapper flex-cnt fl-jst-center">
-                                    <img src="./static/images/slide_two/leaf.png" alt="Circles">
+                                    <img src="./static/images/slide_two/wifi.png" alt="Circles">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="main-container flex-cnt">
+                    <div class="main-container slide__two-mobile_device flex-cnt">
                         <div class="image__container">
-                            <img src="./static/images/slide_two/karate_device.png" alt="">
+                            <img src="./static/images/slide_two/device.png" alt="Device">
                         </div>
                     </div>
                     <div class="main-container flex-cnt fl-dir-col fl-alg-st pd-left-50 right-container">
@@ -191,7 +233,7 @@
                             </div>
                             <div class="description__wrapper-img flex-cnt">
                                 <div class="img__wrapper flex-cnt fl-jst-center">
-                                    <img src="./static/images/slide_two/cloud.png" alt="Circles">
+                                    <img src="./static/images/slide_two/artificial_intelligence.png" alt="Circles">
                                 </div>
                             </div>
                         </div>
@@ -201,7 +243,7 @@
                             </div>
                             <div class="description__wrapper-img flex-cnt">
                                 <div class="img__wrapper flex-cnt fl-jst-center">
-                                    <img src="./static/images/slide_two/diagram.png" alt="Circles">
+                                    <img src="./static/images/slide_two/shield.png" alt="Circles">
                                 </div>
                             </div>
                         </div>
@@ -211,13 +253,16 @@
                             </div>
                             <div class="description__wrapper-img flex-cnt">
                                 <div class="img__wrapper flex-cnt fl-jst-center">
-                                    <img src="./static/images/slide_two/server.png" alt="Circles">
+                                    <img src="./static/images/slide_two/cloud.png" alt="Circles">
                                 </div>
                             </div>
                         </div> 
                     </div>
                 </div>
             </div>
+            <a href="#" class="next__slide-arrow">
+                <img src="./static/images/slide_four/down_arrow_dark.png" alt="Next slide">
+            </a>
         </section>
 
         <section class="slide__three flex-cnt fl-jst-center hidden content__slide">
@@ -279,6 +324,56 @@
                     </div>
                 </div>
             </div>
+            <div class="registration__form flex-cnt fl-jst-center hidden">
+                <div class="registration__form-wrapper flex-cnt fl-jst-center">
+                    <form id="registration__form" action="/" class="flex-cnt fl-dir-col fl-alg-st">
+                        <div class="form__item flex-cnt fl-dir-col fl-alg-st">
+                            <label for="type" class="form__label">Выберите сферу для вашего будущего продукта</label>
+                            <input type="text" name="_type" id="type" value="Медицина" />
+                        </div>
+                        <div class="form__item flex-cnt fl-dir-col fl-alg-st">
+                            <label for="email" class="form__label">Ваш email</label>
+                        <input type="text" name="_email" id="email" value="default@mircod.com" />
+                        </div>
+                        <div class="form__item flex-cnt form__item-checkbox">
+                            <label for="personal" class="checkbox__label">Я согласен на обработку персональных данных</label>
+                            <input class="hidden" type="checkbox" name="_personal" id="personal" value=1 checked />
+                            <div class="checkbox__container flex-cnt fl-jst-center">
+                                <img src="./static/images/slide_three/check.png" alt="Check">
+                            </div>
+                        </div>
+                        <div class="form__item flex-cnt form__item-checkbox">
+                            <label for="mailing" class="checkbox__label">Я согласен на новостную рассылку и что-нибудь еще, если нужно</label>
+                            <input class="hidden" type="checkbox" name="_mailing" id="mailing" value=0 />
+                            <div class="checkbox__container flex-cnt fl-jst-center">
+                                <img src="./static/images/slide_three/check.png" alt="Check">
+                            </div>
+                        </div>
+                        <div class="form__item flex-cnt fl-dir-col fl-alg-st">
+                            <input class="cl-white" type="submit" value="Получить приглашение на пользование платформой "/>
+                        </div>
+                    </form>
+                    <div class="form__success flex-cnt fl-jst-center fl-dir-col hidden">
+                        <div class="form__success-img">
+                            <img src="./static/images/slide_three/checked_circle.png" alt="Circle">
+                        </div>
+                        <div class="form__success-text">
+                            <p>Благодарим вас за доверие!</p>
+                            <p>На вашу почту было выслано приглашение к тестированию платформы IoTaaS от MIRCOD</p>
+                            <p>Если у вас будут предложения к сотрудничеству или комментарии по работе сервиса, очень ждем ваших писем на почту: <a href="mailto:example@mircod.com">example@mircod.com</a> или ответным письмом на приглашение</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="registration__cancel flex-cnt fl-jst-center">
+                    <a class="flex-cnt fl-jst-center" href="#">
+                        <img src="./static/images/slide_three/cancel.png" alt="Cancel">
+                    </a>
+                </div>
+            </div>
+            <div class="overlay hidden"></div>
+            <a href="#" class="next__slide-arrow">
+                <img src="./static/images/slide_one/down_arrow.png" alt="Next slide">
+            </a>
         </section>
 
         <section class="slide__four flex-cnt fl-jst-center content__slide hidden">
@@ -328,6 +423,9 @@
                     </div>
                 </div>
             </div>
+            <a href="#" class="next__slide-arrow">
+                <img src="./static/images/slide_four/down_arrow_dark.png" alt="Next slide">
+            </a>
         </section>
 
         <section class="slide__five flex-cnt fl-jst-center content__slide hidden">
@@ -406,6 +504,84 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <a href="#" class="next__slide-arrow">
+                <img src="./static/images/slide_one/down_arrow.png" alt="Next slide">
+            </a>
+        </section>
+
+        <section class="slide__six flex-cnt fl-jst-center content__slide hidden">
+            <div class="slide__six-wrapper flex-cnt fl-dir-col">
+                <div class="slide__six-header flex-cnt">
+                    <div class="header__item header__item--active">
+                        <a href="#" class="header__item-link cl-black">Казань</a>
+                    </div>
+                    <div class="header__item">
+                        <a href="#" class="header__item-link cl-black">Москва</a>
+                    </div>
+                    <div class="header__item">
+                        <a href="#" class="header__item-link cl-black">Канада</a>
+                    </div>
+                    <div class="header__item">
+                        <a href="#" class="header__item-link cl-black">США</a>
+                    </div>
+                </div>
+                <div class="slide__six-main flex-cnt fl-jst-center">
+                    <div class="main__contacts flex-cnt fl-dir-col fl-alg-st">
+                        <div class="contacts__item flex-cnt fl-alg-st">
+                            <div class="contacts__icon flex-cnt">
+                                <img src="./static/images/slide_six/placeholder.png" alt="Placeholder">
+                            </div>
+                            <div class="contacts__text">
+                                <p>г. Казань</p>
+                                <p>улица Федосеевская 58</p>
+                            </div>
+                        </div>
+                        <div class="contacts__item flex-cnt">
+                            <div class="contacts__icon flex-cnt">
+                                <img src="./static/images/slide_six/call.png" alt="Call">
+                            </div>
+                            <div class="contacts__text">
+                                <p>+303 25450 000</p>
+                            </div>
+                        </div>
+                        <div class="contacts__item flex-cnt">
+                            <div class="contacts__icon flex-cnt">
+                                <img src="./static/images/slide_six/email.png" alt="Email">
+                            </div>
+                            <div class="contacts__text">
+                                office@mircod.com
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main__map flex-cnt">
+                        <img class="placeholder__image" src="./static/images/slide_six/m.png" alt="Mircod ico">
+                    </div>
+                </div>
+                <div class="slide__six-footer flex-cnt">
+                    <div class="slide__six-footer--wrapper flex-cnt fl-jst-space">
+                        <div class="footer__text">
+                            Необходимые юридические данные и все то, что должно быть написано в подвале сайта типа ИНН, ОГРН, владельцев сайта и Т.д.
+                        </div>
+                        <div class="footer__social flex-cnt">
+                            <a class="social__item social__twitter flex-cnt" href="#">
+                                <img src="./static/images/slide_six/twitter.png" alt="Twitter">
+                            </a>
+                            <a class="social__item social__insta flex-cnt" href="#">
+                                <img src="./static/images/slide_six/instagram.png" alt="Insta">
+                            </a>
+                            <a class="social__item social__vk flex-cnt" href="#">
+                                <img src="./static/images/slide_six/vk.png" alt="Vk">
+                            </a>
+                            <a class="social__item social__facebook flex-cnt" href="#">
+                                <img src="./static/images/slide_six/facebook.png" alt="Facebook">
+                            </a>
+                            <a class="social__item social__youtube flex-cnt" href="#">
+                                <img src="./static/images/slide_six/youtube.png" alt="Youtube">
+                            </a>
+                        </div>
+                    </div>                  
                 </div>
             </div>
         </section>
