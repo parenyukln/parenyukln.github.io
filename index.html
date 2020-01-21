@@ -9,11 +9,44 @@
     <link rel="stylesheet" href="./static/styles/normalize.css">
     <link rel="stylesheet" href="./static/styles/style.css">
     <link href="./static/images/favicon.png" rel="icon">
-    <script src="./static/javascript/prefixfree.js"></script>
+    <!--script src="./static/javascript/prefixfree.js"></!--script-->
+    <link rel="stylesheet" type="text/css" href="./static/styles/vendor/fullpage.min.css" />
+    <script type="text/javascript" src="./static/javascript/vendor/jquery-3.4.1.min.js"></script>
+    <script src="./static/javascript/vendor/easings.min.js"></script>
+    <script type="text/javascript" src="./static/javascript/vendor/fullpage.min.js"></script>
 </head>
+<section class="slide__loading flex-cnt fl-jst-center content__slide">
+    <div class="slide__loading-wrapper flex-cnt fl-jst-center">
+        <div class="loading__block flex-cnt fl-jst-center fl-dir-col">
+            <div class="loading__logo flex-cnt fl-jst-center">
+                <img src="./static/images/big_white_logo.png" alt="Mircod logo">
+            </div>
+            <div class="loading__spinner">
+                <div class="multi-spinner-container">
+                    <div class="multi-spinner">
+                        <div class="multi-spinner">
+                            <div class="multi-spinner">
+                               <div class="multi-spinner">
+                                    <div class="multi-spinner">
+                                        <div class="multi-spinner"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span>01</span>
+                </div>                          
+            </div>
+            <div class="loading__text cl-white">
+                <span class="loading__text-top">Уже почти</span>
+                <span class="loading__text-bottom">все готово...</span>
+            </div>
+        </div>
+    </div>
+</section>
 <body>
-    <div class="body__container">
-        <header class="header flex-cnt">
+    <div class="body__container" id="fullpage">
+        <header class="header flex-cnt hidden">
             <div class="header__wrapper flex-cnt fl-jst-space">
                 <nav class="header__nav flex-cnt">
                     <div class="logo__container">
@@ -38,7 +71,7 @@
             </div>
         </header>
 
-        <aside class="main__aside">
+        <aside class="main__aside hidden">
             <div class="aside__wrapper flex-cnt">
                 <div class="aside__content flex-cnt fl-jst-space cl-white">
                     <div class="main__point flex-cnt main__point-active">
@@ -94,7 +127,7 @@
             </div>
         </section>
 
-        <section class="slide__one flex-cnt fl-jst-center content__slide">
+        <section class="slide__one flex-cnt fl-jst-center content__slide section hidden">
             <main class="main__content flex-cnt">
                 <div class="text__block cl-white width-50 flex-cnt fl-jst-center">
                     <div class="text__block-wrapper">
@@ -181,7 +214,7 @@
             </a>
         </section>
 
-        <section class="slide__two flex-cnt fl-jst-center hidden content__slide">
+        <section class="slide__two flex-cnt fl-jst-center content__slide section hidden">
             <div class="slide__two-wrapper flex-cnt fl-dir-col">
                 <div class="slide__two-header">
                     <h2 class="slide__title-h2">
@@ -265,7 +298,7 @@
             </a>
         </section>
 
-        <section class="slide__three flex-cnt fl-jst-center hidden content__slide">
+        <section class="slide__three flex-cnt fl-jst-center content__slide section hidden">
             <div class="slide__three-wrapper flex-cnt fl-dir-col">
                 <div class="slide__three-header flex-cnt fl-alg-st fl-jst-space">
                     <div class="header__description-container flex-cnt width-60">
@@ -376,7 +409,7 @@
             </a>
         </section>
 
-        <section class="slide__four flex-cnt fl-jst-center content__slide hidden">
+        <section class="slide__four flex-cnt fl-jst-center content__slide section hidden">
             <div class="slide__four-wrapper flex-cnt fl-dir-col">
                 <div class="slide__four-header flex-cnt fl-jst-space">
                     <div class="header__title flex-cnt">
@@ -428,7 +461,7 @@
             </a>
         </section>
 
-        <section class="slide__five flex-cnt fl-jst-center content__slide hidden">
+        <section class="slide__five flex-cnt fl-jst-center content__slide section hidden">
             <div class="slide__five-wrapper flex-cnt cl-white">
                 <div class="slide__five-main--left flex-cnt">
                     <div class="left__container flex-cnt fl-dir-col fl-alg-st">
@@ -511,7 +544,7 @@
             </a>
         </section>
 
-        <section class="slide__six flex-cnt fl-jst-center content__slide hidden">
+        <section class="slide__six flex-cnt fl-jst-center content__slide section hidden">
             <div class="slide__six-wrapper flex-cnt fl-dir-col">
                 <div class="slide__six-header flex-cnt">
                     <div class="header__item header__item--active">
@@ -582,36 +615,6 @@
                             </a>
                         </div>
                     </div>                  
-                </div>
-            </div>
-        </section>
-
-        <section class="slide__loading flex-cnt fl-jst-center hidden content__slide">
-            <div class="slide__loading-wrapper flex-cnt fl-jst-center">
-                <div class="loading__block flex-cnt fl-jst-center fl-dir-col">
-                    <div class="loading__logo flex-cnt fl-jst-center">
-                        <img src="./static/images/big_white_logo.png" alt="Mircod logo">
-                    </div>
-                    <div class="loading__spinner">
-                        <div class="multi-spinner-container">
-                            <div class="multi-spinner">
-                                <div class="multi-spinner">
-                                    <div class="multi-spinner">
-                                       <div class="multi-spinner">
-                                            <div class="multi-spinner">
-                                                <div class="multi-spinner"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <span>76</span>
-                        </div>                          
-                    </div>
-                    <div class="loading__text cl-white">
-                        <span class="loading__text-top">Уже почти</span>
-                        <span class="loading__text-bottom">все готово...</span>
-                    </div>
                 </div>
             </div>
         </section>

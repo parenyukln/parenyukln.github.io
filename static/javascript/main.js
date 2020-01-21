@@ -1,6 +1,47 @@
 // Темная тема
 const THEME_STYLE = 'dark';
 
+$(document).ready(function() {
+    // Fullpage init
+	$('#fullpage').fullpage({
+		scrollOverflow: true,
+        normalScrollElementTouchThreshold: 1
+    });
+    
+    // Preloader 
+    var preloader    = $('.slide__loading'), // селектор прелоадера
+        imagesCount  = $('img').length, // количество изображений
+        dBody        = $('body'), //обращаемся к body
+        percent      = Math.round(100 / imagesCount), // количество % на одну картинку
+        progress     = 0, // точка отсчета
+        imgSum       = 5, // количество картинок
+        loadedImg    = 0; // счетчик загрузки картинок
+
+    if (imagesCount >= imgSum && imagesCount > 0) {
+        for (var i = 0; i < imagesCount; i++) { // создаем клоны изображений
+            var img_copy        = new Image();
+            img_copy.src        = document.images[i].src;
+            img_copy.onload     = img_load;
+            img_copy.onerror    = img_load;
+        }
+
+        function img_load () {
+            progress += percent;
+            loadedImg++;
+            if (progress >= 99 || loadedImg == imagesCount) {
+                preloader.delay(400).fadeOut('slow', hidePreloader);
+            }
+            if (progress < 10) {
+                $(".loading__spinner span").text('0' + progress); 
+            } else {
+                $(".loading__spinner span").text(progress);
+            } 
+        }
+    } else {
+        hidePreloader();
+    }
+});
+
 document.addEventListener("DOMContentLoaded", function(event) { 
     if (THEME_STYLE === 'light') {
         darkSlide();
@@ -143,4 +184,9 @@ function lightSlide() {
 
     document.querySelector('.header').classList.remove('header-dark');
     document.querySelector('.main__aside').classList.remove('aside-dark');
+}
+
+function hidePreloader() {
+    $('#fullpage > .hidden:not(".mobile__menu")').removeClass('hidden');
+    $('.slide__loading').addClass('hidden');
 }
