@@ -4,10 +4,10 @@ const THEME_STYLE = 'dark';
 $(document).ready(function() {
     // Fullpage init
 	$('#fullpage').fullpage({
-		scrollOverflow: true,
+		//scrollOverflow: true,
         normalScrollElementTouchThreshold: 1,
         lazyLoading: true,
-        onLeave: function(origin, destination, direction){
+        onLeave: function(origin, destination, direction) {
             changeSlide(destination, false);
         }
     });
@@ -45,12 +45,69 @@ $(document).ready(function() {
         hidePreloader();
     }
 
-    // Events
+    // Owl carousel
+    // Mobile
+    if ( $(window).width() <= 960 ) {
+        $('.slide__one .owl-carousel').owlCarousel({
+            loop: true,
+            autoplay: true,
+            smartSpeed: 1000,
+            autoplayTimeout: 5000,
+            responsive: { 
+                0: {
+                    items:1
+                },
+                600: {
+                    items:2
+                },
+                1000: {
+                    items:4
+                }
+            }
+        });
+    }
+    
 
+    // Events
     $('.next__slide-arrow').click( function(e) {
         e.preventDefault();
         $.fn.fullpage.moveSectionDown();
     });
+
+    $('.slide__two .description__wrapper-img').click( function() {
+        const wrapper = $(this).parents('.description__wrapper');
+
+        if (wrapper.hasClass('description__wrapper--active')) {
+            return;
+        }
+
+        $('.slide__two .description__wrapper--active').removeClass('description__wrapper--active');
+        wrapper.addClass('description__wrapper--active');
+    });
+
+    $('.header__email').click( function(e) {
+        e.preventDefault();
+        $('.overlay').removeClass('hidden');
+        $('.contact__form').addClass('contact__form--active');
+    });
+
+    document.querySelector('.contact__cancel a').onclick = function(e) {
+        e.preventDefault();
+        $('.overlay').addClass('hidden');
+        $('.contact__form').removeClass('contact__form--active');
+    }
+
+    $('.header__search-block').click( function(e) {
+        e.preventDefault();
+        $('.overlay').removeClass('hidden');
+        $('.search__form').addClass('search__form--active');
+    });
+
+    document.querySelector('.search__cancel a').onclick = function(e) {
+        e.preventDefault();
+        $('.overlay').addClass('hidden');
+        $('.search__form').removeClass('search__form--active');
+    }
 });
 
 document.addEventListener("DOMContentLoaded", function(event) { 
@@ -87,17 +144,31 @@ document.addEventListener("DOMContentLoaded", function(event) {
         document.querySelector('.registration__form .form__success').classList.remove('hidden'); 
     }
 
+    document.querySelector('#contact__form').onsubmit = function(e) {
+        e.preventDefault();
+        this.classList.add('hidden'); 
+        document.querySelector('.contact__form .form__success').classList.remove('hidden'); 
+    }
+
     document.querySelector('.registration__cancel a').onclick = function(e) {
         e.preventDefault();
-        document.querySelector('.registration__form').classList.add('hidden'); 
+        $('.overlay').addClass('hidden');
+        $('.registration__form').removeClass('registration__form--active');
     }
 
     document.querySelector('.header__button-create').onclick = function(e) {
         e.preventDefault();
-        document.querySelector('.registration__form').classList.remove('hidden'); 
+        $('.overlay').removeClass('hidden');
+        $('.registration__form').addClass('registration__form--active');
     }
 
     document.querySelectorAll('.registration__form .checkbox__container').forEach( function(item, i) {
+        item.onclick = function() {
+            this.previousElementSibling.click();
+        }
+    });
+
+    document.querySelectorAll('.contact__form .checkbox__container').forEach( function(item, i) {
         item.onclick = function() {
             this.previousElementSibling.click();
         }
@@ -118,8 +189,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 
 function changeSlide(slideNumber, doMove = true) {
+    const DEFAULT_SLIDE_TIME = 1;
     if (document.querySelector('.header__link-active') !== null) {
-        document.querySelector('.header__link-active').classList.remove('header__link-active');
+        $('.header__link-active').removeClass('header__link-active');
     }
     
     document.querySelector('.main__point-active').classList.remove('main__point-active');
@@ -133,27 +205,27 @@ function changeSlide(slideNumber, doMove = true) {
     });
 
     if (slideNumber === 1) {
-        lightSlide();
+        setTimeout(lightSlide, DEFAULT_SLIDE_TIME);
         document.querySelector('.main__point-active .point__left').innerHTML = '01';
         document.querySelector('.main__point-active .point__right').innerHTML = 'Главная';
     } else if (slideNumber === 2) {
-        darkSlide();
+        setTimeout(darkSlide, DEFAULT_SLIDE_TIME);
         document.querySelector('.main__point-active .point__left').innerHTML = '02';
         document.querySelector('.main__point-active .point__right').innerHTML = 'Технологии';
     } else if (slideNumber === 3) {
-        lightSlide();
+        setTimeout(lightSlide, DEFAULT_SLIDE_TIME);
         document.querySelector('.main__point-active .point__left').innerHTML = '03';
         document.querySelector('.main__point-active .point__right').innerHTML = 'Платформа';
     } else if (slideNumber === 4) {
-        darkSlide();
+        setTimeout(darkSlide, DEFAULT_SLIDE_TIME);
         document.querySelector('.main__point-active .point__left').innerHTML = '04';
         document.querySelector('.main__point-active .point__right').innerHTML = 'Решения';
     } else if (slideNumber === 5) {
-        lightSlide();
+        setTimeout(lightSlide, DEFAULT_SLIDE_TIME);
         document.querySelector('.main__point-active .point__left').innerHTML = '05';
         document.querySelector('.main__point-active .point__right').innerHTML = 'Команда';
     } else if (slideNumber === 6) {
-        darkSlide();
+        setTimeout(darkSlide, DEFAULT_SLIDE_TIME);
         document.querySelector('.main__point-active .point__left').innerHTML = '06';
         document.querySelector('.main__point-active .point__right').innerHTML = 'Контакты';
     }
@@ -161,9 +233,11 @@ function changeSlide(slideNumber, doMove = true) {
     if (doMove) {
         $.fn.fullpage.moveTo(slideNumber);
     }
-    
-    const newHeaderTop = (slideNumber - 1) * 100;
-    $('.header, .main__aside, .mobile__menu').css('top', newHeaderTop + '%');
+
+    if (slideNumber > 1) {
+        $('.header .header__link')[slideNumber-2].classList.add('header__link-active');
+        $('.mobile__menu .header__link')[slideNumber-2].classList.add('header__link-active');
+    } 
 }
 
 function darkSlide() {
@@ -195,6 +269,6 @@ function lightSlide() {
 }
 
 function hidePreloader() {
-    $('#fullpage > .hidden:not(".mobile__menu")').removeClass('hidden');
+    $('#fullpage > .hidden, body > .hidden:not(".loading__dontshow")').removeClass('hidden');
     $('.slide__loading').addClass('hidden');
 }

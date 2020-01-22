@@ -22,13 +22,13 @@ html {
     overflow: hidden;
     /*letter-spacing: .5px;*/
     font-size: 16px;
+    font-family: 'Montserrat-Regular', sans-serif;
 }
 
 .body__container, .slide__loading {
     width: 100vw;
     height: 100vh;
     position: relative;
-    font-family: 'Montserrat-Regular', sans-serif;
 }
 
 /**
@@ -136,6 +136,10 @@ a {
     text-transform: uppercase;
 }
 
+.header__email {
+    margin-right: 40px;
+}
+
 .mobile__menu {
     display: none;
 }
@@ -237,7 +241,7 @@ a {
 }
 
 .filter--color {
-    filter: brightness(100);
+    filter: brightness(0) invert(1);
 }
 
 .footer__wrapper {
@@ -552,63 +556,73 @@ a {
     z-index: 2;
 }
 
-.registration__form {
+input[type=submit]:hover {
+    cursor: pointer;
+}
+
+.registration__form, .contact__form, .search__form {
     background-color: #fff;
     height: 100%;
     width: 40%;
     position: absolute;
     top: 0;
-    right: 0;
+    right: -40%;
     z-index: 4;
+    transition: right .5s;
+    font-family: 'Montserrat-Light', sans-serif;
+    color: #1b1b1b;
 }
 
-.registration__cancel {
+.registration__form--active, .contact__form--active, .search__form--active  {
+    right: 0;
+}
+
+.registration__cancel, .contact__cancel, .search__cancel {
     position: absolute;
     top: 50px;
     right: 50px;
 }
 
-.registration__form {
-    font-family: 'Montserrat-Light', sans-serif;
-    color: #1b1b1b;
+.form__item-checkbox:hover {
+    cursor: pointer;
 }
 
-.registration__form-wrapper {
+.registration__form-wrapper, .contact__form-wrapper {
     padding: 0 15%;
 }
 
-.registration__form .form__item {
+.registration__form .form__item, .contact__form .form__item  {
     width: 100%;
     margin-bottom: 35px;
 }
 
-.registration__form .form__item label {
+.registration__form .form__item label, .contact__form .form__item label {
     width: 70%;
 }
 
-.registration__form .form__item:last-child {
+.registration__form .form__item:last-child, .contact__form .form__item:last-child {
     margin-bottom: 0;
 }
 
-.registration__form .form__item-checkbox {
+.registration__form .form__item-checkbox, .contact__form .form__item-checkbox {
     flex-direction: row-reverse;
     justify-content: flex-end;
     align-items: flex-start;
 }
 
-.registration__form .form__item-checkbox .checkbox__container {
+.registration__form .form__item-checkbox .checkbox__container, .contact__form .form__item-checkbox .checkbox__container {
     width: 18px;
     height: 18px;
     border: 1px solid #414141;
     border-radius: 3px;
 }
 
-.registration__form .form__label {
+.registration__form .form__label, .contact__form .form__label, .search__form .form__label {
     font-size: 1.125rem;
     margin-bottom: 35px;
 }
 
-.registration__form input {
+.registration__form input, .contact__form input, .contact__form textarea, .search__form input {
     border-radius: 29.5px;
     outline: none;
     width: -webkit-fill-available;
@@ -616,20 +630,29 @@ a {
     width: -moz-available;
 }
 
-.registration__form input, .registration__form .checkbox__label {
+.contact__form textarea {
+    border-radius: 20px;
+    resize: none;
+}
+
+.search__result {
+    min-height: 350px;
+}
+
+.registration__form input, .registration__form .checkbox__label, .contact__form input, .contact__form .checkbox__label, .contact__form textarea, .search__form input {
     font-size: 0.75rem;
 }
 
-.registration__form .checkbox__label {
+.registration__form .checkbox__label, .contact__form .checkbox__label {
     margin-left: 20px;
 }
 
-.registration__form input[type=text] {
+.registration__form input[type=text], .search__form input[type=text], .registration__form input[type=email], .contact__form input[type=text], .contact__form input[type=tel], .contact__form input[type=email], .contact__form textarea {
     border: 1px solid #414141;
     padding: 20px 25px;
 }
 
-.registration__form input[type=submit] {
+.registration__form input[type=submit], .contact__form input[type=submit] {
     font-family: 'Montserrat-Bold', sans-serif;
     background-color: #f2501e;
     border: none;
@@ -637,26 +660,26 @@ a {
     padding: 20px 0;
 }
 
-.registration__form input[type=checkbox] ~ .checkbox__container img {
+.registration__form input[type=checkbox] ~ .checkbox__container img, .contact__form input[type=checkbox] ~ .checkbox__container img {
     display: none;
 }
 
-.registration__form input[type=checkbox]:checked ~ .checkbox__container img {
+.registration__form input[type=checkbox]:checked ~ .checkbox__container img, .contact__form input[type=checkbox]:checked ~ .checkbox__container img {
     display: block;
 }
 
-.registration__form .form__success .form__success-text {
+.registration__form .form__success .form__success-text, .contact__form .form__success .form__success-text {
     text-align: center;
     margin-top: 30px;
     width: 80%;
 }
 
-.registration__form .form__success .form__success-text p {
+.registration__form .form__success .form__success-text p, .contact__form .form__success .form__success-text p {
     margin: 0;
     font-size: 1.125rem;
 }
 
-.registration__form .form__success .form__success-text a {
+.registration__form .form__success .form__success-text a, .contact__form .form__success .form__success-text a {
     color: #f2501e;
 }
 
@@ -1194,6 +1217,10 @@ a {
         margin-right: 30px;
         font-size: 1.25rem;
     }
+
+    .header__email {
+        margin-right: 30px;
+    }
     
     .mobile__menu {
         display: block;
@@ -1235,14 +1262,14 @@ a {
         position: absolute;
         bottom: 3%;
         z-index: 2;
-        left: 47%;
+        left: 46%;
     }
 
     .next__slide-arrow img {
         width: 100%;
     }
 
-    .slide__one .carousel__nav {
+    .slide__one .owl-dots {
         display: flex;
         position: absolute;
         top: 10%;
@@ -1250,7 +1277,7 @@ a {
         padding-right: 50px;
     }
 
-    .slide__one .carousel__nav .nav__dot {
+    .slide__one .owl-dots .owl-dot {
         width: 7px;
         height: 7px;
         border-radius: 50%;
@@ -1258,12 +1285,16 @@ a {
         margin-left: 10px;
     }
 
-    .slide__one .carousel__nav .nav__dot:first-child {
+    .slide__one .owl-dots .owl-dot:first-child {
         margin-left: 0;
     }
 
-    .slide__one .carousel__nav .nav__dot-active {
+    .slide__one .owl-dots .owl-dot.active {
         background-color: #f0501e;
+    }
+
+    .slide__one .owl-theme .owl-dots .owl-dot span {
+        display: none;
     }
 
     /**
@@ -1314,6 +1345,18 @@ a {
         min-height: 500px;
     }
 
+    .slide__two .description__wrapper.description__wrapper--active .img__wrapper {
+        background-color: #ff0000;
+    }
+
+    .slide__two .description__wrapper.description__wrapper--active .img__wrapper img {
+        filter: brightness(0) invert(1);
+    }
+
+    .slide__two .description__wrapper .img__wrapper:hover {
+        cursor: pointer;
+    }
+
     .slide__two .right-container .description__wrapper-text, .slide__two .left-container .description__wrapper-text {
         text-align: center;
         display: none;
@@ -1333,7 +1376,7 @@ a {
         width: 25%;
     }
 
-    .slide__two .left-container .description__wrapper--active .description__wrapper-text {
+    .slide__two .left-container .description__wrapper--active .description__wrapper-text, .slide__two .right-container .description__wrapper--active .description__wrapper-text {
         display: block;
     }
 
@@ -1361,11 +1404,16 @@ a {
         padding-left: 50px;
     }
 
-    .registration__form {
+    .registration__form, .contact__form, .search__form {
         width: 100%;
+        right: -100%;
     }
 
-    .registration__form input[type=submit] {
+    .registration__form--active, .contact__form--active, .search__form--active {
+        right: 0;
+    }
+
+    .registration__form input[type=submit], .contact__form input[type=submit] {
         padding: 20px 10px; 
     }
 
@@ -1882,7 +1930,7 @@ a {
 
     .menu-mobile {
         display: block;
-        margin-right: 30px;
+        margin-right: 20px;
         width: 25px;
         height: 25px;
     }
@@ -1892,8 +1940,12 @@ a {
     }
 
     .header__language {
-        margin-right: 30px;
+        margin-right: 20px;
         font-size: 1.25rem;
+    }
+
+    .header__email {
+        margin-right: 20px;
     }
     
     .mobile__menu {
@@ -2060,11 +2112,16 @@ a {
         padding-left: 50px;
     }
 
-    .registration__form {
+    .registration__form, .contact__form, .search__form {
         width: 100%;
+        right: -100%;
     }
 
-    .registration__form input[type=submit] {
+    .registration__form--active, .contact__form--active, .search__form--active {
+        right: 0;
+    }
+
+    .registration__form input[type=submit], .contact__form input[type=submit] {
         padding: 20px 10px; 
     }
 
@@ -2471,25 +2528,25 @@ a {
         z-index: 1;
     }
 
-    .registration__form .form__label {
+    .registration__form .form__label, .contact__form .form__label, .search__form .form__label {
         font-size: 1rem;
         margin-bottom: 15px;
     }
 
-    .registration__form .form__item {
+    .registration__form .form__item, .contact__form .form__item {
         width: 100%;
         margin-bottom: 15px;
     }
 
-    .registration__form input[type=text] {
+    .registration__form input[type=text], .search__form input[type=text], .registration__form input[type=email], .contact__form input[type=text], .contact__form input[type=tel], .contact__form input[type=email], .contact__form textarea {
         padding: 15px 15px;
     }
 
-    .registration__form .form__success .form__success-text p {
+    .registration__form .form__success .form__success-text p, .contact__form .form__success .form__success-text p {
         font-size: 1rem;
     }
 
-    .registration__form input[type=submit] {
+    .registration__form input[type=submit], .contact__form input[type=submit] {
         font-size: 0.7rem;
         white-space: normal;
     }
@@ -2500,6 +2557,10 @@ a {
 
     .slide__two .description__wrapper {
         margin-right: 5px;
+    }
+
+    .header__language, .menu-mobile, .header__email {
+        margin-right: 10px;
     }
 }
 
@@ -2642,7 +2703,7 @@ a {
         width: 80%;
     }
 
-    .registration__form .form__item, .registration__form .form__label {
+    .registration__form .form__item, .contact__form .form__label, .search__form .form__label {
         margin-bottom: 10px;
     }
 

@@ -7,12 +7,12 @@
     <meta property="og:image" content="./static/images/favicon.png">
     <title>Mircod</title>
     <link rel="stylesheet" href="./static/styles/normalize.css">
-    <link rel="stylesheet" href="./static/styles/style.css">
     <link href="./static/images/favicon.png" rel="icon">
     <!--script src="./static/javascript/prefixfree.js"></!--script-->
     <link rel="stylesheet" type="text/css" href="./static/styles/vendor/fullpage.min.css" />
     <link rel="stylesheet" type="text/css" href="./static/styles/vendor/owl.carousel.min.css" />
     <link rel="stylesheet" type="text/css" href="./static/styles/vendor/owl.theme.default.css" />
+    <link rel="stylesheet" href="./static/styles/style.css">
     <script type="text/javascript" src="./static/javascript/vendor/jquery-3.4.1.min.js"></script>
     <script src="./static/javascript/vendor/easings.min.js"></script>
     <script type="text/javascript" src="./static/javascript/vendor/fullpage.min.js"></script>
@@ -48,88 +48,208 @@
     </div>
 </section>
 <body>
-    <div class="body__container" id="fullpage">
-        <header class="header flex-cnt hidden">
-            <div class="header__wrapper flex-cnt fl-jst-space">
-                <nav class="header__nav flex-cnt">
-                    <div class="logo__container">
-                        <a href="#" class="logo__link"><img src="./static/images/mircod_logo_white.png" alt="Logo"></a>
-                    </div>
-                    <div class="header__links">
-                        <div class="link__wrapper">
-                            <a href="#" class="header__link cl-white header__link-active">Технологии</a>
-                            <a href="#" class="header__link cl-white">Платформа</a>
-                            <a href="#" class="header__link cl-white">Решения</a>
-                            <a href="#" class="header__link cl-white">Команда</a>
-                            <a href="#" class="header__link cl-white">Контакты</a>
-                        </div>
-                    </div>
-               </nav>  
-               
-               <div class="header__search flex-cnt">
-                   <a href="#" class="header__language">RU</a>
-                   <a class="menu-mobile" href="#"><img src="./static/images/menu.png" alt="Menu"></a>
-                   <a href="#"><img src="./static/images/search.png" alt="Search"></a>
-               </div>
-            </div>
-        </header>
-
-        <aside class="main__aside hidden">
-            <div class="aside__wrapper flex-cnt">
-                <div class="aside__content flex-cnt fl-jst-space cl-white">
-                    <div class="main__point flex-cnt main__point-active">
-                        <div class="point__left">01</div>
-                        <div class="point__right">Главная</div>
-                    </div>
-                    <div class="sub__point"></div>
-                    <div class="sub__point"></div>
-                    <div class="sub__point"></div>
-                    <div class="main__point flex-cnt">
-                        <div class="point__left"></div>
-                        <div class="point__right">02</div>
-                    </div>
-                    <div class="sub__point"></div>
-                    <div class="sub__point"></div>
-                    <div class="sub__point"></div>
-                    <div class="main__point flex-cnt">
-                        <div class="point__left"></div>
-                        <div class="point__right">03</div>
-                    </div>
-                    <div class="sub__point"></div>
-                    <div class="sub__point"></div>
-                    <div class="sub__point"></div>
-                    <div class="main__point flex-cnt">
-                        <div class="point__left"></div>
-                        <div class="point__right">04</div>
-                    </div>
-                    <div class="sub__point"></div>
-                    <div class="sub__point"></div>
-                    <div class="sub__point"></div>
-                    <div class="main__point flex-cnt">
-                        <div class="point__left"></div>
-                        <div class="point__right">05</div>
-                    </div>
-                    <div class="sub__point"></div>
-                    <div class="sub__point"></div>
-                    <div class="sub__point"></div>
-                    <div class="main__point flex-cnt">
-                        <div class="point__left"></div>
-                        <div class="point__right">06</div>
+    <header class="header flex-cnt hidden">
+        <div class="header__wrapper flex-cnt fl-jst-space">
+            <nav class="header__nav flex-cnt">
+                <div class="logo__container">
+                    <a href="#" class="logo__link"><img src="./static/images/mircod_logo_white.png" alt="Logo"></a>
+                </div>
+                <div class="header__links">
+                    <div class="link__wrapper">
+                        <a href="#" class="header__link cl-white header__link-active">Технологии</a>
+                        <a href="#" class="header__link cl-white">Платформа</a>
+                        <a href="#" class="header__link cl-white">Решения</a>
+                        <a href="#" class="header__link cl-white">Команда</a>
+                        <a href="#" class="header__link cl-white">Контакты</a>
                     </div>
                 </div>
-            </div>
-        </aside>
+           </nav>  
+           
+           <div class="header__search flex-cnt">
+               <a href="#" class="header__language">RU</a>
+               <a class="menu-mobile" href="#"><img src="./static/images/menu.png" alt="Menu"></a>
+               <a class="header__email" href="#"><img src="./static/images/email.png" alt="Email"></a>
+               <a class="header__search-block" href="#"><img src="./static/images/search.png" alt="Search"></a>
+           </div>
+        </div>
+    </header>
 
-        <section class="mobile__menu hidden">
-            <div class="mobile__menu-wrapper flex-cnt fl-dir-col fl-alg-st">
-                <a href="#" class="header__link">Технологии</a>
-                <a href="#" class="header__link">Платформа</a>
-                <a href="#" class="header__link">Решения</a>
-                <a href="#" class="header__link">Команда</a>
-                <a href="#" class="header__link">Контакты</a>
+    <aside class="main__aside hidden">
+        <div class="aside__wrapper flex-cnt">
+            <div class="aside__content flex-cnt fl-jst-space cl-white">
+                <div class="main__point flex-cnt main__point-active">
+                    <div class="point__left">01</div>
+                    <div class="point__right">Главная</div>
+                </div>
+                <div class="sub__point"></div>
+                <div class="sub__point"></div>
+                <div class="sub__point"></div>
+                <div class="main__point flex-cnt">
+                    <div class="point__left"></div>
+                    <div class="point__right">02</div>
+                </div>
+                <div class="sub__point"></div>
+                <div class="sub__point"></div>
+                <div class="sub__point"></div>
+                <div class="main__point flex-cnt">
+                    <div class="point__left"></div>
+                    <div class="point__right">03</div>
+                </div>
+                <div class="sub__point"></div>
+                <div class="sub__point"></div>
+                <div class="sub__point"></div>
+                <div class="main__point flex-cnt">
+                    <div class="point__left"></div>
+                    <div class="point__right">04</div>
+                </div>
+                <div class="sub__point"></div>
+                <div class="sub__point"></div>
+                <div class="sub__point"></div>
+                <div class="main__point flex-cnt">
+                    <div class="point__left"></div>
+                    <div class="point__right">05</div>
+                </div>
+                <div class="sub__point"></div>
+                <div class="sub__point"></div>
+                <div class="sub__point"></div>
+                <div class="main__point flex-cnt">
+                    <div class="point__left"></div>
+                    <div class="point__right">06</div>
+                </div>
             </div>
-        </section>
+        </div>
+    </aside>
 
+    <section class="mobile__menu hidden loading__dontshow">
+        <div class="mobile__menu-wrapper flex-cnt fl-dir-col fl-alg-st">
+            <a href="#" class="header__link">Технологии</a>
+            <a href="#" class="header__link">Платформа</a>
+            <a href="#" class="header__link">Решения</a>
+            <a href="#" class="header__link">Команда</a>
+            <a href="#" class="header__link">Контакты</a>
+        </div>
+    </section>
+
+    <div class="registration__form flex-cnt fl-jst-center">
+        <div class="registration__form-wrapper flex-cnt fl-jst-center">
+            <form id="registration__form" action="/" class="flex-cnt fl-dir-col fl-alg-st">
+                <div class="form__item flex-cnt fl-dir-col fl-alg-st">
+                    <label for="type" class="form__label">Выберите сферу для вашего будущего продукта</label>
+                    <input type="text" name="_type" id="type" value="Медицина" />
+                </div>
+                <div class="form__item flex-cnt fl-dir-col fl-alg-st">
+                    <label for="email" class="form__label">Ваш email</label>
+                <input type="email" name="_email" id="email" value="default@mircod.com" />
+                </div>
+                <div class="form__item flex-cnt form__item-checkbox">
+                    <label for="personal" class="checkbox__label">Я согласен на обработку персональных данных</label>
+                    <input class="hidden" type="checkbox" name="_personal" id="personal" value=1 checked />
+                    <div class="checkbox__container flex-cnt fl-jst-center">
+                        <img src="./static/images/slide_three/check.png" alt="Check">
+                    </div>
+                </div>
+                <div class="form__item flex-cnt form__item-checkbox">
+                    <label for="mailing" class="checkbox__label">Я согласен на новостную рассылку и что-нибудь еще, если нужно</label>
+                    <input class="hidden" type="checkbox" name="_mailing" id="mailing" value=0 />
+                    <div class="checkbox__container flex-cnt fl-jst-center">
+                        <img src="./static/images/slide_three/check.png" alt="Check">
+                    </div>
+                </div>
+                <div class="form__item flex-cnt fl-dir-col fl-alg-st">
+                    <input class="cl-white" type="submit" value="Получить приглашение на пользование платформой"/>
+                </div>
+            </form>
+            <div class="form__success flex-cnt fl-jst-center fl-dir-col hidden">
+                <div class="form__success-img">
+                    <img src="./static/images/slide_three/checked_circle.png" alt="Circle">
+                </div>
+                <div class="form__success-text">
+                    <p>Благодарим вас за доверие!</p>
+                    <p>На вашу почту было выслано приглашение к тестированию платформы IoTaaS от MIRCOD</p>
+                    <p>Если у вас будут предложения к сотрудничеству или комментарии по работе сервиса, очень ждем ваших писем на почту: <a href="mailto:example@mircod.com">example@mircod.com</a> или ответным письмом на приглашение</p>
+                </div>
+            </div>
+        </div>
+        <div class="registration__cancel flex-cnt fl-jst-center">
+            <a class="flex-cnt fl-jst-center" href="#">
+                <img src="./static/images/slide_three/cancel.png" alt="Cancel">
+            </a>
+        </div>
+    </div>
+
+    <div class="contact__form flex-cnt fl-jst-center">
+        <div class="contact__form-wrapper flex-cnt fl-jst-center">
+            <form id="contact__form" action="/" class="flex-cnt fl-dir-col fl-alg-st">
+                <div class="form__item flex-cnt fl-dir-col fl-alg-st">
+                    <label for="phone" class="form__label">Ваш телефон</label>
+                    <input type="tel" name="_phone" id="phone" value="+3255 xxxxx-xx-xx" />
+                </div>
+                <div class="form__item flex-cnt fl-dir-col fl-alg-st">
+                    <label for="email" class="form__label">Ваш email</label>
+                <input type="email" name="_email" id="email" value="default@mircod.com" />
+                </div>
+                <div class="form__item flex-cnt fl-dir-col fl-alg-st">
+                    <label for="email" class="form__label">Сообщение</label>
+                    <textarea name="_text" id="text">Текст</textarea>
+                </div>
+                <div class="form__item flex-cnt form__item-checkbox">
+                    <label for="contact_personal" class="checkbox__label">Я согласен на обработку персональных данных</label>
+                    <input class="hidden" type="checkbox" name="_personal" id="contact_personal" value=1 checked />
+                    <div class="checkbox__container flex-cnt fl-jst-center">
+                        <img src="./static/images/slide_three/check.png" alt="Check">
+                    </div>
+                </div>
+                <div class="form__item flex-cnt form__item-checkbox">
+                    <label for="contact_mailing" class="checkbox__label">Я согласен на новостную рассылку и что-нибудь еще, если нужно</label>
+                    <input class="hidden" type="checkbox" name="_mailing" id="contact_mailing" value=0 />
+                    <div class="checkbox__container flex-cnt fl-jst-center">
+                        <img src="./static/images/slide_three/check.png" alt="Check">
+                    </div>
+                </div>
+                <div class="form__item flex-cnt fl-dir-col fl-alg-st">
+                    <input class="cl-white" type="submit" value="Отправить"/>
+                </div>
+            </form>
+            <div class="form__success flex-cnt fl-jst-center fl-dir-col hidden">
+                <div class="form__success-img">
+                    <img src="./static/images/slide_three/checked_circle.png" alt="Circle">
+                </div>
+                <div class="form__success-text">
+                    <p>Благодарим вас за доверие!</p>
+                    <p>На вашу почту было выслано приглашение к тестированию платформы IoTaaS от MIRCOD</p>
+                    <p>Если у вас будут предложения к сотрудничеству или комментарии по работе сервиса, очень ждем ваших писем на почту: <a href="mailto:example@mircod.com">example@mircod.com</a> или ответным письмом на приглашение</p>
+                </div>
+            </div>
+        </div>
+        <div class="contact__cancel flex-cnt fl-jst-center">
+            <a class="flex-cnt fl-jst-center" href="#">
+                <img src="./static/images/slide_three/cancel.png" alt="Cancel">
+            </a>
+        </div>
+    </div>
+
+    <div class="search__form flex-cnt fl-jst-center">
+        <div class="search__form-wrapper flex-cnt fl-jst-center">
+            <div id="search__form" class="flex-cnt fl-dir-col fl-alg-st">
+                <div class="form__item flex-cnt fl-dir-col fl-alg-st">
+                    <label for="search" class="form__label">Что вы ищите?</label>
+                    <input type="text" name="_search" id="search" value="ЕКГ патч" />
+                </div>
+                <div class="search__result form__item flex-cnt fl-dir-col fl-alg-st">
+                    <div class="search__result-block"></div>
+                </div>
+            </div>           
+        </div>
+        <div class="search__cancel flex-cnt fl-jst-center">
+            <a class="flex-cnt fl-jst-center" href="#">
+                <img src="./static/images/slide_three/cancel.png" alt="Cancel">
+            </a>
+        </div>
+    </div>
+
+    <div class="overlay hidden loading__dontshow"></div>
+
+    <div class="body__container" id="fullpage">
         <section class="slide__one flex-cnt fl-jst-center content__slide section hidden">
             <main class="main__content flex-cnt">
                 <div class="text__block cl-white width-50 flex-cnt fl-jst-center">
@@ -146,7 +266,7 @@
                 </div>
             </main>
             <footer class="footer">
-                <div class="footer__wrapper cl-white flex-cnt">
+                <div class="footer__wrapper cl-white flex-cnt owl-carousel owl-theme">
                     <div class="footer__item">
                         <div class="footer__item-wrapper">
                             <div class="footer__item-figure"></div>
@@ -201,12 +321,6 @@
                                 Полная поддержка, от хранения на складах MIRCOD  комплектующих, до обновления програмного обеспечения  в соответствии с изменяющимися требованиями
                             </div>
                         </div>                 
-                    </div>
-                    <div class="carousel__nav">
-                        <a href="#" class="nav__dot nav__dot-active"></a>
-                        <a href="#" class="nav__dot"></a>
-                        <a href="#" class="nav__dot"></a>
-                        <a href="#" class="nav__dot"></a>
                     </div>
                 </div>
                 <img data-src="./static/images/slide_one/opacity_block.png" alt="Black opacity block footer" class="opacity__block">
@@ -360,53 +474,6 @@
                     </div>
                 </div>
             </div>
-            <div class="registration__form flex-cnt fl-jst-center hidden">
-                <div class="registration__form-wrapper flex-cnt fl-jst-center">
-                    <form id="registration__form" action="/" class="flex-cnt fl-dir-col fl-alg-st">
-                        <div class="form__item flex-cnt fl-dir-col fl-alg-st">
-                            <label for="type" class="form__label">Выберите сферу для вашего будущего продукта</label>
-                            <input type="text" name="_type" id="type" value="Медицина" />
-                        </div>
-                        <div class="form__item flex-cnt fl-dir-col fl-alg-st">
-                            <label for="email" class="form__label">Ваш email</label>
-                        <input type="text" name="_email" id="email" value="default@mircod.com" />
-                        </div>
-                        <div class="form__item flex-cnt form__item-checkbox">
-                            <label for="personal" class="checkbox__label">Я согласен на обработку персональных данных</label>
-                            <input class="hidden" type="checkbox" name="_personal" id="personal" value=1 checked />
-                            <div class="checkbox__container flex-cnt fl-jst-center">
-                                <img data-src="./static/images/slide_three/check.png" alt="Check">
-                            </div>
-                        </div>
-                        <div class="form__item flex-cnt form__item-checkbox">
-                            <label for="mailing" class="checkbox__label">Я согласен на новостную рассылку и что-нибудь еще, если нужно</label>
-                            <input class="hidden" type="checkbox" name="_mailing" id="mailing" value=0 />
-                            <div class="checkbox__container flex-cnt fl-jst-center">
-                                <img data-src="./static/images/slide_three/check.png" alt="Check">
-                            </div>
-                        </div>
-                        <div class="form__item flex-cnt fl-dir-col fl-alg-st">
-                            <input class="cl-white" type="submit" value="Получить приглашение на пользование платформой "/>
-                        </div>
-                    </form>
-                    <div class="form__success flex-cnt fl-jst-center fl-dir-col hidden">
-                        <div class="form__success-img">
-                            <img data-src="./static/images/slide_three/checked_circle.png" alt="Circle">
-                        </div>
-                        <div class="form__success-text">
-                            <p>Благодарим вас за доверие!</p>
-                            <p>На вашу почту было выслано приглашение к тестированию платформы IoTaaS от MIRCOD</p>
-                            <p>Если у вас будут предложения к сотрудничеству или комментарии по работе сервиса, очень ждем ваших писем на почту: <a href="mailto:example@mircod.com">example@mircod.com</a> или ответным письмом на приглашение</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="registration__cancel flex-cnt fl-jst-center">
-                    <a class="flex-cnt fl-jst-center" href="#">
-                        <img data-src="./static/images/slide_three/cancel.png" alt="Cancel">
-                    </a>
-                </div>
-            </div>
-            <div class="overlay hidden"></div>
             <a href="#" class="next__slide-arrow">
                 <img data-src="./static/images/slide_one/down_arrow.png" alt="Next slide">
             </a>
