@@ -37,7 +37,7 @@ $(document).ready(function() {
             }
             if (progress < 10) {
                 $(".loading__spinner span").text('0' + progress); 
-            } else {
+            } else if (progress < 99) {
                 $(".loading__spinner span").text(progress);
             } 
         }
@@ -88,25 +88,41 @@ $(document).ready(function() {
     $('.header__email').click( function(e) {
         e.preventDefault();
         $('.overlay').removeClass('hidden');
-        $('.contact__form').addClass('contact__form--active');
+        $('.contact__form').removeClass('hidden');
+        
+        setTimeout(function() {
+            $('.contact__form').addClass('contact__form--active');
+        }, 100); 
     });
 
     document.querySelector('.contact__cancel a').onclick = function(e) {
         e.preventDefault();
         $('.overlay').addClass('hidden');
-        $('.contact__form').removeClass('contact__form--active');
+        $('.contact__form').removeClass('contact__form--active'); 
+
+        setTimeout(function() {
+            $('.contact__form').addClass('hidden'); 
+        }, 501);  
     }
 
     $('.header__search-block').click( function(e) {
         e.preventDefault();
         $('.overlay').removeClass('hidden');
-        $('.search__form').addClass('search__form--active');
+        $('.search__form').removeClass('hidden');
+
+        setTimeout(function() {
+            $('.search__form').addClass('search__form--active');
+        }, 100); 
     });
 
     document.querySelector('.search__cancel a').onclick = function(e) {
         e.preventDefault();
         $('.overlay').addClass('hidden');
-        $('.search__form').removeClass('search__form--active');
+        $('.search__form').removeClass('search__form--active');  
+
+        setTimeout(function() {
+            $('.search__form').addClass('hidden');  
+        }, 501);
     }
 });
 
@@ -153,13 +169,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.querySelector('.registration__cancel a').onclick = function(e) {
         e.preventDefault();
         $('.overlay').addClass('hidden');
-        $('.registration__form').removeClass('registration__form--active');
+        $('.registration__form').removeClass('registration__form--active');  
+
+        setTimeout(function() {
+            $('.registration__form').addClass('hidden');  
+        }, 501);
     }
 
     document.querySelector('.header__button-create').onclick = function(e) {
         e.preventDefault();
         $('.overlay').removeClass('hidden');
-        $('.registration__form').addClass('registration__form--active');
+        $('.registration__form').removeClass('hidden');
+ 
+        setTimeout(function() {
+            $('.registration__form').addClass('registration__form--active');
+        }, 100); 
     }
 
     document.querySelectorAll('.registration__form .checkbox__container').forEach( function(item, i) {
