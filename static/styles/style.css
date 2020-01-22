@@ -208,6 +208,10 @@ a {
     display: none;
 }
 
+.next__slide-arrow:hover {
+    cursor: pointer;
+}
+
 .description {
     font-size: 0.5625rem;
 }

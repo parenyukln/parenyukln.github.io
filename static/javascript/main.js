@@ -5,7 +5,11 @@ $(document).ready(function() {
     // Fullpage init
 	$('#fullpage').fullpage({
 		scrollOverflow: true,
-        normalScrollElementTouchThreshold: 1
+        normalScrollElementTouchThreshold: 1,
+        lazyLoading: true,
+        onLeave: function(origin, destination, direction){
+            changeSlide(destination, false);
+        }
     });
     
     // Preloader 
@@ -40,6 +44,13 @@ $(document).ready(function() {
     } else {
         hidePreloader();
     }
+
+    // Events
+
+    $('.next__slide-arrow').click( function(e) {
+        e.preventDefault();
+        $.fn.fullpage.moveSectionDown();
+    });
 });
 
 document.addEventListener("DOMContentLoaded", function(event) { 
@@ -106,11 +117,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 });
 
-function changeSlide(slideNumber) {
-    document.querySelectorAll('.content__slide').forEach( function(item, i) {
-        item.classList.add('hidden');
-    });
-
+function changeSlide(slideNumber, doMove = true) {
     if (document.querySelector('.header__link-active') !== null) {
         document.querySelector('.header__link-active').classList.remove('header__link-active');
     }
@@ -127,40 +134,41 @@ function changeSlide(slideNumber) {
 
     if (slideNumber === 1) {
         lightSlide();
-        document.querySelector('.slide__one').classList.remove('hidden');
         document.querySelector('.main__point-active .point__left').innerHTML = '01';
         document.querySelector('.main__point-active .point__right').innerHTML = 'Главная';
     } else if (slideNumber === 2) {
         darkSlide();
-        document.querySelector('.slide__two').classList.remove('hidden');
         document.querySelector('.main__point-active .point__left').innerHTML = '02';
         document.querySelector('.main__point-active .point__right').innerHTML = 'Технологии';
     } else if (slideNumber === 3) {
         lightSlide();
-        document.querySelector('.slide__three').classList.remove('hidden');
         document.querySelector('.main__point-active .point__left').innerHTML = '03';
         document.querySelector('.main__point-active .point__right').innerHTML = 'Платформа';
     } else if (slideNumber === 4) {
         darkSlide();
-        document.querySelector('.slide__four').classList.remove('hidden');
         document.querySelector('.main__point-active .point__left').innerHTML = '04';
         document.querySelector('.main__point-active .point__right').innerHTML = 'Решения';
     } else if (slideNumber === 5) {
         lightSlide();
-        document.querySelector('.slide__five').classList.remove('hidden');
         document.querySelector('.main__point-active .point__left').innerHTML = '05';
         document.querySelector('.main__point-active .point__right').innerHTML = 'Команда';
     } else if (slideNumber === 6) {
         darkSlide();
-        document.querySelector('.slide__six').classList.remove('hidden');
         document.querySelector('.main__point-active .point__left').innerHTML = '06';
         document.querySelector('.main__point-active .point__right').innerHTML = 'Контакты';
     }
+
+    if (doMove) {
+        $.fn.fullpage.moveTo(slideNumber);
+    }
+    
+    const newHeaderTop = (slideNumber - 1) * 100;
+    $('.header, .main__aside, .mobile__menu').css('top', newHeaderTop + '%');
 }
 
 function darkSlide() {
     // Меняем цвет
-    document.querySelectorAll('.cl-white').forEach( function(item, i) {
+    document.querySelectorAll('.header .cl-white').forEach( function(item, i) {
         item.classList.remove('cl-white');
         item.classList.add('cl-black');
     });
@@ -174,7 +182,7 @@ function darkSlide() {
 
 function lightSlide() {
     // Меняем цвет
-    document.querySelectorAll('.cl-black').forEach( function(item, i) {
+    document.querySelectorAll('.header .cl-black').forEach( function(item, i) {
         item.classList.remove('cl-black');
         item.classList.add('cl-white');
     });
