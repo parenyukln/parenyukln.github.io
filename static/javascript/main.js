@@ -7,6 +7,8 @@ $(document).ready(function() {
 		//scrollOverflow: true,
         normalScrollElementTouchThreshold: 1,
         lazyLoading: true,
+        loopTop: true,
+        loopBottom: true,
         onLeave: function(origin, destination, direction) {
             changeSlide(destination, false);
         }
@@ -48,6 +50,7 @@ $(document).ready(function() {
     // Owl carousel
     // Mobile
     if ( $(window).width() <= 960 ) {
+        // Slide one
         $('.slide__one .owl-carousel').owlCarousel({
             loop: true,
             autoplay: true,
@@ -65,7 +68,33 @@ $(document).ready(function() {
                 }
             }
         });
+
+        // Slide three
+        $('.slide__three .owl-carousel').owlCarousel({
+            dots: false,
+            responsive: { 
+                0: {
+                    items:1
+                },
+                600: {
+                    items:2
+                },
+                1000: {
+                    items:4
+                }
+            }
+        });
     }
+
+     // Slide four
+     $('.slide__four .owl-carousel').owlCarousel({
+        dots: false,
+        responsive: { 
+            0: {
+                items:1
+            }
+        }
+    });
     
 
     // Events
@@ -95,7 +124,7 @@ $(document).ready(function() {
         }, 100); 
     });
 
-    document.querySelector('.contact__cancel a').onclick = function(e) {
+    $('.contact__cancel a').click( function(e) {
         e.preventDefault();
         $('.overlay').addClass('hidden');
         $('.contact__form').removeClass('contact__form--active'); 
@@ -103,7 +132,7 @@ $(document).ready(function() {
         setTimeout(function() {
             $('.contact__form').addClass('hidden'); 
         }, 501);  
-    }
+    });
 
     $('.header__search-block').click( function(e) {
         e.preventDefault();
@@ -115,7 +144,7 @@ $(document).ready(function() {
         }, 100); 
     });
 
-    document.querySelector('.search__cancel a').onclick = function(e) {
+    $('.search__cancel a').click( function(e) {
         e.preventDefault();
         $('.overlay').addClass('hidden');
         $('.search__form').removeClass('search__form--active');  
@@ -123,15 +152,17 @@ $(document).ready(function() {
         setTimeout(function() {
             $('.search__form').addClass('hidden');  
         }, 501);
-    }
-});
+    });
 
-document.addEventListener("DOMContentLoaded", function(event) { 
+    $('.search__result-wrapper').on('mousewheel', function(e) {
+        e.stopPropagation();
+    });
+
     if (THEME_STYLE === 'light') {
         darkSlide();
     } 
 
-    document.querySelector('.header__link').classList.remove('header__link-active');
+    $('.header__link').removeClass('header__link-active');
 
     document.querySelectorAll('.header .header__link').forEach( function(item, i) {
         item.onclick = function(e) {
@@ -149,24 +180,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
     });
 
-    document.querySelector('.logo__link').onclick = function(e) {
+    $('.logo__link').click( function(e) {
         e.preventDefault();
         changeSlide(1);
-    }
+    });
 
-    document.querySelector('#registration__form').onsubmit = function(e) {
+    $('#registration__form').submit( function(e) {
         e.preventDefault();
-        this.classList.add('hidden'); 
-        document.querySelector('.registration__form .form__success').classList.remove('hidden'); 
-    }
+        $(this).addClass('hidden'); 
+        $('.registration__form .form__success').removeClass('hidden'); 
+    });
 
-    document.querySelector('#contact__form').onsubmit = function(e) {
+    $('#contact__form').submit( function(e) {
         e.preventDefault();
-        this.classList.add('hidden'); 
-        document.querySelector('.contact__form .form__success').classList.remove('hidden'); 
-    }
+        $(this).addClass('hidden'); 
+        $('.contact__form .form__success').removeClass('hidden'); 
+    });
 
-    document.querySelector('.registration__cancel a').onclick = function(e) {
+    $('.registration__cancel a').click( function(e) {
         e.preventDefault();
         $('.overlay').addClass('hidden');
         $('.registration__form').removeClass('registration__form--active');  
@@ -174,9 +205,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
         setTimeout(function() {
             $('.registration__form').addClass('hidden');  
         }, 501);
-    }
+    });
 
-    document.querySelector('.header__button-create').onclick = function(e) {
+    $('.header__button-create').click( function(e) {
         e.preventDefault();
         $('.overlay').removeClass('hidden');
         $('.registration__form').removeClass('hidden');
@@ -184,32 +215,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
         setTimeout(function() {
             $('.registration__form').addClass('registration__form--active');
         }, 100); 
-    }
-
-    document.querySelectorAll('.registration__form .checkbox__container').forEach( function(item, i) {
-        item.onclick = function() {
-            this.previousElementSibling.click();
-        }
     });
 
-    document.querySelectorAll('.contact__form .checkbox__container').forEach( function(item, i) {
-        item.onclick = function() {
-            this.previousElementSibling.click();
-        }
+    $('.registration__form .checkbox__container, .contact__form .checkbox__container').click( function() {
+        $(this).prev().click();
     });
 
-    document.querySelector('.menu-mobile').onclick = function(e) {
+    $('.menu-mobile').click( function(e) {
         e.preventDefault();
-        const mobileMenuElement = document.querySelector('.mobile__menu');
+        const mobileMenuElement = $('.mobile__menu');
 
-        if (mobileMenuElement.classList.contains('hidden')) {
-            mobileMenuElement.classList.remove('hidden');
-            document.querySelector('.header').classList.add('filter--color');
+        if (mobileMenuElement.hasClass('hidden')) {
+            mobileMenuElement.removeClass('hidden');
+            $('.header').addClass('filter--color');
         } else {
-            mobileMenuElement.classList.add('hidden');
-            document.querySelector('.header').classList.remove('filter--color');
+            mobileMenuElement.addClass('hidden');
+            $('.header').removeClass('filter--color');
         } 
-    }
+    });
 });
 
 function changeSlide(slideNumber, doMove = true) {
@@ -218,41 +241,38 @@ function changeSlide(slideNumber, doMove = true) {
         $('.header__link-active').removeClass('header__link-active');
     }
     
-    document.querySelector('.main__point-active').classList.remove('main__point-active');
+    $('.main__point-active').removeClass('main__point-active');
     document.querySelectorAll('.main__point')[slideNumber-1].classList.add('main__point-active');
-    document.querySelectorAll('.main__point .point__left').forEach( function(item,i) {
-        item.innerHTML = '';
-    });
+    $('.main__point .point__left').text('');
     document.querySelectorAll('.main__point .point__right').forEach( function(item,i) {
         const text = i + 1;
         item.innerHTML = '0' + text.toString();
     });
 
+    const currentPageNumber = slideNumber.toString();
+    let currentPageText = 'Главная';
+
     if (slideNumber === 1) {
         setTimeout(lightSlide, DEFAULT_SLIDE_TIME);
-        document.querySelector('.main__point-active .point__left').innerHTML = '01';
-        document.querySelector('.main__point-active .point__right').innerHTML = 'Главная';
     } else if (slideNumber === 2) {
         setTimeout(darkSlide, DEFAULT_SLIDE_TIME);
-        document.querySelector('.main__point-active .point__left').innerHTML = '02';
-        document.querySelector('.main__point-active .point__right').innerHTML = 'Технологии';
+        currentPageText = 'Технологии';
     } else if (slideNumber === 3) {
         setTimeout(lightSlide, DEFAULT_SLIDE_TIME);
-        document.querySelector('.main__point-active .point__left').innerHTML = '03';
-        document.querySelector('.main__point-active .point__right').innerHTML = 'Платформа';
+        currentPageText = 'Платформа';
     } else if (slideNumber === 4) {
         setTimeout(darkSlide, DEFAULT_SLIDE_TIME);
-        document.querySelector('.main__point-active .point__left').innerHTML = '04';
-        document.querySelector('.main__point-active .point__right').innerHTML = 'Решения';
+        currentPageText = 'Решения';
     } else if (slideNumber === 5) {
         setTimeout(lightSlide, DEFAULT_SLIDE_TIME);
-        document.querySelector('.main__point-active .point__left').innerHTML = '05';
-        document.querySelector('.main__point-active .point__right').innerHTML = 'Команда';
+        currentPageText = 'Команда';
     } else if (slideNumber === 6) {
         setTimeout(darkSlide, DEFAULT_SLIDE_TIME);
-        document.querySelector('.main__point-active .point__left').innerHTML = '06';
-        document.querySelector('.main__point-active .point__right').innerHTML = 'Контакты';
+        currentPageText = 'Контакты';
     }
+
+    $('.main__point-active .point__left').text('0' + currentPageNumber);
+    $('.main__point-active .point__right').text(currentPageText);
 
     if (doMove) {
         $.fn.fullpage.moveTo(slideNumber);
@@ -266,33 +286,34 @@ function changeSlide(slideNumber, doMove = true) {
 
 function darkSlide() {
     // Меняем цвет
-    document.querySelectorAll('.header .cl-white').forEach( function(item, i) {
-        item.classList.remove('cl-white');
-        item.classList.add('cl-black');
-    });
+    $('.header .cl-white').removeClass('cl-white').addClass('cl-black');
 
     // Меняем картинку логотипа
     document.querySelector('.logo__link img').src = './static/images/mircod_logo_black.png';
 
-    document.querySelector('.header').classList.add('header-dark');
-    document.querySelector('.main__aside').classList.add('aside-dark');
+    $('.header').addClass('header-dark');
+    $('.main__aside').addClass('aside-dark');
 }
 
 function lightSlide() {
     // Меняем цвет
-    document.querySelectorAll('.header .cl-black').forEach( function(item, i) {
-        item.classList.remove('cl-black');
-        item.classList.add('cl-white');
-    });
+    $('.header .cl-black').removeClass('cl-black').addClass('cl-white')
 
     // Меняем картинку логотипа
     document.querySelector('.logo__link img').src = './static/images/mircod_logo_white.png';
 
-    document.querySelector('.header').classList.remove('header-dark');
-    document.querySelector('.main__aside').classList.remove('aside-dark');
+    $('.header').removeClass('header-dark');
+    $('.main__aside').removeClass('aside-dark');
 }
 
 function hidePreloader() {
     $('#fullpage > .hidden, body > .hidden:not(".loading__dontshow")').removeClass('hidden');
     $('.slide__loading').addClass('hidden');
+}
+
+function initMap() {
+    var coordinates = {lat: 47.212325, lng: 38.933663},
+        map = new google.maps.Map(document.getElementsByClassName('main__map')[0], {
+            center: coordinates
+        });
 }
