@@ -14,11 +14,10 @@
     <link rel="stylesheet" type="text/css" href="./static/styles/vendor/owl.theme.default.css" />
     <link rel="stylesheet" href="./static/styles/style.css">
     <script type="text/javascript" src="./static/javascript/vendor/jquery-3.4.1.min.js"></script>
-    <script src="./static/javascript/vendor/easings.min.js"></script>
     <script type="text/javascript" src="./static/javascript/vendor/fullpage.min.js"></script>
     <script type="text/javascript" src="./static/javascript/vendor/owl.carousel.min.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeTmgDJIKCzZxmuZ_JOtOYQ_B8OL3ssMc&callback=initMap"></script>
     <script src="./static/javascript/main.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATKpQ_PUQAgKcJVhOiDMwad5IbD_kO_Pw&callback=initMap"></script>
 </head>
 <section class="slide__loading flex-cnt fl-jst-center content__slide">
     <div class="slide__loading-wrapper flex-cnt fl-jst-center">
@@ -752,36 +751,138 @@
                         <a href="#" class="header__item-link cl-black">США</a>
                     </div>
                 </div>
-                <div class="slide__six-main flex-cnt fl-jst-center">
-                    <div class="main__contacts flex-cnt fl-dir-col fl-alg-st">
-                        <div class="contacts__item flex-cnt fl-alg-st">
-                            <div class="contacts__icon flex-cnt">
-                                <img data-src="./static/images/slide_six/placeholder.png" alt="Placeholder">
+                <div class="slide__six-main flex-cnt fl-jst-center owl-carousel owl-theme">
+                    <div class="slide__six-main--item flex-cnt fl-jst-center">
+                        <div class="main__contacts flex-cnt fl-dir-col fl-alg-st">
+                            <div class="contacts__item flex-cnt fl-alg-st">
+                                <div class="contacts__icon flex-cnt">
+                                    <img data-src="./static/images/slide_six/placeholder.png" alt="Placeholder">
+                                </div>
+                                <div class="contacts__text">
+                                    <p>г. Казань</p>
+                                    <p>улица Федосеевская 58</p>
+                                </div>
                             </div>
-                            <div class="contacts__text">
-                                <p>г. Казань</p>
-                                <p>улица Федосеевская 58</p>
+                            <div class="contacts__item flex-cnt">
+                                <div class="contacts__icon flex-cnt">
+                                    <img data-src="./static/images/slide_six/call.png" alt="Call">
+                                </div>
+                                <div class="contacts__text">
+                                    <p>+7 (962) 560-2500</p>
+                                </div>
+                            </div>
+                            <div class="contacts__item flex-cnt">
+                                <div class="contacts__icon flex-cnt">
+                                    <img data-src="./static/images/slide_six/email.png" alt="Email">
+                                </div>
+                                <div class="contacts__text">
+                                    office@mircod.com
+                                </div>
                             </div>
                         </div>
-                        <div class="contacts__item flex-cnt">
-                            <div class="contacts__icon flex-cnt">
-                                <img data-src="./static/images/slide_six/call.png" alt="Call">
-                            </div>
-                            <div class="contacts__text">
-                                <p>+303 25450 000</p>
-                            </div>
-                        </div>
-                        <div class="contacts__item flex-cnt">
-                            <div class="contacts__icon flex-cnt">
-                                <img data-src="./static/images/slide_six/email.png" alt="Email">
-                            </div>
-                            <div class="contacts__text">
-                                office@mircod.com
-                            </div>
+                        <div class="main__map"></div>
+                        <div class="map_wrapper">
+                            <div id="mapKazan" class="google__map"></div>
                         </div>
                     </div>
-                    <div class="main__map flex-cnt">
-                        <img class="placeholder__image" src="./static/images/slide_six/m.png" alt="Mircod ico">
+                    <div class="slide__six-main--item flex-cnt fl-jst-center">
+                        <div class="main__contacts flex-cnt fl-dir-col fl-alg-st">
+                            <div class="contacts__item flex-cnt fl-alg-st">
+                                <div class="contacts__icon flex-cnt">
+                                    <img data-src="./static/images/slide_six/placeholder.png" alt="Placeholder">
+                                </div>
+                                <div class="contacts__text">
+                                    <p>г. Москва</p>
+                                    <p>поселок Отрадное 36</p>
+                                </div>
+                            </div>
+                            <div class="contacts__item flex-cnt">
+                                <div class="contacts__icon flex-cnt">
+                                    <img data-src="./static/images/slide_six/call.png" alt="Call">
+                                </div>
+                                <div class="contacts__text">
+                                    <p>+7 (926) 294-6865</p>
+                                </div>
+                            </div>
+                            <div class="contacts__item flex-cnt">
+                                <div class="contacts__icon flex-cnt">
+                                    <img data-src="./static/images/slide_six/email.png" alt="Email">
+                                </div>
+                                <div class="contacts__text">
+                                    office@mircod.com
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main__map"></div>
+                        <div class="map_wrapper">
+                            <div id="mapMoscow" class="google__map"></div>
+                        </div>
+                    </div>
+                    <div class="slide__six-main--item flex-cnt fl-jst-center">
+                        <div class="main__contacts flex-cnt fl-dir-col fl-alg-st">
+                            <div class="contacts__item flex-cnt fl-alg-st">
+                                <div class="contacts__icon flex-cnt">
+                                    <img data-src="./static/images/slide_six/placeholder.png" alt="Placeholder">
+                                </div>
+                                <div class="contacts__text">
+                                    <p>Toronto</p>
+                                    <p>401-1110 Finch Ave West</p>
+                                </div>
+                            </div>
+                            <div class="contacts__item flex-cnt">
+                                <div class="contacts__icon flex-cnt">
+                                    <img data-src="./static/images/slide_six/call.png" alt="Call">
+                                </div>
+                                <div class="contacts__text">
+                                    <p>+1 (647) 339-9047</p>
+                                </div>
+                            </div>
+                            <div class="contacts__item flex-cnt">
+                                <div class="contacts__icon flex-cnt">
+                                    <img data-src="./static/images/slide_six/email.png" alt="Email">
+                                </div>
+                                <div class="contacts__text">
+                                    office@mircod.com
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main__map"></div>
+                        <div class="map_wrapper">
+                            <div id="mapCanada" class="google__map"></div>
+                        </div>
+                    </div>
+                    <div class="slide__six-main--item flex-cnt fl-jst-center">
+                        <div class="main__contacts flex-cnt fl-dir-col fl-alg-st">
+                            <div class="contacts__item flex-cnt fl-alg-st">
+                                <div class="contacts__icon flex-cnt">
+                                    <img data-src="./static/images/slide_six/placeholder.png" alt="Placeholder">
+                                </div>
+                                <div class="contacts__text">
+                                    <p>Boca Raton</p>
+                                    <p>433 Plaza Real #275</p>
+                                </div>
+                            </div>
+                            <div class="contacts__item flex-cnt">
+                                <div class="contacts__icon flex-cnt">
+                                    <img data-src="./static/images/slide_six/call.png" alt="Call">
+                                </div>
+                                <div class="contacts__text">
+                                    <p>+1 (772) 307-9921</p>
+                                </div>
+                            </div>
+                            <div class="contacts__item flex-cnt">
+                                <div class="contacts__icon flex-cnt">
+                                    <img data-src="./static/images/slide_six/email.png" alt="Email">
+                                </div>
+                                <div class="contacts__text">
+                                    office@mircod.com
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main__map"></div>
+                        <div class="map_wrapper">
+                            <div id="mapStates" class="google__map"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="slide__six-footer flex-cnt">

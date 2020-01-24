@@ -1,7 +1,7 @@
 // Темная тема
 const THEME_STYLE = 'dark';
 
-$(document).ready(function() {
+$(document).ready( function() {
     // Fullpage init
 	$('#fullpage').fullpage({
 		//scrollOverflow: true,
@@ -15,7 +15,7 @@ $(document).ready(function() {
     });
     
     // Preloader 
-    var preloader    = $('.slide__loading'), // селектор прелоадера
+    let preloader    = $('.slide__loading'), // селектор прелоадера
         imagesCount  = $('img').length, // количество изображений
         dBody        = $('body'), //обращаемся к body
         percent      = Math.round(100 / imagesCount), // количество % на одну картинку
@@ -24,8 +24,8 @@ $(document).ready(function() {
         loadedImg    = 0; // счетчик загрузки картинок
 
     if (imagesCount >= imgSum && imagesCount > 0) {
-        for (var i = 0; i < imagesCount; i++) { // создаем клоны изображений
-            var img_copy        = new Image();
+        for (let i = 0; i < imagesCount; i++) { // создаем клоны изображений
+            let img_copy        = new Image();
             img_copy.src        = document.images[i].src;
             img_copy.onload     = img_load;
             img_copy.onerror    = img_load;
@@ -45,57 +45,7 @@ $(document).ready(function() {
         }
     } else {
         hidePreloader();
-    }
-
-    // Owl carousel
-    // Mobile
-    if ( $(window).width() <= 960 ) {
-        // Slide one
-        $('.slide__one .owl-carousel').owlCarousel({
-            loop: true,
-            autoplay: true,
-            smartSpeed: 1000,
-            autoplayTimeout: 5000,
-            responsive: { 
-                0: {
-                    items:1
-                },
-                600: {
-                    items:2
-                },
-                1000: {
-                    items:4
-                }
-            }
-        });
-
-        // Slide three
-        $('.slide__three .owl-carousel').owlCarousel({
-            dots: false,
-            responsive: { 
-                0: {
-                    items:1
-                },
-                600: {
-                    items:2
-                },
-                1000: {
-                    items:4
-                }
-            }
-        });
-    }
-
-     // Slide four
-     $('.slide__four .owl-carousel').owlCarousel({
-        dots: false,
-        responsive: { 
-            0: {
-                items:1
-            }
-        }
-    });
-    
+    }  
 
     // Events
     $('.next__slide-arrow').click( function(e) {
@@ -233,6 +183,14 @@ $(document).ready(function() {
             $('.header').removeClass('filter--color');
         } 
     });
+
+    $('.slide__six-header .header__item-link').click( function(e) {
+        e.preventDefault();
+        $('.slide__six-header .header__item').removeClass('header__item--active');
+        const parentElement = $(this).parent();
+        $('.slide__six .owl-carousel').trigger('to.owl.carousel', parentElement.index());
+        parentElement.addClass('header__item--active');
+    });
 });
 
 function changeSlide(slideNumber, doMove = true) {
@@ -309,11 +267,343 @@ function lightSlide() {
 function hidePreloader() {
     $('#fullpage > .hidden, body > .hidden:not(".loading__dontshow")').removeClass('hidden');
     $('.slide__loading').addClass('hidden');
+
+    // Owl carousel
+    // Mobile
+    if ( $(window).width() <= 960 ) {
+        // Slide one
+        $('.slide__one .owl-carousel').owlCarousel({
+            loop: true,
+            autoplay: true,
+            smartSpeed: 1000,
+            autoplayTimeout: 5000,
+            responsive: { 
+                0: {
+                    items:1
+                },
+                600: {
+                    items:2
+                },
+                1000: {
+                    items:4
+                }
+            }
+        });
+
+        // Slide three
+        $('.slide__three .owl-carousel').owlCarousel({
+            dots: false,
+            responsive: { 
+                0: {
+                    items:1
+                },
+                600: {
+                    items:2
+                },
+                1000: {
+                    items:4
+                }
+            }
+        });
+    }
+
+    // Slide four
+    $('.slide__four .owl-carousel').owlCarousel({
+        dots: false,
+        responsive: { 
+            0: {
+                items:1
+            }
+        }
+    });
+
+    // Slide six
+    $('.slide__six .owl-carousel').owlCarousel({
+        dots: false,
+        nav: true,
+        mouseDrag: false,
+        touchDrag: false,
+        navText: ['<', '>'],
+        responsive: { 
+            0: {
+                items:1
+            }
+        }
+    });
+
+    $('.slide__six .owl-carousel').on('changed.owl.carousel', function(event) {
+        const slideIndex = event.item.index;
+        $('.slide__six-header .header__item').removeClass('header__item--active');
+        $('.slide__six-header .header__item-link').eq(slideIndex).parent().addClass('header__item--active');
+    });
 }
 
 function initMap() {
-    var coordinates = {lat: 47.212325, lng: 38.933663},
-        map = new google.maps.Map(document.getElementsByClassName('main__map')[0], {
-            center: coordinates
+    var kazanCoordinates = {lat: 55.8020059, lng: 49.1175269},
+        moscowCoordinates = {lat: 55.8761989, lng: 37.3036923},
+        canadaCoordinates = {lat: 43.7687117, lng: -79.4765708},
+        statesCoordinates = {lat: 26.355489, lng: -80.0877275},
+        mapMarkerIcon = './static/images/slide_six/m.png',
+        mapStyles = [
+            {
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#f5f5f5"
+                }
+              ]
+            },
+            {
+              "elementType": "labels.icon",
+              "stylers": [
+                {
+                  "visibility": "off"
+                }
+              ]
+            },
+            {
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#616161"
+                }
+              ]
+            },
+            {
+              "elementType": "labels.text.stroke",
+              "stylers": [
+                {
+                  "color": "#f5f5f5"
+                }
+              ]
+            },
+            {
+              "featureType": "administrative.land_parcel",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#bdbdbd"
+                }
+              ]
+            },
+            {
+              "featureType": "landscape.man_made",
+              "elementType": "geometry.fill",
+              "stylers": [
+                {
+                  "color": "#dedede"
+                }
+              ]
+            },
+            {
+              "featureType": "poi",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#eeeeee"
+                }
+              ]
+            },
+            {
+              "featureType": "poi",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#757575"
+                }
+              ]
+            },
+            {
+              "featureType": "poi.park",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#e5e5e5"
+                }
+              ]
+            },
+            {
+              "featureType": "poi.park",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#9e9e9e"
+                }
+              ]
+            },
+            {
+              "featureType": "road",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#ffffff"
+                }
+              ]
+            },
+            {
+              "featureType": "road.arterial",
+              "elementType": "geometry.fill",
+              "stylers": [
+                {
+                  "color": "#d3d3d3"
+                }
+              ]
+            },
+            {
+              "featureType": "road.arterial",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#757575"
+                }
+              ]
+            },
+            {
+              "featureType": "road.highway",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#dadada"
+                }
+              ]
+            },
+            {
+              "featureType": "road.highway",
+              "elementType": "geometry.fill",
+              "stylers": [
+                {
+                  "color": "#d3d3d3"
+                }
+              ]
+            },
+            {
+              "featureType": "road.highway",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#616161"
+                }
+              ]
+            },
+            {
+              "featureType": "road.local",
+              "elementType": "geometry.fill",
+              "stylers": [
+                {
+                  "color": "#d3d3d3"
+                }
+              ]
+            },
+            {
+              "featureType": "road.local",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#9e9e9e"
+                }
+              ]
+            },
+            {
+              "featureType": "transit.line",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#e5e5e5"
+                }
+              ]
+            },
+            {
+              "featureType": "transit.station",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#eeeeee"
+                }
+              ]
+            },
+            {
+              "featureType": "water",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#c9c9c9"
+                }
+              ]
+            },
+            {
+              "featureType": "water",
+              "elementType": "geometry.fill",
+              "stylers": [
+                {
+                  "color": "#ffffff"
+                }
+              ]
+            },
+            {
+              "featureType": "water",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#c0c0c0"
+                }
+              ]
+            }
+        ],
+
+        mapKazan = new google.maps.Map(document.getElementById('mapKazan'), {
+            center: kazanCoordinates,
+            zoom: 15,
+            scrollwheel: false,
+            disableDefaultUI: true
+        }),
+
+        markerKazan = new google.maps.Marker({
+            position: kazanCoordinates,
+            map: mapKazan,
+            icon: mapMarkerIcon
+        }),
+        
+        mapMoscow = new google.maps.Map(document.getElementById('mapMoscow'), {
+            center: moscowCoordinates,
+            zoom: 15,
+            scrollwheel: false,
+            disableDefaultUI: true
+        }),
+
+        markerMoscow = new google.maps.Marker({
+            position: moscowCoordinates,
+            map: mapMoscow,
+            icon: mapMarkerIcon
+        }),
+        
+        mapCanada = new google.maps.Map(document.getElementById('mapCanada'), {
+            center: canadaCoordinates,
+            zoom: 15,
+            scrollwheel: false,
+            disableDefaultUI: true
+        }),
+
+        markerCanada = new google.maps.Marker({
+            position: canadaCoordinates,
+            map: mapCanada,
+            icon: mapMarkerIcon
+        }),
+        
+        mapStates = new google.maps.Map(document.getElementById('mapStates'), {
+            center: statesCoordinates,
+            zoom: 15,
+            scrollwheel: false,
+            disableDefaultUI: true
+        }),
+
+        markerStates = new google.maps.Marker({
+            position: statesCoordinates,
+            map: mapStates,
+            icon: mapMarkerIcon
         });
+
+        mapKazan.setOptions({styles: mapStyles});
+        mapMoscow.setOptions({styles: mapStyles});
+        mapCanada.setOptions({styles: mapStyles});
+        mapStates.setOptions({styles: mapStyles});
 }
