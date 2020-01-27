@@ -16,6 +16,7 @@
     <script type="text/javascript" src="./static/javascript/vendor/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="./static/javascript/vendor/fullpage.min.js"></script>
     <script type="text/javascript" src="./static/javascript/vendor/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="./static/javascript/vendor/scrollreveal.min.js"></script>
     <script src="./static/javascript/main.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATKpQ_PUQAgKcJVhOiDMwad5IbD_kO_Pw&callback=initMap"></script>
 </head>
@@ -49,7 +50,7 @@
     </div>
 </section>
 <body>
-    <header class="header flex-cnt hidden">
+    <header class="header flex-cnt hidden opacity-0">
         <div class="header__wrapper flex-cnt fl-jst-space">
             <nav class="header__nav flex-cnt">
                 <div class="logo__container">
@@ -75,7 +76,7 @@
         </div>
     </header>
 
-    <aside class="main__aside hidden">
+    <aside class="main__aside hidden opacity-0">
         <div class="aside__wrapper flex-cnt">
             <div class="aside__content flex-cnt fl-jst-space cl-white">
                 <div class="main__point flex-cnt main__point-active">
@@ -336,7 +337,7 @@
     <div class="overlay hidden loading__dontshow"></div>
 
     <div class="body__container" id="fullpage">
-        <section class="slide__one flex-cnt fl-jst-center content__slide section hidden">
+        <section class="slide__one flex-cnt fl-jst-center content__slide section hidden opacity-0">
             <main class="main__content flex-cnt">
                 <div class="text__block cl-white width-50 flex-cnt fl-jst-center">
                     <div class="text__block-wrapper">
@@ -352,7 +353,7 @@
                 </div>
             </main>
             <footer class="footer">
-                <div class="footer__wrapper cl-white flex-cnt owl-carousel owl-theme">
+                <div class="footer__wrapper cl-white flex-cnt owl-carousel owl-theme" style="visibility: hidden;">
                     <div class="footer__item">
                         <div class="footer__item-wrapper">
                             <div class="footer__item-figure"></div>
@@ -517,7 +518,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="slide__three-main flex-cnt fl-jst-space fl-alg-st cl-white owl-carousel owl-theme">
+                <div class="slide__three-main animation-from-left flex-cnt fl-jst-space fl-alg-st cl-white owl-carousel owl-theme">
                     <div class="main__item-wrapper flex-cnt fl-dir-col fl-alg-st">
                         <div class="main__item-header flex-cnt">
                             <div class="circle__wrapper flex-cnt fl-jst-center">
@@ -578,69 +579,263 @@
                         <a href="#" class="header__nav-item cl-black">Отраслевые решения</a>
                     </div>
                 </div>
-                <div class="slide__four-main flex-cnt owl-carousel owl-theme">
-                    <div class="slide__four-main--item flex-cnt fl-dir-col">
+                <div class="solition__wrapper owl-carousel owl-theme">
+                    <div class="slide__four-solution flex-cnt fl-dir-col">
                         <div class="slide__four-main_top flex-cnt">
                             <div class="main__description">
                                 MIRCOD гордится своими разработками в сфере медицины. IoT-устройства позволяют сделать диагностику заболевания точной, быстрой и комфортной
                             </div>
                         </div>
-                        <div class="slide__four-main_bottom flex-cnt">
-                            <div class="slide__four-item flex-cnt fl-dir-col">
-                                <div class="image__wrapper flex-cnt fl-alg-end">
-                                    <img class="mr-lf-20" src="./static/images/slide_four/monitoring.png" alt="Monitoring">
-                                </div>
-                                <div class="item__title">
-                                    Мониторинг показателей пациента
+                        <div class="slide__four-main flex-cnt owl-carousel owl-theme">
+                            <div class="slide__four-main--item flex-cnt fl-dir-col">                   
+                                <div class="slide__four-main_bottom flex-cnt">
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img class="mr-lf-20" src="./static/images/slide_four/monitoring.png" alt="Monitoring">
+                                        </div>
+                                        <div class="item__title">
+                                            Мониторинг показателей пациента
+                                        </div>
+                                    </div>
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img class="al-sf-centr" src="./static/images/slide_four/helmet.png" alt="Helmet">
+                                        </div>
+                                        <div class="item__title">
+                                            Электронный скальпель
+                                        </div>
+                                    </div>
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img data-src="./static/images/slide_four/hand.png" alt="Hand">
+                                        </div>
+                                        <div class="item__title">
+                                            Измеритель SpO2
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="slide__four-item flex-cnt fl-dir-col">
-                                <div class="image__wrapper flex-cnt fl-alg-end">
-                                    <img class="al-sf-centr" src="./static/images/slide_four/helmet.png" alt="Helmet">
-                                </div>
-                                <div class="item__title">
-                                    Электронный скальпель
-                                </div>
-                            </div>
-                            <div class="slide__four-item flex-cnt fl-dir-col">
-                                <div class="image__wrapper flex-cnt fl-alg-end">
-                                    <img data-src="./static/images/slide_four/hand.png" alt="Hand">
-                                </div>
-                                <div class="item__title">
-                                    Измеритель SpO2
+                            <div class="slide__four-main--item flex-cnt fl-dir-col">                  
+                                <div class="slide__four-main_bottom flex-cnt">
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img class="mr-lf-20" src="./static/images/slide_four/monitoring.png" alt="Monitoring">
+                                        </div>
+                                        <div class="item__title">
+                                            Медицина №4
+                                        </div>
+                                    </div>
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img class="al-sf-centr" src="./static/images/slide_four/helmet.png" alt="Helmet">
+                                        </div>
+                                        <div class="item__title">
+                                            Медицина №5
+                                        </div>
+                                    </div>
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img data-src="./static/images/slide_four/hand.png" alt="Hand">
+                                        </div>
+                                        <div class="item__title">
+                                            Медицина №6
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="slide__four-main--item flex-cnt fl-dir-col">
+                    <div class="slide__four-solution flex-cnt fl-dir-col">
                         <div class="slide__four-main_top flex-cnt">
                             <div class="main__description">
-                                MIRCOD гордится своими разработками в сфере медицины. IoT-устройства позволяют сделать диагностику заболевания точной, быстрой и комфортной
+                                MIRCOD гордится своими разработками в сфере потребительских товаров. IoT-устройства позволяют сделать потребление товаров точным, быстрым и комфортным
                             </div>
                         </div>
-                        <div class="slide__four-main_bottom flex-cnt">
-                            <div class="slide__four-item flex-cnt fl-dir-col">
-                                <div class="image__wrapper flex-cnt fl-alg-end">
-                                    <img class="mr-lf-20" src="./static/images/slide_four/monitoring.png" alt="Monitoring">
-                                </div>
-                                <div class="item__title">
-                                    Мониторинг показателей пациента
+                        <div class="slide__four-main flex-cnt owl-carousel owl-theme">
+                            <div class="slide__four-main--item flex-cnt fl-dir-col">                   
+                                <div class="slide__four-main_bottom flex-cnt">
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img class="mr-lf-20" src="./static/images/slide_four/monitoring.png" alt="Monitoring">
+                                        </div>
+                                        <div class="item__title">
+                                            Потребительский товар №1
+                                        </div>
+                                    </div>
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img class="al-sf-centr" src="./static/images/slide_four/helmet.png" alt="Helmet">
+                                        </div>
+                                        <div class="item__title">
+                                            Потребительский товар №2
+                                        </div>
+                                    </div>
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img data-src="./static/images/slide_four/hand.png" alt="Hand">
+                                        </div>
+                                        <div class="item__title">
+                                            Потребительский товар №3
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="slide__four-item flex-cnt fl-dir-col">
-                                <div class="image__wrapper flex-cnt fl-alg-end">
-                                    <img class="al-sf-centr" src="./static/images/slide_four/helmet.png" alt="Helmet">
-                                </div>
-                                <div class="item__title">
-                                    Электронный скальпель
+                            <div class="slide__four-main--item flex-cnt fl-dir-col">                  
+                                <div class="slide__four-main_bottom flex-cnt">
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img class="mr-lf-20" src="./static/images/slide_four/monitoring.png" alt="Monitoring">
+                                        </div>
+                                        <div class="item__title">
+                                            Потребительский товар №4
+                                        </div>
+                                    </div>
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img class="al-sf-centr" src="./static/images/slide_four/helmet.png" alt="Helmet">
+                                        </div>
+                                        <div class="item__title">
+                                            Потребительский товар №5
+                                        </div>
+                                    </div>
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img data-src="./static/images/slide_four/hand.png" alt="Hand">
+                                        </div>
+                                        <div class="item__title">
+                                            Потребительский товар №6
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="slide__four-item flex-cnt fl-dir-col">
-                                <div class="image__wrapper flex-cnt fl-alg-end">
-                                    <img data-src="./static/images/slide_four/hand.png" alt="Hand">
+                        </div>
+                    </div>
+                    <div class="slide__four-solution flex-cnt fl-dir-col">
+                        <div class="slide__four-main_top flex-cnt">
+                            <div class="main__description">
+                                MIRCOD гордится своими разработками в сфере бизнеса и производства. IoT-устройства позволяют сделать бизнес и производство точными, быстрыми и комфортными
+                            </div>
+                        </div>
+                        <div class="slide__four-main flex-cnt owl-carousel owl-theme">
+                            <div class="slide__four-main--item flex-cnt fl-dir-col">                   
+                                <div class="slide__four-main_bottom flex-cnt">
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img class="mr-lf-20" src="./static/images/slide_four/monitoring.png" alt="Monitoring">
+                                        </div>
+                                        <div class="item__title">
+                                            Бизнес №1
+                                        </div>
+                                    </div>
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img class="al-sf-centr" src="./static/images/slide_four/helmet.png" alt="Helmet">
+                                        </div>
+                                        <div class="item__title">
+                                            Бизнес №2
+                                        </div>
+                                    </div>
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img data-src="./static/images/slide_four/hand.png" alt="Hand">
+                                        </div>
+                                        <div class="item__title">
+                                            Бизнес №3
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="item__title">
-                                    Измеритель SpO2
+                            </div>
+                            <div class="slide__four-main--item flex-cnt fl-dir-col">                  
+                                <div class="slide__four-main_bottom flex-cnt">
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img class="mr-lf-20" src="./static/images/slide_four/monitoring.png" alt="Monitoring">
+                                        </div>
+                                        <div class="item__title">
+                                            Бизнес №4
+                                        </div>
+                                    </div>
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img class="al-sf-centr" src="./static/images/slide_four/helmet.png" alt="Helmet">
+                                        </div>
+                                        <div class="item__title">
+                                            Бизнес №5
+                                        </div>
+                                    </div>
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img data-src="./static/images/slide_four/hand.png" alt="Hand">
+                                        </div>
+                                        <div class="item__title">
+                                            Бизнес №6
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide__four-solution flex-cnt fl-dir-col">
+                        <div class="slide__four-main_top flex-cnt">
+                            <div class="main__description">
+                                MIRCOD гордится своими разработками в сфере отраслевых решений. IoT-устройства позволяют сделать отраслевые решения точными, быстрыми и комфортными
+                            </div>
+                        </div>
+                        <div class="slide__four-main flex-cnt owl-carousel owl-theme">
+                            <div class="slide__four-main--item flex-cnt fl-dir-col">                   
+                                <div class="slide__four-main_bottom flex-cnt">
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img class="mr-lf-20" src="./static/images/slide_four/monitoring.png" alt="Monitoring">
+                                        </div>
+                                        <div class="item__title">
+                                            Отраслевое решение №1
+                                        </div>
+                                    </div>
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img class="al-sf-centr" src="./static/images/slide_four/helmet.png" alt="Helmet">
+                                        </div>
+                                        <div class="item__title">
+                                            Отраслевое решение №2
+                                        </div>
+                                    </div>
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img data-src="./static/images/slide_four/hand.png" alt="Hand">
+                                        </div>
+                                        <div class="item__title">
+                                            Отраслевое решение №3
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide__four-main--item flex-cnt fl-dir-col">                  
+                                <div class="slide__four-main_bottom flex-cnt">
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img class="mr-lf-20" src="./static/images/slide_four/monitoring.png" alt="Monitoring">
+                                        </div>
+                                        <div class="item__title">
+                                            Отраслевое решение №4
+                                        </div>
+                                    </div>
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img class="al-sf-centr" src="./static/images/slide_four/helmet.png" alt="Helmet">
+                                        </div>
+                                        <div class="item__title">
+                                            Отраслевое решение №5
+                                        </div>
+                                    </div>
+                                    <div class="slide__four-item flex-cnt fl-dir-col">
+                                        <div class="image__wrapper flex-cnt fl-alg-end">
+                                            <img data-src="./static/images/slide_four/hand.png" alt="Hand">
+                                        </div>
+                                        <div class="item__title">
+                                            Отраслевое решение №6
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -656,7 +851,7 @@
             <div class="slide__five-wrapper flex-cnt cl-white">
                 <div class="slide__five-main--left flex-cnt">
                     <div class="left__container flex-cnt fl-dir-col fl-alg-st">
-                        <div class="left__container-item flex-cnt">
+                        <div class="left__container-item flex-cnt animation-from-left">
                             <div class="image__container flex-cnt fl-jst-center">
                                 <img data-src="./static/images/slide_five/photo1.png" alt="Photo1">
                             </div>
@@ -665,7 +860,7 @@
                                 <div class="man__position">CEO, учредитель, инженер-электронщик</div>
                             </div>
                         </div>
-                        <div class="left__container-item flex-cnt">
+                        <div class="left__container-item flex-cnt animation-from-left">
                             <div class="image__container flex-cnt fl-jst-center">
                                 <img data-src="./static/images/slide_five/photo2.png" alt="Photo2">
                             </div>
@@ -674,7 +869,7 @@
                                 <div class="man__position">COO, учредитель</div>
                             </div>
                         </div>
-                        <div class="left__container-item flex-cnt">
+                        <div class="left__container-item flex-cnt animation-from-left">
                             <div class="image__container flex-cnt fl-jst-center">
                                 <img data-src="./static/images/slide_five/photo3.png" alt="Photo3">
                             </div>
@@ -683,7 +878,7 @@
                                 <div class="man__position">CTO</div>
                             </div>
                         </div>
-                        <div class="left__container-item flex-cnt">
+                        <div class="left__container-item flex-cnt animation-from-left">
                             <div class="image__container flex-cnt fl-jst-center">
                                 <img data-src="./static/images/slide_five/photo4.png" alt="Photo4">
                             </div>
@@ -695,7 +890,7 @@
                     </div>
                 </div>
                 <div class="slide__five-main--right flex-cnt">
-                    <div class="right__container flex-cnt fl-dir-col fl-alg-st">
+                    <div class="right__container flex-cnt fl-dir-col fl-alg-st animation-opacity">
                         <div class="right__container-item flex-cnt">
                             <div class="image__container flex-cnt fl-jst-center">
                                 <img data-src="./static/images/slide_five/businessmen.png" alt="businessmen">
