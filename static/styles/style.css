@@ -1672,7 +1672,7 @@ input[type=submit]:hover {
 
     .slide__four-main {
         width: 100%;
-        margin-left: -20%;
+        margin-left: -10%;
     }
 
     .slide__four-item .image__wrapper img {
@@ -1693,10 +1693,6 @@ input[type=submit]:hover {
         top: 40%;
         right: 10%;
         z-index: 2;
-    }
-
-    .slide__four .owl-carousel .owl-stage-outer {
-        overflow: unset;
     }
 
     .slide__four-main.owl-theme .owl-nav {
@@ -2533,7 +2529,7 @@ input[type=submit]:hover {
     }
 
     .slide__six .header__item-link {
-        font-size: 1.613rem;
+        font-size: 1.413rem;
     }
 
     .slide__six .header__item {

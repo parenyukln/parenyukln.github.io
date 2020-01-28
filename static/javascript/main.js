@@ -6,8 +6,6 @@ $(document).ready( function() {
 	$('#fullpage').fullpage({
         normalScrollElementTouchThreshold: 1,
         lazyLoading: true,
-        loopTop: true,
-        loopBottom: true,
         css3: true,
         onLeave: function(origin, destination, direction) {
             changeSlide(destination, false);
@@ -577,7 +575,7 @@ function doAnimation(destination) {
                 const $this = $(this);
                 setTimeout(function() {
                     $this.removeClass('animation-from-left');
-                }, intervalTimeout * ($this.index() + 1) );
+                }, intervalTimeout * $this.index());
             });
         }, defaultTimeout);
     }
