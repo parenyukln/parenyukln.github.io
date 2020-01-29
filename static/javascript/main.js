@@ -14,9 +14,7 @@ $(document).ready( function() {
     });
     
     // Preloader 
-    let preloader    = $('.slide__loading'), // селектор прелоадера
-        imagesCount  = $('img').length, // количество изображений
-        dBody        = $('body'), //обращаемся к body
+    let imagesCount  = $('img').length, // количество изображений
         percent      = Math.round(100 / imagesCount), // количество % на одну картинку
         progress     = 0, // точка отсчета
         imgSum       = 5, // количество картинок
