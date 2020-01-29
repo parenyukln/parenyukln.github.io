@@ -2408,7 +2408,8 @@ input[type=submit]:hover {
     .slide__four .header__nav {
         margin-top: 5%;
         width: 80%;
-        overflow: scroll;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
     }
 
     .slide__four-item .image__wrapper {
