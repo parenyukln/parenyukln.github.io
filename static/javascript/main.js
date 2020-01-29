@@ -140,6 +140,12 @@ $(document).ready( function() {
         $('.contact__form .form__success').removeClass('hidden'); 
     });
 
+    $('#vacancies__form').submit( function(e) {
+        e.preventDefault();
+        $(this).addClass('hidden'); 
+        $('.vacancies__form .form__success').removeClass('hidden'); 
+    });
+
     $('.registration__cancel a').click( function(e) {
         e.preventDefault();
         $('.overlay').addClass('hidden');
@@ -150,7 +156,17 @@ $(document).ready( function() {
         }, 501);
     });
 
-    $('.header__button-create').click( function(e) {
+    $('.vacancies__cancel a').click( function(e) {
+        e.preventDefault();
+        $('.overlay').addClass('hidden');
+        $('.vacancies__form').removeClass('vacancies__form--active');  
+
+        setTimeout(function() {
+            $('.vacancies__form').addClass('hidden');  
+        }, 501);
+    });
+
+    $('#new__product-btn').click( function(e) {
         e.preventDefault();
         $('.overlay').removeClass('hidden');
         $('.registration__form').removeClass('hidden');
@@ -160,7 +176,22 @@ $(document).ready( function() {
         }, 100); 
     });
 
-    $('.registration__form .checkbox__container, .contact__form .checkbox__container').click( function() {
+    $('#meet__team-btn').click( function(e) {
+        e.preventDefault();
+        $('.overlay').removeClass('hidden');
+        $('.vacancies__form').removeClass('hidden');
+ 
+        setTimeout(function() {
+            $('.vacancies__form').addClass('vacancies__form--active');
+        }, 100); 
+    });
+
+    $('.file__input').click( function(e) {
+        e.preventDefault();
+        $('#file').click();
+    });
+
+    $('.registration__form .checkbox__container, .contact__form .checkbox__container, .vacancies__form .checkbox__container').click( function() {
         $(this).prev().click();
     });
 
@@ -177,11 +208,11 @@ $(document).ready( function() {
         } 
     });
 
-    $('.slide__four-header .header__nav-item').click( function(e) {
+    $('.slide__four-header').delegate('.header__nav-item', 'click', function(e) {
         e.preventDefault();
-        $('.slide__four-header .header__nav-item').removeClass('header__nav-item--active');
-        $('.slide__four .solition__wrapper.owl-carousel').trigger('to.owl.carousel', $(this).index());
-        $(this).addClass('header__nav-item--active');
+        $('.slide__four-header .header__nav-item.active').removeClass('active');
+        $('.slide__four .solition__wrapper.owl-carousel').trigger('to.owl.carousel', Number($(this).data('index')));
+        $(this).addClass('active');
     });
 
     $('.slide__six-header .header__item-link').click( function(e) {
@@ -620,13 +651,28 @@ function initSliders() {
     }
 
     // Slide four
+    $('.slide__four .header__nav.owl-carousel').owlCarousel({
+        dots: false,
+        nav: true,
+        navText: ['<', '>'],
+        loop: true,
+        responsive: { 
+            0: {
+                items: 2
+            },
+            550: {
+                items: 4
+            }
+        }
+    });
+
     $('.slide__four .slide__four-main.owl-carousel').owlCarousel({
         dots: false,
         nav: true,
         navText: ['<', '>'],
         responsive: { 
             0: {
-                items:1
+                items: 1
             }
         }
     });
@@ -662,8 +708,8 @@ function initSliders() {
 
     $('.slide__four .solition__wrapper.owl-carousel').on('changed.owl.carousel', function(event) {
         const slideIndex = event.item.index;
-        $('.slide__four-header .header__nav-item').removeClass('header__nav-item--active');
-        $('.slide__four-header .header__nav-item').eq(slideIndex).addClass('header__nav-item--active');
+        $('.slide__four-header .header__nav-item.active').removeClass('active');
+        $('.slide__four-header .header__nav-item').eq(slideIndex).addClass('active');
     });
 
     $('.slide__six .owl-carousel').on('changed.owl.carousel', function(event) {

@@ -334,6 +334,54 @@
         </div>
     </div>
 
+    <div class="vacancies__form flex-cnt fl-jst-center hidden loading__dontshow">
+        <div class="vacancies__form-wrapper flex-cnt fl-jst-center">
+            <form id="vacancies__form" action="/" class="flex-cnt fl-dir-col fl-alg-st">
+                <div class="form__item flex-cnt fl-dir-col fl-alg-st">
+                    <label for="file" class="form__label">Прикрепите ваше резюме</label>
+                    <input type="file" name="_file" id="file" value="Добавить файл" />
+                    <a href="#" class="file__input">Добавить файл</a>
+                </div>
+                <div class="form__item flex-cnt fl-dir-col fl-alg-st">
+                    <label for="email" class="form__label">Укажите ваш email для связи</label>
+                <input type="email" name="_email" id="email" value="default@mircod.com" />
+                </div>
+                <div class="form__item flex-cnt form__item-checkbox">
+                    <label for="vacancies_personal" class="checkbox__label">Я согласен на обработку персональных данных</label>
+                    <input class="hidden" type="checkbox" name="_personal" id="vacancies_personal" value=1 checked />
+                    <div class="checkbox__container flex-cnt fl-jst-center">
+                        <img src="./static/images/slide_three/check.png" alt="Check">
+                    </div>
+                </div>
+                <div class="form__item flex-cnt form__item-checkbox">
+                    <label for="vacancies_mailing" class="checkbox__label">Я согласен на новостную рассылку и что-нибудь еще, если нужно</label>
+                    <input class="hidden" type="checkbox" name="_mailing" id="vacancies_mailing" value=0 />
+                    <div class="checkbox__container flex-cnt fl-jst-center">
+                        <img src="./static/images/slide_three/check.png" alt="Check">
+                    </div>
+                </div>
+                <div class="form__item flex-cnt fl-dir-col fl-alg-st">
+                    <input class="cl-white" type="submit" value="Отправить свое резюме"/>
+                </div>
+            </form>
+            <div class="form__success flex-cnt fl-jst-center fl-dir-col hidden">
+                <div class="form__success-img">
+                    <img src="./static/images/notepad.png" alt="Notepad">
+                </div>
+                <div class="form__success-text">
+                    <p>Благодарим вас за интерес к нашей компании!</p>
+                    <p>Ваше резюме попало к нашим сотрудникам, и они ознакомятся с ним в самое ближайшее время!</p>
+                    <p>Если у нас будут подходящие для вас вакансии, мы обязательно с вами свяжемся!</p>
+                </div>
+            </div>
+        </div>
+        <div class="vacancies__cancel flex-cnt fl-jst-center">
+            <a class="flex-cnt fl-jst-center" href="#">
+                <img src="./static/images/slide_three/cancel.png" alt="Cancel">
+            </a>
+        </div>
+    </div>
+
     <div class="overlay hidden loading__dontshow"></div>
 
     <div class="body__container" id="fullpage">
@@ -513,7 +561,7 @@
                         </div>
                     </div>
                     <div class="header__button-container flex-cnt">
-                        <a href="#" class="header__button-create cl-white flex-cnt fl-jst-center">
+                        <a href="#" id="new__product-btn" class="header__button-create cl-white flex-cnt fl-jst-center">
                             <p>Попробовать создать свой продукт?</p>
                         </a>
                     </div>
@@ -572,11 +620,21 @@
                     <div class="header__title flex-cnt">
                         <h2>Наши решения</h2>
                     </div>
-                    <div class="header__nav flex-cnt">
-                        <a href="#" class="header__nav-item cl-black header__nav-item--active">Медицина</a>
-                        <a href="#" class="header__nav-item cl-black">Потребительские товары</a>
-                        <a href="#" class="header__nav-item cl-black">Бизнес и производство</a>
-                        <a href="#" class="header__nav-item cl-black">Отраслевые решения</a>
+                    <div class="header__nav flex-cnt owl-carousel owl-theme">
+                        <a href="#" class="header__nav-item active cl-black" data-index="0">Медицина</a>
+                        <a href="#" class="header__nav-item cl-black" data-index="1">Косметология</a>
+                        <a href="#" class="header__nav-item cl-black" data-index="2">Спорт и Фитнес</a>
+                        <a href="#" class="header__nav-item cl-black" data-index="3">Биотехнологии</a>
+                        <a href="#" class="header__nav-item cl-black" data-index="4">Автоматизация производства</a>
+                        <a href="#" class="header__nav-item cl-black" data-index="5">Строительство</a>
+                        <a href="#" class="header__nav-item cl-black" data-index="6">Умный дом/Умный город</a>
+                        <a href="#" class="header__nav-item cl-black" data-index="7">Умная одежда</a>
+                        <a href="#" class="header__nav-item cl-black" data-index="8">Гаджеты</a>
+                        <a href="#" class="header__nav-item cl-black" data-index="9">Сельское хозяйство</a>
+                        <a href="#" class="header__nav-item cl-black" data-index="10">Промышленность</a>
+                        <a href="#" class="header__nav-item cl-black" data-index="11">Логистика</a>
+                        <a href="#" class="header__nav-item cl-black" data-index="12">Автопром</a>
+                        <a href="#" class="header__nav-item cl-black" data-index="13">Ветеринария</a>
                     </div>
                 </div>
                 <div class="solition__wrapper owl-carousel owl-theme">
@@ -917,7 +975,7 @@
                         </div>
                         <div class="right__container-item flex-cnt">
                             <div class="button__container flex-cnt">
-                                <a href="#" class="header__button-create cl-white flex-cnt fl-jst-center">
+                                <a href="#" id="meet__team-btn" class="header__button-create cl-white flex-cnt fl-jst-center">
                                     <p>Вступить в команду</p>
                                 </a>
                             </div>
@@ -1086,19 +1144,19 @@
                             Необходимые юридические данные и все то, что должно быть написано в подвале сайта типа ИНН, ОГРН, владельцев сайта и Т.д.
                         </div>
                         <div class="footer__social flex-cnt">
-                            <a class="social__item social__twitter flex-cnt" href="#">
+                            <a class="social__item social__twitter flex-cnt" href="https://twitter.com/MirCodSense" target="_blank">
                                 <img data-src="./static/images/slide_six/twitter.png" alt="Twitter">
                             </a>
-                            <a class="social__item social__insta flex-cnt" href="#">
+                            <a class="social__item social__insta flex-cnt" href="https://www.instagram.com/mircod.sense/" target="_blank">
                                 <img data-src="./static/images/slide_six/instagram.png" alt="Insta">
                             </a>
-                            <a class="social__item social__vk flex-cnt" href="#">
+                            <a class="social__item social__vk flex-cnt" href="https://vk.com/mircodsense" target="_blank">
                                 <img data-src="./static/images/slide_six/vk.png" alt="Vk">
                             </a>
-                            <a class="social__item social__facebook flex-cnt" href="#">
+                            <a class="social__item social__facebook flex-cnt" href="https://www.facebook.com/Mircod.Sense/" target="_blank">
                                 <img data-src="./static/images/slide_six/facebook.png" alt="Facebook">
                             </a>
-                            <a class="social__item social__youtube flex-cnt" href="#">
+                            <a class="social__item social__youtube flex-cnt" href="https://www.youtube.com/channel/UCnzYQinKE4BDqD1QI2e2oiw" target="_blank">
                                 <img data-src="./static/images/slide_six/youtube.png" alt="Youtube">
                             </a>
                         </div>

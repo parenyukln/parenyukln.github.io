@@ -209,7 +209,7 @@ a {
 }
 
 .description__wrapper {
-    width: 59%;
+    width: 60%;
 }
 
 .next__slide-arrow {
@@ -221,7 +221,7 @@ a {
 }
 
 .description {
-    font-size: 0.5625rem;
+    font-size: 0.7625rem;
 }
 
 .footer {
@@ -571,7 +571,7 @@ input[type=submit]:hover {
     cursor: pointer;
 }
 
-.registration__form, .contact__form, .search__form {
+.registration__form, .contact__form, .search__form, .vacancies__form {
     background-color: #fff;
     height: 100%;
     width: 40%;
@@ -584,11 +584,11 @@ input[type=submit]:hover {
     color: #1b1b1b;
 }
 
-.registration__form--active, .contact__form--active, .search__form--active  {
+.registration__form--active, .contact__form--active, .search__form--active, .vacancies__form--active  {
     right: 0;
 }
 
-.registration__cancel, .contact__cancel, .search__cancel {
+.registration__cancel, .contact__cancel, .search__cancel, .vacancies__cancel {
     position: absolute;
     top: 50px;
     right: 50px;
@@ -598,42 +598,50 @@ input[type=submit]:hover {
     cursor: pointer;
 }
 
-.registration__form-wrapper, .contact__form-wrapper {
+.registration__form-wrapper, .contact__form-wrapper, .vacancies__form-wrapper {
     padding: 0 15%;
 }
 
-.registration__form .form__item, .contact__form .form__item  {
+.registration__form .form__item, .contact__form .form__item, .vacancies__form .form__item  {
     width: 100%;
     margin-bottom: 35px;
 }
 
-.registration__form .form__item label, .contact__form .form__item label {
+.registration__form .form__item label, .contact__form .form__item label, .vacancies__form .form__item label {
     width: 70%;
 }
 
-.registration__form .form__item:last-child, .contact__form .form__item:last-child {
+.vacancies__form .vacancies__form-wrapper .form__success .form__success-text p {
+    margin-bottom: 20px;
+}
+
+.vacancies__form .vacancies__form-wrapper .form__success .form__success-text p:last-child {
     margin-bottom: 0;
 }
 
-.registration__form .form__item-checkbox, .contact__form .form__item-checkbox {
+.registration__form .form__item:last-child, .contact__form .form__item:last-child, .vacancies__form .form__item:last-child {
+    margin-bottom: 0;
+}
+
+.registration__form .form__item-checkbox, .contact__form .form__item-checkbox, .vacancies__form .form__item-checkbox {
     flex-direction: row-reverse;
     justify-content: flex-end;
     align-items: flex-start;
 }
 
-.registration__form .form__item-checkbox .checkbox__container, .contact__form .form__item-checkbox .checkbox__container {
+.registration__form .form__item-checkbox .checkbox__container, .contact__form .form__item-checkbox .checkbox__container, .vacancies__form .form__item-checkbox .checkbox__container {
     width: 18px;
     height: 18px;
     border: 1px solid #414141;
     border-radius: 3px;
 }
 
-.registration__form .form__label, .contact__form .form__label, .search__form .form__label {
+.registration__form .form__label, .contact__form .form__label, .search__form .form__label, .vacancies__form .form__label {
     font-size: 1.125rem;
     margin-bottom: 35px;
 }
 
-.registration__form input, .contact__form input, .contact__form textarea, .search__form input {
+.registration__form input, .contact__form input, .contact__form textarea, .search__form input, .vacancies__form input {
     border-radius: 29.5px;
     outline: none;
     width: -webkit-fill-available;
@@ -646,20 +654,20 @@ input[type=submit]:hover {
     resize: none;
 }
 
-.registration__form input, .registration__form .checkbox__label, .contact__form input, .contact__form .checkbox__label, .contact__form textarea, .search__form input {
+.registration__form input, .registration__form .checkbox__label, .contact__form input, .contact__form .checkbox__label, .contact__form textarea, .search__form input, .vacancies__form input, .vacancies__form .checkbox__label {
     font-size: 0.75rem;
 }
 
-.registration__form .checkbox__label, .contact__form .checkbox__label {
+.registration__form .checkbox__label, .contact__form .checkbox__label, .vacancies__form .checkbox__label {
     margin-left: 20px;
 }
 
-.registration__form input[type=text], .search__form input[type=text], .registration__form input[type=email], .contact__form input[type=text], .contact__form input[type=tel], .contact__form input[type=email], .contact__form textarea {
+.registration__form input[type=text], .search__form input[type=text], .registration__form input[type=email], .vacancies__form input[type=email], .contact__form input[type=text], .contact__form input[type=tel], .contact__form input[type=email], .contact__form textarea {
     border: 1px solid #414141;
     padding: 20px 25px;
 }
 
-.registration__form input[type=submit], .contact__form input[type=submit] {
+.registration__form input[type=submit], .contact__form input[type=submit], .vacancies__form input[type=submit], .file__input {
     font-family: 'Montserrat-Bold', sans-serif;
     background-color: #f2501e;
     border: none;
@@ -667,26 +675,48 @@ input[type=submit]:hover {
     padding: 20px 0;
 }
 
-.registration__form input[type=checkbox] ~ .checkbox__container img, .contact__form input[type=checkbox] ~ .checkbox__container img {
+.file__input {
+    width: 100%;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #f2501e;
+    background-color: #f0f0f0;
+    position: relative;
+}
+
+.file__input::after {
+    content: 'pdf, docx, doc';
+    color: #8b8b8b;
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    font-family: 'Montserrat-Light', sans-serif;
+}
+
+#file {
     display: none;
 }
 
-.registration__form input[type=checkbox]:checked ~ .checkbox__container img, .contact__form input[type=checkbox]:checked ~ .checkbox__container img {
+.registration__form input[type=checkbox] ~ .checkbox__container img, .contact__form input[type=checkbox] ~ .checkbox__container img, .vacancies__form input[type=checkbox] ~ .checkbox__container img {
+    display: none;
+}
+
+.registration__form input[type=checkbox]:checked ~ .checkbox__container img, .contact__form input[type=checkbox]:checked ~ .checkbox__container img, .vacancies__form input[type=checkbox]:checked ~ .checkbox__container img {
     display: block;
 }
 
-.registration__form .form__success .form__success-text, .contact__form .form__success .form__success-text {
+.registration__form .form__success .form__success-text, .contact__form .form__success .form__success-text, .vacancies__form .form__success .form__success-text {
     text-align: center;
     margin-top: 30px;
     width: 80%;
 }
 
-.registration__form .form__success .form__success-text p, .contact__form .form__success .form__success-text p {
+.registration__form .form__success .form__success-text p, .contact__form .form__success .form__success-text p, .vacancies__form .form__success .form__success-text p {
     margin: 0;
     font-size: 1.125rem;
 }
 
-.registration__form .form__success .form__success-text a, .contact__form .form__success .form__success-text a {
+.registration__form .form__success .form__success-text a, .contact__form .form__success .form__success-text a, .vacancies__form .form__success .form__success-text a {
     color: #f2501e;
 }
 
@@ -737,22 +767,26 @@ input[type=submit]:hover {
 
 .slide__four .header__nav {
     font-size: 1rem;
-    margin-right: 3%;
+    width: 75%;
     z-index: 2;
+}
+
+.slide__one .header__title  {
+    margin-right: 10%;
 }
 
 .slide__four .header__nav-item {
     opacity: .41;
-    margin-left: 50px;
+    white-space: nowrap;
 }
 
-.slide__four .header__nav-item:first-child {
-    margin-left: 0;
-}
-
-.slide__four .header__nav-item--active {
+.slide__four .header__nav-item.active {
     font-family: 'Montserrat-Bold', sans-serif;
     opacity: 1;
+}
+
+.slide__four .header__nav.owl-carousel .owl-item {
+    text-align: center;
 }
 
 .slide__four-main_top, .slide__four-main_bottom {
@@ -1164,7 +1198,7 @@ input[type=submit]:hover {
     border-radius: 50%;
 }
 
-.slide__six-main.owl-theme .owl-nav, .slide__four-main.owl-theme .owl-nav {
+.slide__six-main.owl-theme .owl-nav, .slide__four-main.owl-theme .owl-nav, .header__nav.owl-theme .owl-nav {
     position: absolute;
     top: 50%;
     width: 90%;
@@ -1175,26 +1209,38 @@ input[type=submit]:hover {
 }
 
 .slide__four-main.owl-theme .owl-nav {
-    width: 95%;
-    justify-content: flex-end;
+    width: 105%;
     top: 40%;
+    padding-left: 0;
+}
+
+.owl-theme .owl-stage-outer  {
+    z-index: 2;
+}
+
+.header__nav.owl-theme .owl-nav {
+    width: 100%;
+    top: -50%;
+    padding-left: 0;
+    justify-content: flex-end;
 }
 
 .slide__six-main.owl-carousel .owl-stage-outer {
     overflow: unset;
 }
 
-.slide__six-main.owl-theme .owl-nav [class*='owl-'], .slide__four-main.owl-theme .owl-nav [class*='owl-'] {
+.slide__six-main.owl-theme .owl-nav [class*='owl-'], .slide__four-main.owl-theme .owl-nav [class*='owl-'], .header__nav.owl-theme .owl-nav [class*='owl-'] {
     background: #f0501e;
     opacity: .7;
+    z-index: 3;
 }
 
-.slide__six-main.owl-theme .owl-nav [class*='owl-']:hover, .slide__four-main.owl-theme .owl-nav [class*='owl-']:hover {
-    opacity: 1;
-}
-
-.slide__four-main.owl-theme .owl-nav .owl-prev {
+.header__nav .owl-nav .owl-prev {
     display: none;
+}
+
+.slide__six-main.owl-theme .owl-nav [class*='owl-']:hover, .slide__four-main.owl-theme .owl-nav [class*='owl-']:hover, .header__nav.owl-theme .owl-nav [class*='owl-']:hover {
+    opacity: 1;
 }
 
 .google__map {
@@ -1268,6 +1314,14 @@ input[type=submit]:hover {
     .google__map {
         width: 650px;
         height: 650px;
+    }
+
+    .slide__four .header__nav-item {
+        white-space: pre-wrap;
+    }
+
+    .header__nav.owl-theme .owl-nav {
+        top: 0;
     }
 }
 
@@ -1585,16 +1639,16 @@ input[type=submit]:hover {
         padding-left: 50px;
     }
 
-    .registration__form, .contact__form, .search__form {
+    .registration__form, .contact__form, .search__form, .vacancies__form {
         width: 100%;
         right: -100%;
     }
 
-    .registration__form--active, .contact__form--active, .search__form--active {
+    .registration__form--active, .contact__form--active, .search__form--active, .vacancies__form--active {
         right: 0;
     }
 
-    .registration__form input[type=submit], .contact__form input[type=submit] {
+    .registration__form input[type=submit], .contact__form input[type=submit], .vacancies__form input[type=submit] {
         padding: 20px 10px; 
     }
 
@@ -2316,16 +2370,16 @@ input[type=submit]:hover {
         padding-left: 50px;
     }
 
-    .registration__form, .contact__form, .search__form {
+    .registration__form, .contact__form, .search__form, .vacancies__form {
         width: 100%;
         right: -100%;
     }
 
-    .registration__form--active, .contact__form--active, .search__form--active {
+    .registration__form--active, .contact__form--active, .search__form--active, .vacancies__form--active {
         right: 0;
     }
 
-    .registration__form input[type=submit], .contact__form input[type=submit] {
+    .registration__form input[type=submit], .contact__form input[type=submit], .vacancies__form input[type=submit] {
         padding: 20px 10px; 
     }
 
@@ -2407,10 +2461,6 @@ input[type=submit]:hover {
 
     .slide__four .header__nav {
         margin-top: 5%;
-        width: 80%;
-        overflow-x: scroll;
-        -webkit-overflow-scrolling: touch;
-        min-height: 28px;
     }
 
     .slide__four-item .image__wrapper {
@@ -2724,25 +2774,25 @@ input[type=submit]:hover {
         z-index: 1;
     }
 
-    .registration__form .form__label, .contact__form .form__label, .search__form .form__label {
+    .registration__form .form__label, .contact__form .form__label, .search__form .form__label, .vacancies__form .form__label {
         font-size: 1rem;
         margin-bottom: 15px;
     }
 
-    .registration__form .form__item, .contact__form .form__item {
+    .registration__form .form__item, .contact__form .form__item, .vacancies__form .form__item {
         width: 100%;
         margin-bottom: 15px;
     }
 
-    .registration__form input[type=text], .search__form input[type=text], .registration__form input[type=email], .contact__form input[type=text], .contact__form input[type=tel], .contact__form input[type=email], .contact__form textarea {
+    .registration__form input[type=text], .search__form input[type=text], .registration__form input[type=email], .vacancies__form input[type=email], .contact__form input[type=text], .contact__form input[type=tel], .contact__form input[type=email], .contact__form textarea {
         padding: 15px 15px;
     }
 
-    .registration__form .form__success .form__success-text p, .contact__form .form__success .form__success-text p {
+    .registration__form .form__success .form__success-text p, .contact__form .form__success .form__success-text p, .vacancies__form .form__success .form__success-text p {
         font-size: 1rem;
     }
 
-    .registration__form input[type=submit], .contact__form input[type=submit] {
+    .registration__form input[type=submit], .contact__form input[type=submit], .vacancies__form input[type=submit] {
         font-size: 0.7rem;
         white-space: normal;
     }
@@ -2757,6 +2807,10 @@ input[type=submit]:hover {
 
     .header__language, .menu-mobile, .header__email {
         margin-right: 10px;
+    }
+
+    .search__result {
+        margin-top: 0;
     }
 }
 
@@ -2905,7 +2959,7 @@ input[type=submit]:hover {
         width: 80%;
     }
 
-    .registration__form .form__item, .contact__form .form__label, .search__form .form__label {
+    .registration__form .form__item, .contact__form .form__label, .search__form .form__label, .vacancies__form .form__item {
         margin-bottom: 10px;
     }
 
