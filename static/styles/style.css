@@ -2410,6 +2410,7 @@ input[type=submit]:hover {
         width: 80%;
         overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
+        min-height: 28px;
     }
 
     .slide__four-item .image__wrapper {
