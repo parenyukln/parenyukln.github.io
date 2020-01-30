@@ -300,9 +300,9 @@ function lightSlide() {
 function hidePreloader() {
     initSliders();
     $('#fullpage > .hidden, body > .hidden:not(".loading__dontshow")').removeClass('hidden');
-    $('#fullpage > .opacity-0, body > .opacity-0:not(".loading__dontshow")').removeClass('opacity-0');
 
     setTimeout(function() {
+        $('#fullpage > .opacity-0, body > .opacity-0:not(".loading__dontshow")').removeClass('opacity-0');
         $('.slide__loading').addClass('hidden');
         
         sr.reveal('.footer__wrapper', {
