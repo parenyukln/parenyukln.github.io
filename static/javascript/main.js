@@ -210,9 +210,11 @@ $(document).ready( function() {
 
     $('.slide__four-header').delegate('.header__nav-item', 'click', function(e) {
         e.preventDefault();
+        const thisDataIndex = Number($(this).data('index'));
+        
         $('.slide__four-header .header__nav-item.active').removeClass('active');
-        $('.slide__four .solition__wrapper.owl-carousel').trigger('to.owl.carousel', Number($(this).data('index')));
-        $(this).addClass('active');
+        $('.slide__four .solition__wrapper.owl-carousel').trigger('to.owl.carousel', thisDataIndex);
+        $(`.slide__four-header .header__nav-item[data-index=${thisDataIndex}]`).addClass('active');
     });
 
     $('.slide__six-header .header__item-link').click( function(e) {
@@ -651,21 +653,6 @@ function initSliders() {
     }
 
     // Slide four
-    $('.slide__four .header__nav.owl-carousel').owlCarousel({
-        dots: false,
-        nav: true,
-        navText: ['<', '>'],
-        loop: true,
-        responsive: { 
-            0: {
-                items: 2
-            },
-            550: {
-                items: 4
-            }
-        }
-    });
-
     $('.slide__four .slide__four-main.owl-carousel').owlCarousel({
         dots: false,
         nav: true,
@@ -681,9 +668,25 @@ function initSliders() {
         dots: false,
         mouseDrag: false,
         touchDrag: false,
+        loop: true,
         responsive: { 
             0: {
                 items:1
+            }
+        }
+    });
+
+    $('.slide__four .header__nav.owl-carousel').owlCarousel({
+        dots: false,
+        nav: true,
+        navText: ['<', '>'],
+        loop: true,
+        responsive: { 
+            0: {
+                items: 2
+            },
+            550: {
+                items: 4
             }
         }
     });
@@ -702,14 +705,57 @@ function initSliders() {
         }
     });
 
-    $('.slide__four .slide__four-main.owl-carousel').on('changed.owl.carousel', function(event) {
+    $('.slide__four .slide__four-main.owl-carousel, .slide__four .solition__wrapper.owl-carousel').on('changed.owl.carousel next.owl.carousel prev.owl.carousel change.owl.carousel', function(event) {
         event.stopPropagation();
     });
 
     $('.slide__four .solition__wrapper.owl-carousel').on('changed.owl.carousel', function(event) {
-        const slideIndex = event.item.index;
+        /*const slideIndex = event.item.index;
         $('.slide__four-header .header__nav-item.active').removeClass('active');
-        $('.slide__four-header .header__nav-item').eq(slideIndex).addClass('active');
+        $('.slide__four-header .header__nav-item').eq(slideIndex).addClass('active');*/
+    });
+
+    $('.slide__four .slide__four-main.owl-carousel .owl-nav .owl-next').off('click');
+    $('.slide__four .slide__four-main.owl-carousel .owl-nav .owl-prev').off('click');
+
+    // Custom next
+    $('.slide__four .slide__four-main.owl-carousel .owl-nav .owl-next').click( function(e) {
+        e.stopPropagation();
+        const lastPageItem = $(this).parents('.slide__four .slide__four-main.owl-carousel').find('.owl-item:last-child');
+        const islastItem = lastPageItem.hasClass('active');
+        
+        if (islastItem) { // Если последний элемент, тогда меняем страницу в родительской карусели
+            const lastCarouselIndex = Number($('.slide__four .header__nav').data('last'));
+            const nextHeaderItemActiveIndex = (Number($('.slide__four .header__nav-item.active')[0].dataset.index) + 1) > lastCarouselIndex ? 0 : Number($('.slide__four .header__nav-item.active')[0].dataset.index) + 1;
+            const headerItem = $(`.slide__four .header__nav-item[data-index=${nextHeaderItemActiveIndex}]`);
+            headerItem.click();
+
+            if (!headerItem.parent().hasClass('active')) {
+                $('.slide__four .header__nav').trigger('next.owl.carousel');
+            }
+        } else { // Если нет, тогда в этой карусели
+            $(this).parents('.slide__four-main.owl-carousel').trigger('next.owl.carousel');
+        }
+    });
+
+    // Custom prev
+    $('.slide__four .slide__four-main.owl-carousel .owl-nav .owl-prev').click( function(e) {
+        e.stopPropagation();
+        const firstPageItem = $(this).parents('.slide__four .slide__four-main.owl-carousel').find('.owl-item:first-child');
+        const isFirstItem = firstPageItem.hasClass('active');
+        
+        if (isFirstItem) { // Если первый элемент, тогда меняем страницу в родительской карусели
+            const lastCarouselIndex = Number($('.slide__four .header__nav').data('last'));
+            const prevHeaderItemActiveIndex = (Number($('.slide__four .header__nav-item.active')[0].dataset.index) - 1) < 0 ? lastCarouselIndex : Number($('.slide__four .header__nav-item.active')[0].dataset.index) - 1;
+            const headerItem = $(`.slide__four .header__nav-item[data-index=${prevHeaderItemActiveIndex}]`);
+            headerItem.click();
+
+            if (!headerItem.parent().hasClass('active')) {
+                $('.slide__four .header__nav').trigger('prev.owl.carousel');
+            }
+        } else { // Если нет, тогда в этой карусели
+            $(this).parents('.slide__four-main.owl-carousel').trigger('prev.owl.carousel');
+        }
     });
 
     $('.slide__six .owl-carousel').on('changed.owl.carousel', function(event) {
