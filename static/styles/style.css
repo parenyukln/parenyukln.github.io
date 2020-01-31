@@ -1333,6 +1333,12 @@ input[type=submit]:hover {
     }
 }
 
+@media (max-width: 1050px) {
+    .header__link {
+        margin: 0 20px;
+    }
+}
+
 @media (max-width: 1200px), (max-height: 700px) {
     .google__map {
         width: 650px;
@@ -1483,6 +1489,7 @@ input[type=submit]:hover {
         padding: 0;
         width: 100%;
         min-height: unset;
+        justify-content: flex-start;
     }
 
     .slide__one .image__block {
@@ -1729,7 +1736,7 @@ input[type=submit]:hover {
         position: absolute;
         top: 23%;
         left: 15%;
-        z-index: 1;
+        z-index: 3;
     }
 
     .slide__three .main__item-wrapper .circle__wrapper img {
@@ -2658,7 +2665,7 @@ input[type=submit]:hover {
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 375px) {
     .header__wrapper {
         padding: 0 30px; 
     }
@@ -2866,14 +2873,6 @@ input[type=submit]:hover {
         padding: 0 0% 0 8%;
     }
 
-    .slide__five .slide__five-main--left .image__container img {
-        width: 100%;
-    }
-
-    .slide__five .slide__five-main--right .right__container-item {
-        margin-bottom: 10%;
-    }
-
     .slide__four-header {
         padding-bottom: 2%;
     }
@@ -3033,7 +3032,7 @@ input[type=submit]:hover {
     }
 }
 
-@media (max-width: 320px) and (max-height: 700px) {
+@media (max-width: 375px) and (max-height: 700px) {
     .slide__four-header {
         margin-top: 15%; 
     }
