@@ -54,8 +54,6 @@ $(document).ready( function() {
     });
 
     function doneResizing(){
-       /* $('.owl-carousel').trigger('refresh.owl.carousel');*/
-        //$('.content__slide').height($(window).height());
         $.fn.fullpage.reBuild();
     }
 
@@ -653,6 +651,8 @@ function initSliders() {
         // Slide three
         $('.slide__three .owl-carousel').owlCarousel({
             dots: false,
+            nav: true,
+            navText: ["<img src='./static/images/left_arrow.png' class='filter--color' alt='Left arrow'>","<img src='./static/images/right_arrow.png' class='filter--color' alt='Right arrow'>"],
             responsive: { 
                 0: {
                     items:1
@@ -671,7 +671,7 @@ function initSliders() {
     $('.slide__four .slide__four-main.owl-carousel').owlCarousel({
         dots: false,
         nav: true,
-        navText: ['<', '>'],
+        navText: ["<img src='./static/images/left_arrow.png' alt='Left arrow'>","<img src='./static/images/right_arrow.png' alt='Right arrow'>"],
         responsive: { 
             0: {
                 items: 1
@@ -694,7 +694,7 @@ function initSliders() {
     $('.slide__four .header__nav.owl-carousel').owlCarousel({
         dots: false,
         nav: true,
-        navText: ['<', '>'],
+        navText: ["<img src='./static/images/left_arrow.png' alt='Left arrow'>","<img src='./static/images/right_arrow.png' alt='Right arrow'>"],
         loop: true,
         responsive: { 
             0: {
@@ -712,7 +712,7 @@ function initSliders() {
         nav: true,
         mouseDrag: false,
         touchDrag: false,
-        navText: ['<', '>'],
+        navText: ["<img src='./static/images/left_arrow.png' alt='Left arrow'>","<img src='./static/images/right_arrow.png' alt='Right arrow'>"],
         responsive: { 
             0: {
                 items:1
