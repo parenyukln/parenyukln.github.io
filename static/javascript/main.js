@@ -1,15 +1,18 @@
 
 $(document).ready( function() {
     window.sr = ScrollReveal();
-
     // Fullpage init
 	$('#fullpage').fullpage({
         normalScrollElementTouchThreshold: 1,
         lazyLoading: true,
         css3: true,
+        resize: true,
         onLeave: function(origin, destination, direction) {
             changeSlide(destination, false);
             doAnimation(destination);  
+        },
+        afterResize: function(width, height){
+            $('.owl-carousel').trigger('refresh.owl.carousel');
         }
     });
     
@@ -43,6 +46,18 @@ $(document).ready( function() {
     } else {
         hidePreloader();
     }  
+
+    var resizeId;
+    $(window).resize(function() {
+        clearTimeout(resizeId);
+        resizeId = setTimeout(doneResizing, 1000);
+    });
+
+    function doneResizing(){
+       /* $('.owl-carousel').trigger('refresh.owl.carousel');*/
+        //$('.content__slide').height($(window).height());
+        $.fn.fullpage.reBuild();
+    }
 
     // Events
     $('.next__slide-arrow').click( function(e) {

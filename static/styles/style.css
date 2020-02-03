@@ -214,6 +214,7 @@ a {
 
 .next__slide-arrow {
     display: none;
+    width: 100%;
 }
 
 .next__slide-arrow:hover {
@@ -857,6 +858,9 @@ input[type=submit]:hover {
     padding-left: 20%;
 }
 
+.fp-tableCell {
+    height: 100% !important;
+}
 
 .slide__five .slide__five-main--right .right__container-item {
     margin-bottom: 15%;
@@ -1226,7 +1230,6 @@ input[type=submit]:hover {
     width: 100%;
     top: -50%;
     padding-left: 0;
-    justify-content: flex-end;
 }
 
 .slide__six-main.owl-carousel .owl-stage-outer {
@@ -1237,10 +1240,6 @@ input[type=submit]:hover {
     background: #f0501e;
     opacity: .7;
     z-index: 3;
-}
-
-.header__nav .owl-nav .owl-prev {
-    display: none;
 }
 
 .slide__six-main.owl-theme .owl-nav [class*='owl-']:hover, .slide__four-main.owl-theme .owl-nav [class*='owl-']:hover, .header__nav.owl-theme .owl-nav [class*='owl-']:hover {
@@ -1378,7 +1377,7 @@ input[type=submit]:hover {
     }
 
     .slide__four-header {
-        margin-top: 8%;
+        margin-top: 10%;
         padding-bottom: 2%;
     }
 
@@ -1399,17 +1398,97 @@ input[type=submit]:hover {
     }
 
     .slide__six-header {
-        margin-bottom: 2%; 
+        margin-top: 5%; 
+    }
+
+    .slide__three-wrapper {
+        margin-top: 5%;
+    }
+
+    .mobile-hide {
+        display: none;
+    }
+
+    .slide__three .main__item-wrapper .circle__wrapper img {
+        width: 95%;
+    }
+
+    .slide__three .circle__wrapper {
+        width: 150px;
+        height: 150px;
+    }
+
+    .description {
+        font-size: 0.6625rem;
     }
 }
 
-@media /*(max-width: 1024px) and */(max-height: 600px) {
+@media (max-height: 650px) {
+    .slide__three .main__item-description {
+        font-size: 0.65rem;
+    }
+
+    .slide__six-main {
+        margin-top: -10%;
+    }
+}
+
+@media (max-height: 600px) {
     .slide__three .header__text p {
         display: none;
     }
 
     .slide__one .image__block {
         width: 60%;
+    }
+
+    .slide__two .main-container .description__wrapper {
+        min-height: 400px;
+    }
+
+    .slide__two .main-container .image__container img {
+        width: 60%;
+    }
+
+    .description__wrapper .description:last-child {
+        display: none;
+    }
+
+    .slide__six-header {
+        margin-top: 10%; 
+    }
+
+    .slide__five .slide__five-main--left .image__container img {
+        width: 70px;
+    }
+}
+
+@media /*(max-width: 1024px) and */(max-height: 550px) {
+    .slide__two .main-container .description__wrapper {
+        min-height: 350px;
+    }
+
+    .slide__two .main-container .image__container img {
+        width: 60%;
+    }
+}
+
+@media /*(max-width: 1024px) and */(max-height: 500px) {
+    .slide__two .main-container .description__wrapper {
+        min-height: 300px;
+    }
+
+    .slide__two .main-container .image__container img {
+        width: 50%;
+    }
+
+    .slide__three-wrapper {
+        margin-top: 10%;
+    }
+
+    .slide__three .circle__wrapper {
+        width: 125px;
+        height: 125px;
     }
 }
 
@@ -1423,7 +1502,7 @@ input[type=submit]:hover {
     }
 
     .mobile__menu {
-        padding-top: 120px;
+        padding-top: 100px;
     }
 
     .slide__two .image__container {
@@ -1444,7 +1523,7 @@ input[type=submit]:hover {
     }
 
     .slide__three .main__item-wrapper .circle__wrapper img {
-        width: 80%;
+        width: 95%;
     }
 
     .registration__form .form__item, .contact__form .form__label, .search__form .form__label, .vacancies__form .form__item {
@@ -1488,7 +1567,7 @@ input[type=submit]:hover {
 
 @media (max-width: 375px) and (max-height: 700px) {
     .slide__four-header {
-        margin-top: 15%; 
+        margin-top: 10%; 
     }
 }
 
@@ -1547,6 +1626,8 @@ input[type=submit]:hover {
     
     .slide__two-wrapper {
         padding: 0 12%;
+        height: 100%;
+        margin-top: 15%;
     }
 
     .slide__two-header {
@@ -1660,6 +1741,10 @@ input[type=submit]:hover {
         height: 100%;
     }
 
+    .header {
+        padding: 30px 0;
+    }
+
     .animation-from-left {
         transform: translateX(-250%);
     }
@@ -1675,6 +1760,8 @@ input[type=submit]:hover {
     .slide__one .main__content {
         flex-direction: column;
         padding-left: 50px;
+        height: 100%;
+        margin-top: 20%;
     }
 
     .slide__one .text__block {
@@ -1682,6 +1769,7 @@ input[type=submit]:hover {
         width: 100%;
         min-height: unset;
         justify-content: flex-start;
+        height: auto;
     }
 
     .slide__one .image__block {
@@ -1690,6 +1778,10 @@ input[type=submit]:hover {
 
     .slide__one .text__block::after {
         display: none;
+    }
+
+    .slide__one .text__block .h1 {
+        margin: 0% -3px 1%;
     }
 
     .slide__one .text__block .description__wrapper {
@@ -1782,7 +1874,7 @@ input[type=submit]:hover {
         top: 0;
         left: 0;
         z-index: 3;
-        padding-top: 150px;
+        padding-top: 100px;
     }
 
     .mobile__menu .mobile__menu-wrapper {
@@ -1810,15 +1902,10 @@ input[type=submit]:hover {
     }
 
     .next__slide-arrow {
-        display: block;
+        display: flex;
         position: absolute;
         bottom: 3%;
         z-index: 2;
-        left: 45%;
-    }
-
-    .next__slide-arrow img {
-        width: 100%;
     }
 
     .slide__one .owl-dots {
@@ -1862,6 +1949,8 @@ input[type=submit]:hover {
     .slide__three-wrapper {
         width: 100%;
         padding: 0;
+        height: 100%;
+        margin-top: 25%;
     }
 
     .slide__three .main__item-wrapper {
@@ -1932,7 +2021,7 @@ input[type=submit]:hover {
     }
 
     .slide__three .main__item-wrapper .circle__wrapper img {
-        width: 85%;
+        width: 95%;
     }
 
     /**
@@ -1947,7 +2036,7 @@ input[type=submit]:hover {
     .slide__four-header {
         flex-direction: column;
         align-items: flex-start;
-        margin-top: 15%;
+        margin-top: 10%;
     }
 
     .slide__four-item {
@@ -2098,7 +2187,7 @@ input[type=submit]:hover {
         justify-content: flex-start;
         padding: 0;
         padding-left: 100px;
-        margin-bottom: 10%;
+        margin-bottom: 15%;
     }
 
     .slide__six .header__item-link {
@@ -2184,6 +2273,7 @@ input[type=submit]:hover {
     .slide__one .main__content {
         flex-direction: column;
         padding-left: 50px;
+        margin-top: 25%;
     }
 
     .slide__one .text__block {
@@ -2281,7 +2371,7 @@ input[type=submit]:hover {
     }
 
     .slide__four-header {
-        margin-top: 15%;
+        margin-top: 10%;
     }
 
     .slide__five-wrapper .right__container {
@@ -2311,6 +2401,10 @@ input[type=submit]:hover {
     .google__map {
         width: 500px;
         height: 500px;
+    }
+
+    .slide__one .main__content {
+        margin-top: 30%;
     }
 }
 
@@ -2345,6 +2439,7 @@ input[type=submit]:hover {
     .slide__one .main__content {
         flex-direction: column;
         padding-left: 50px;
+        margin-top: 40%;
     }
 
     .slide__one .text__block {
@@ -2420,7 +2515,7 @@ input[type=submit]:hover {
 
     .menu-mobile {
         display: block;
-        margin-right: 20px;
+        margin-right: 30px;
         width: 25px;
         height: 25px;
     }
@@ -2430,12 +2525,12 @@ input[type=submit]:hover {
     }
 
     .header__language {
-        margin-right: 20px;
+        margin-right: 30px;
         font-size: 1.25rem;
     }
 
     .header__email {
-        margin-right: 20px;
+        margin-right: 30px;
     }
     
     .mobile__menu {
@@ -2446,7 +2541,7 @@ input[type=submit]:hover {
         top: 0;
         left: 0;
         z-index: 3;
-        padding-top: 150px;
+        padding-top: 100px;
     }
 
     .mobile__menu .mobile__menu-wrapper {
@@ -2474,14 +2569,10 @@ input[type=submit]:hover {
     }
 
     .next__slide-arrow {
-        display: block;
+        display: flex;
         position: absolute;
         bottom: 3%;
         z-index: 2;
-    }
-
-    .next__slide-arrow img {
-        width: 100%;
     }
 
     .slide__one .carousel__nav {
@@ -2581,6 +2672,7 @@ input[type=submit]:hover {
 
     .slide__three-wrapper {
         width: 100%;
+        margin-top: 30%;
     }
 
     .slide__three .main__item-wrapper {
@@ -2596,6 +2688,7 @@ input[type=submit]:hover {
     .slide__three-header {
         flex-direction: column;
         padding-left: 50px;
+        margin-bottom: 5%;
     }
 
     .registration__form, .contact__form, .search__form, .vacancies__form {
@@ -2662,7 +2755,7 @@ input[type=submit]:hover {
     .slide__four-header {
         flex-direction: column;
         align-items: flex-start;
-        margin-top: 15%;
+        margin-top: 10%;
     }
 
     .slide__four-item {
@@ -2832,6 +2925,10 @@ input[type=submit]:hover {
         padding: 7% 10%;
     }
 
+    .slide__two-wrapper {
+        margin-top: 25%;
+    }
+
     .slide__six .footer__text {
         margin-left: 0;
         text-align: center;
@@ -2864,6 +2961,7 @@ input[type=submit]:hover {
 
     .slide__one .main__content {
         padding-left: 30px;
+        margin-top: 50%;
     }
 
     .slide__one .text__block-wrapper .main__title {
@@ -2882,6 +2980,10 @@ input[type=submit]:hover {
         text-align: center;
     }
 
+    .slide__two-wrapper {
+        margin-top: 35%;
+    }
+
     .slide__two .slide__title-h2 {
         font-size: 1.175rem;
     }
@@ -2889,14 +2991,11 @@ input[type=submit]:hover {
     .slide__two .description__wrapper {
         min-height: 340px;
         font-size: 0.775rem;
+        margin-right: 5px;
     }
 
     .slide__two .image__container {
         text-align: center;
-    }
-
-    .slide__two .image__container img {
-        width: 60%;
     }
 
     .slide__two .right-container .description__wrapper-text, .slide__two .left-container .description__wrapper-text {
@@ -2914,7 +3013,7 @@ input[type=submit]:hover {
     }
 
     .slide__three .main__item-wrapper .circle__wrapper img {
-        width: 85%;
+        width: 95%;
     }
 
     .slide__three-main::before {
@@ -2933,6 +3032,10 @@ input[type=submit]:hover {
         font-size: 1.575rem;
         line-height: 1;
         margin-bottom: 5px;
+    }
+
+    .slide__three-wrapper {
+        margin-top: 40%;
     }
 
     .mobile-hide {
@@ -2978,7 +3081,7 @@ input[type=submit]:hover {
 
     .slide__six-header {
         padding-left: 55px;
-        margin-bottom: 5%;
+        margin-bottom: 30%;
     }
 
     .slide__six .header__item-link {
@@ -3029,16 +3132,18 @@ input[type=submit]:hover {
         margin-right: 5px;
     }
 
-    .slide__two .description__wrapper {
-        margin-right: 5px;
-    }
-
     .header__language, .menu-mobile, .header__email {
-        margin-right: 10px;
+        margin-right: 25px;
     }
 
     .search__result {
         margin-top: 0;
+    }
+}
+
+@media (max-width: 320px) {
+    .slide__one .main__content {
+        margin-top: 55%;
     }
 }
 
