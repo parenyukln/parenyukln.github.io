@@ -5,8 +5,11 @@ $(document).ready( function() {
 	$('#fullpage').fullpage({
         normalScrollElementTouchThreshold: 1,
         lazyLoading: true,
-        css3: true,
+        css3: false,
         resize: true,
+        touchSensitivity: 20,
+        scrollOverflow: false,
+	    scrollOverflowReset: false,
         onLeave: function(origin, destination, direction) {
             changeSlide(destination, false);
             doAnimation(destination);  
