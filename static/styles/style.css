@@ -3027,6 +3027,10 @@ input[type=submit]:hover {
     .error__image img {
         width: 100%;
     }
+
+    .slide__two .description__wrapper {
+        margin-bottom: 0;
+    }
 }
 
 @media (max-width: 375px) {
