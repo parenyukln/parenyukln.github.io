@@ -570,7 +570,7 @@ a {
     left: 0;
     background-color: #fff;
     opacity: .73;
-    z-index: 2;
+    z-index: 3;
 }
 
 input[type=submit]:hover {
@@ -1922,6 +1922,7 @@ input[type=submit]:hover {
         top: 10%;
         right: 0;
         padding-right: 50px;
+        z-index: 2;
     }
 
     .slide__one .owl-dots .owl-dot {
