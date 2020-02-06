@@ -2319,6 +2319,15 @@ input[type=submit]:hover {
     .slide__three .main__item-description {
         font-size: 1rem;
     }
+
+    .slide__four .header__nav {
+        margin-top: 5%;
+        width: 90%;
+    }
+
+    .slide__four .header__nav.owl-carousel .owl-item {
+        text-align: left;
+    }
 }
 
 /**

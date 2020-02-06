@@ -67,6 +67,7 @@ $(document).ready( function() {
 
     function doneResizing(){
         $.fn.fullpage.reBuild();
+        initSliders()
     }
 
     // Events
@@ -716,7 +717,10 @@ function initSliders() {
             0: {
                 items: 2
             },
-            550: {
+            480: {
+                items: 3
+            },
+            960: {
                 items: 4
             }
         }
