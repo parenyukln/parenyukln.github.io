@@ -9,6 +9,7 @@ $(document).ready( function() {
         resize: true,
         touchSensitivity: 30,
         scrollOverflow: false,
+        animateAnchor: false,
 	    scrollOverflowReset: false,
         onLeave: function(origin, destination, direction) {
             let timeout = 500;
