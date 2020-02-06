@@ -1,5 +1,4 @@
 var canScroll = false;
-
 $(document).ready( function() {
     window.sr = ScrollReveal();
     // Fullpage init
@@ -8,7 +7,7 @@ $(document).ready( function() {
         lazyLoading: true,
         css3: false,
         resize: true,
-        touchSensitivity: 30,
+        touchSensitivity: 23,
         scrollOverflow: false,
         animateAnchor: false,
 	    scrollOverflowReset: false,
