@@ -1,3 +1,4 @@
+var canScroll = false;
 
 $(document).ready( function() {
     window.sr = ScrollReveal();
@@ -12,8 +13,11 @@ $(document).ready( function() {
         animateAnchor: false,
 	    scrollOverflowReset: false,
         onLeave: function(origin, destination, direction) {
+            if (!canScroll) {
+                return false;
+            }
+
             let timeout = 500;
-            
             if (direction === 'up') {
                 timeout = 150;
             }
@@ -331,7 +335,7 @@ function hidePreloader() {
     setTimeout(function() {
         $('#fullpage > .opacity-0, body > .opacity-0:not(".loading__dontshow")').removeClass('opacity-0');
         $('.slide__loading').addClass('hidden');
-        
+        canScroll = true;
         sr.reveal('.footer__wrapper', {
             duration   : 600,
             distance   : '100px',
