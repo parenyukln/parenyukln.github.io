@@ -336,7 +336,6 @@ function hidePreloader() {
             distance   : '100px',
             easing     : 'ease-out',
             origin     : 'bottom',
-            reset      : true,
             scale      : 1,
             viewFactor : 0,
             delay: 50
