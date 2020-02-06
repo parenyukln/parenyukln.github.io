@@ -7,7 +7,7 @@ $(document).ready( function() {
         lazyLoading: true,
         css3: false,
         resize: true,
-        touchSensitivity: 20,
+        touchSensitivity: 30,
         scrollOverflow: false,
 	    scrollOverflowReset: false,
         onLeave: function(origin, destination, direction) {
