@@ -3234,6 +3234,10 @@ input[type=submit]:hover {
     .slide__three .header__text .mobile-hide {
         display: block;
     }
+
+    .slide__six .main__map {
+        min-height: 30vh;
+    }
 }
 
 /*
