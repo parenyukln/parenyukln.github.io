@@ -3249,6 +3249,10 @@ input[type=submit]:hover {
     .slide__six .main__map {
         min-height: 30vh;
     }
+
+    .header__language, .menu-mobile, .header__email {
+        margin-right: 15px;
+    }
 }
 
 /*
