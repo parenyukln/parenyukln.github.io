@@ -2959,6 +2959,14 @@ input[type=submit]:hover {
         font-size: 0.675rem;
     }
 
+    .slide__two .image__container img {
+        height: 35vh;
+    }
+
+    .slide__two .description__wrapper {
+        min-height: 60vh;
+    }
+
     .slide__five .right__container .text__container {
         font-size: 0.675rem;
     }
@@ -2989,6 +2997,7 @@ input[type=submit]:hover {
         padding: 0;
         padding-left: 100px;
         margin-bottom: 10%;
+        margin-top: 0;
     }
 
     .slide__six .header__item-link {
