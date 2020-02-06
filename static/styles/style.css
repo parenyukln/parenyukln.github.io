@@ -1241,6 +1241,9 @@ input[type=submit]:hover {
 .header__nav.owl-theme .owl-nav {
     margin: 0;
     display: flex;
+    position: absolute;
+    top: 150%;
+    right: 0;
 }
 
 .slide__six-main.owl-carousel .owl-stage-outer {
