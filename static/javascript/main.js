@@ -7,7 +7,7 @@ $(document).ready( function() {
         lazyLoading: true,
         css3: false,
         resize: true,
-        touchSensitivity: 23,
+        touchSensitivity: 20,
         scrollOverflow: false,
         animateAnchor: false,
 	    scrollOverflowReset: false,
