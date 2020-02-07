@@ -620,6 +620,14 @@ function initMap() {
         mapMoscow.setOptions({styles: mapStyles});
         mapCanada.setOptions({styles: mapStyles});
         mapStates.setOptions({styles: mapStyles});
+
+        $('.google__map').on('touchstart', function() {
+            $('.google__map .gm-style .gm-style-pbc ~ div').hide();
+        });
+
+        $('.google__map').on('touchend', function() {
+            $('.google__map .gm-style .gm-style-pbc ~ div').show();
+        });
 }
 
 function doAnimation(destination) {
