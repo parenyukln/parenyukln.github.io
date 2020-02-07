@@ -2519,7 +2519,9 @@ input[type=submit]:hover {
         font-size: 14px;
     }
 
-    
+    .slide__six-footer {
+        bottom: 1%;
+    }
 }
 
 @media (max-width: 480px) {
