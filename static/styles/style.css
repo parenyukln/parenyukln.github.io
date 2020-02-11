@@ -1795,6 +1795,10 @@ input[type=submit]:hover {
         right: 0;
     }
 
+    .header__button-create {
+        padding: 5px 20px;
+    }
+
     /**
     * Slide one media queries
     */
