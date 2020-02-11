@@ -1,4 +1,3 @@
-var canScroll = false;
 var firstAnchorLoad = true;
 var preloaderHadHide = false;
 $(document).ready( function() {
@@ -24,11 +23,6 @@ $(document).ready( function() {
             }, timeout);
         },
         onLeave: function(origin, destination, direction) {
-            console.log(canScroll)
-            if (!canScroll) {
-                return false;
-            }
-            
             let timeout = 510;
             if (direction === 'up') {
                 timeout = 150;
@@ -366,7 +360,6 @@ function hidePreloader() {
     
         setTimeout(function() {
             $('.slide__loading').addClass('hidden');
-            canScroll = true;
             sr.reveal('.footer__wrapper', {
                 duration   : 600,
                 distance   : '100px',
