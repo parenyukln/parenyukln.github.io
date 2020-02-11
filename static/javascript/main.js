@@ -24,10 +24,11 @@ $(document).ready( function() {
             }, timeout);
         },
         onLeave: function(origin, destination, direction) {
+            console.log(canScroll)
             if (!canScroll) {
                 return false;
             }
-
+            
             let timeout = 510;
             if (direction === 'up') {
                 timeout = 150;
@@ -333,7 +334,6 @@ function changeSlide(slideNumber, doMove = true, fromSlideNumber) {
         $('.header .header__link')[slideNumber-2].classList.add('header__link-active');
         $('.mobile__menu .header__link')[slideNumber-2].classList.add('header__link-active');
     } 
-    $('#fullpage > .opacity-0').removeClass('opacity-0');
 }
 
 function darkSlide() {
