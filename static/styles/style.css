@@ -526,12 +526,12 @@ a {
     text-transform: uppercase;
     background-color: #f2501e;
     border-radius: 29.5px;
-    width: 95%;
+    padding: 0 10%;
 }
 
 .header__button-create p {
     margin-right: 20px;
-    width: 60%;
+    white-space: nowrap;
 }
 
 .header__button-create::after {

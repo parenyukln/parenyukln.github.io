@@ -3,6 +3,7 @@ $(document).ready( function() {
     window.sr = ScrollReveal();
     // Fullpage init
 	$('#fullpage').fullpage({
+        anchors: ['home', 'technologies', 'platform', 'solutions', 'team', 'contacts'],
         normalScrollElementTouchThreshold: 1,
         lazyLoading: true,
         css3: false,
@@ -10,7 +11,10 @@ $(document).ready( function() {
         touchSensitivity: 20,
         scrollOverflow: false,
         animateAnchor: false,
-	    scrollOverflowReset: false,
+        scrollOverflowReset: false,
+        fitToSection: false,
+        recordHistory: false,
+        bigSectionsDestination: 'top',
         onLeave: function(origin, destination, direction) {
             if (!canScroll) {
                 return false;
