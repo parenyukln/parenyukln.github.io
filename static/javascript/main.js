@@ -28,7 +28,7 @@ $(document).ready( function() {
                 return false;
             }
 
-            let timeout = 500;
+            let timeout = 510;
             if (direction === 'up') {
                 timeout = 150;
             }
