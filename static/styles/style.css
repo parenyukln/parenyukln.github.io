@@ -199,6 +199,7 @@ a {
 
 .content__slide {
     overflow: hidden;
+    transition: opacity .5s;
 }
 
 .sub__title {
@@ -370,7 +371,7 @@ a {
 }
 
 .main__point-active {
-    background: url('../images/aside_main_active_dot.png') no-repeat 50% 50%;  
+    background: url('../images/aside_main_active_dot.png') no-repeat 50% 50%; 
 }
 
 .main__point.main__point-active .point__right {
@@ -382,12 +383,15 @@ a {
     min-width: 15.5px;
     width: 35%;
     text-align: end;
+    transition: opacity 1s; 
+    transform: translateY(0);
 }
 
 .point__right {
     margin-left: 15%;
     white-space: nowrap;
     width: 35%;
+    transition: opacity 1s; 
 }
 
 .hidden {
@@ -1293,6 +1297,11 @@ input[type=submit]:hover {
 .animation-opacity {
     opacity: 0 !important;
 }
+
+.sub__point-animate {
+    -webkit-animation: sub_point_anim .5s;
+    animation: sub_point_anim .5s;
+}
         
 @-webkit-keyframes spin {
     from {
@@ -1314,6 +1323,24 @@ input[type=submit]:hover {
     to {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
+    }
+}
+
+@keyframes sub_point_anim {
+    from {
+        background: url('../images/aside_sub_dot.png') no-repeat 0 0;
+    }
+    to {
+        background: url('../images/aside_main_active_dot.png') no-repeat 50% 50%;
+    }
+}
+
+@-webkit-keyframes sub_point_anim {
+    from {
+        background: url('../images/aside_sub_dot.png') no-repeat 0 0;
+    }
+    to {
+        background: url('../images/aside_main_active_dot.png') no-repeat 50% 50%;
     }
 }
 
