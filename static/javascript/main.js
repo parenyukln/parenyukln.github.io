@@ -40,7 +40,7 @@ $(document).ready( function() {
 
             setTimeout(function() {
                 changeSlide(destination, false, origin);
-                $('#fullpage > .opacity-0, body > .opacity-0:not(".loading__dontshow")').removeClass('opacity-0');
+                $('body > .opacity-0:not(".loading__dontshow")').removeClass('opacity-0');
                 
                 if (direction === 'up') {
                     setTimeout(function() {
@@ -52,8 +52,7 @@ $(document).ready( function() {
             }, timeout);
 
             doAsidePointsAnimation(origin, destination, direction);
-            doAnimation(destination); 
-            
+            doAnimation(destination);    
         },
         afterResize: function(width, height){
            $('.owl-carousel').trigger('refresh.owl.carousel');
