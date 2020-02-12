@@ -172,6 +172,7 @@ $(document).ready( function() {
             e.preventDefault();
             changeSlide(i+2);
             this.classList.add('header__link-active');
+            $('.menu-mobile').click();
         }
     });
 
