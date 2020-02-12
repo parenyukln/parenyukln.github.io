@@ -819,16 +819,9 @@ input[type=submit]:hover {
 }
 
 .slide__four-item .image__wrapper {
-    height: 350px;
+    height: 43vh;
     position: relative;
     margin-bottom: 30px;
-}
-
-.slide__four-item .image__wrapper::after {
-    content: url('../images/slide_four/white_splash.png');
-    position: absolute;
-    bottom: -5px;
-    left: -190px;
 }
 
 .slide__four .item__title {
@@ -1222,7 +1215,7 @@ input[type=submit]:hover {
     border-radius: 50%;
 }
 
-.slide__six-main.owl-theme .owl-nav, .slide__four-main.owl-theme .owl-nav {
+.slide__six-main.owl-theme .owl-nav, .solition__wrapper.owl-theme .owl-nav {
     position: absolute;
     top: 50%;
     width: 90%;
@@ -1232,7 +1225,20 @@ input[type=submit]:hover {
     margin: 0;
 }
 
-.slide__four-main.owl-theme .owl-nav {
+.solition__wrapper .owl-item {
+    transition: all .5s;
+}
+
+.solition__wrapper .owl-item:not(.center) {
+    opacity: .5;
+    transform: scale(.7);
+}
+
+.solition__wrapper .owl-item:not(.center) .item__title {
+    display: none;
+}
+
+.solition__wrapper.owl-theme .owl-nav {
     width: 105%;
     top: 40%;
     padding-left: 0;
@@ -1254,17 +1260,17 @@ input[type=submit]:hover {
     overflow: unset;
 }
 
-.slide__six-main.owl-theme .owl-nav [class*='owl-'], .slide__four-main.owl-theme .owl-nav [class*='owl-'], .header__nav.owl-theme .owl-nav [class*='owl-'], .slide__three-main.owl-theme .owl-nav [class*='owl-'] {
+.slide__six-main.owl-theme .owl-nav [class*='owl-'], .solition__wrapper.owl-theme .owl-nav [class*='owl-'], .header__nav.owl-theme .owl-nav [class*='owl-'], .slide__three-main.owl-theme .owl-nav [class*='owl-'] {
     background: transparent; 
     z-index: 3;
     margin: 0;
 }
 
-.slide__six-main.owl-theme .owl-nav [class*='owl-'].disabled, .slide__four-main.owl-theme .owl-nav [class*='owl-'].disabled, .header__nav.owl-theme .owl-nav [class*='owl-'].disabled, .slide__three-main.owl-theme .owl-nav [class*='owl-'].disabled {
+.slide__six-main.owl-theme .owl-nav [class*='owl-'].disabled, .solition__wrapper.owl-theme .owl-nav [class*='owl-'].disabled, .header__nav.owl-theme .owl-nav [class*='owl-'].disabled, .slide__three-main.owl-theme .owl-nav [class*='owl-'].disabled {
     opacity: .16;
 }
 
-.slide__six-main.owl-theme .owl-nav [class*='owl-']:hover, .slide__four-main.owl-theme .owl-nav [class*='owl-']:hover, .header__nav.owl-theme .owl-nav [class*='owl-']:hover, .slide__three-main.owl-theme .owl-nav [class*='owl-']:hover {
+.slide__six-main.owl-theme .owl-nav [class*='owl-']:hover, .solition__wrapper.owl-theme .owl-nav [class*='owl-']:hover, .header__nav.owl-theme .owl-nav [class*='owl-']:hover, .slide__three-main.owl-theme .owl-nav [class*='owl-']:hover {
     opacity: 1;
 }
 
@@ -1360,7 +1366,7 @@ input[type=submit]:hover {
     }
 
     .slide__four-wrapper {
-        padding: 0 0% 0 8%;
+        padding: 0 0% 0 5%;
     }
 
     .slide__four-header {
@@ -1789,6 +1795,10 @@ input[type=submit]:hover {
         margin-bottom: 10px;
     }
 
+    .slide__four-main--item, .slide__four-item {
+        width: 100%;
+    }
+
     .header__nav.owl-theme .owl-nav {
         position: absolute;
         top: -150%;
@@ -1820,6 +1830,10 @@ input[type=submit]:hover {
         min-height: unset;
         justify-content: flex-start;
         height: auto;
+    }
+
+    .slide__four-wrapper {
+        padding: 0 5%;
     }
 
     .slide__one .image__block {
@@ -2167,7 +2181,7 @@ input[type=submit]:hover {
     }
 
     .slide__four-item .image__wrapper img {
-        width: 80%;
+        width: 100%;
         align-self: flex-end;
     }
 
@@ -2177,13 +2191,14 @@ input[type=submit]:hover {
 
     .slide__four-item .image__wrapper {
         height: 45vh;
+        justify-content: center;
     }
 
-    .slide__four-main.owl-theme .owl-nav {
+    .solition__wrapper.owl-theme .owl-nav {
         z-index: 3;
         width: auto;
         top: 0;
-        right: 5%;
+        right: 10%;
     }
 
     /**
@@ -2596,10 +2611,6 @@ input[type=submit]:hover {
 
     .slide__one .image__block {
         width: 100%;
-    }
-
-    .slide__four-item .image__wrapper {
-        height: 35vh;
     }
 
     .slide__one .text__block::after {
@@ -3157,6 +3168,10 @@ input[type=submit]:hover {
         height: 100px;
     }
 
+    .slide__four-item .image__wrapper img {
+        width: 80%;
+    }
+
     .slide__three .main__item-wrapper .circle__wrapper img {
         width: 95%;
     }
@@ -3288,6 +3303,10 @@ input[type=submit]:hover {
 
     .header__language, .menu-mobile, .header__email {
         margin-right: 15px;
+    }
+
+    .slide__four-item .image__wrapper img {
+        width: 70%;
     }
 }
 

@@ -262,11 +262,16 @@ $(document).ready( function() {
 
     $('.slide__four-header').delegate('.header__nav-item', 'click', function(e) {
         e.preventDefault();
+        const thisDataCat = $(this).data('cat');
         const thisDataIndex = Number($(this).data('index'));
+
+        if ( $('.slide__four-header .header__nav-item.active').data('cat') === thisDataCat ) {
+            return;
+        }
         
         $('.slide__four-header .header__nav-item.active').removeClass('active');
-        $('.slide__four .solition__wrapper.owl-carousel').trigger('to.owl.carousel', thisDataIndex, 1000);
-        $(`.slide__four-header .header__nav-item[data-index=${thisDataIndex}]`).addClass('active');
+        $('.slide__four .solition__wrapper.owl-carousel').trigger('to.owl.carousel', [thisDataIndex , 100]);
+        $(`.slide__four-header .header__nav-item[data-cat=${thisDataCat}]`).addClass('active');
     });
 
     $('.slide__six-header .header__item-link').click( function(e) {
@@ -720,28 +725,19 @@ function initSliders() {
         });
     }
 
-    // Slide four
-    $('.slide__four .slide__four-main.owl-carousel').owlCarousel({
+    $('.slide__four .solition__wrapper.owl-carousel').owlCarousel({
         dots: false,
         nav: true,
         smartSpeed: 1000,
         navText: ["<img src='./static/images/left_arrow.png' alt='Left arrow'>","<img src='./static/images/right_arrow.png' alt='Right arrow'>"],
+        loop: true,
+        center: true,
         responsive: { 
             0: {
                 items: 1
-            }
-        }
-    });
-
-    $('.slide__four .solition__wrapper.owl-carousel').owlCarousel({
-        dots: false,
-        mouseDrag: false,
-        touchDrag: false,
-        smartSpeed: 1000,
-        loop: true,
-        responsive: { 
-            0: {
-                items:1
+            },
+            960: {
+                items: 3
             }
         }
     });
@@ -752,6 +748,8 @@ function initSliders() {
         smartSpeed: 1000,
         navText: ["<img src='./static/images/left_arrow.png' alt='Left arrow'>","<img src='./static/images/right_arrow.png' alt='Right arrow'>"],
         loop: true,
+        mouseDrag: false,
+        touchDrag: false,
         responsive: { 
             0: {
                 items: 2
@@ -785,58 +783,22 @@ function initSliders() {
 
     $('.slide__four .solition__wrapper.owl-carousel').on('changed.owl.carousel', function(event) {
         /*const slideIndex = event.item.index;
-        $('.slide__four-header .header__nav-item.active').removeClass('active');
-        $('.slide__four-header .header__nav-item').eq(slideIndex).addClass('active');*/
-    });
-
-    $('.slide__four .slide__four-main.owl-carousel .owl-nav .owl-next, .slide__four .header__nav.owl-carousel .owl-nav .owl-next').off('click');
-    $('.slide__four .slide__four-main.owl-carousel .owl-nav .owl-prev, .slide__four .header__nav.owl-carousel .owl-nav .owl-prev').off('click');
-
-    // Custom next
-    $('.slide__four .slide__four-main.owl-carousel .owl-nav .owl-next').click( function(e) {
-        e.stopPropagation();
-        const lastPageItem = $(this).parents('.slide__four .slide__four-main.owl-carousel').find('.owl-item:last-child');
-        const islastItem = lastPageItem.hasClass('active');
         
-        if (islastItem) { // Если последний элемент, тогда меняем страницу в родительской карусели
-            const lastCarouselIndex = Number($('.slide__four .header__nav').data('last'));
-            const nextHeaderItemActiveIndex = (Number($('.slide__four .header__nav-item.active')[0].dataset.index) + 1) > lastCarouselIndex ? 0 : Number($('.slide__four .header__nav-item.active')[0].dataset.index) + 1;
-            const headerItem = $(`.slide__four .header__nav-item[data-index=${nextHeaderItemActiveIndex}]`);
-            headerItem.click();
+        const currentCarouselItemDataCat = $('.slide__four .solition__wrapper.owl-carousel .owl-item').eq(slideIndex).find('.slide__four-solution').data('cat');
+        $(`.slide__four .header__nav-item[data-cat=${currentCarouselItemDataCat}]`).click();*/
 
-            if (!headerItem.parent().hasClass('active')) {
-                $('.slide__four .header__nav').trigger('next.owl.carousel');
-            }
-        } else { // Если нет, тогда в этой карусели
-            $(this).parents('.slide__four-main.owl-carousel').trigger('next.owl.carousel');
-        }
     });
 
-    // Custom prev
-    $('.slide__four .slide__four-main.owl-carousel .owl-nav .owl-prev').click( function(e) {
-        e.stopPropagation();
-        const firstPageItem = $(this).parents('.slide__four .slide__four-main.owl-carousel').find('.owl-item:first-child');
-        const isFirstItem = firstPageItem.hasClass('active');
-        
-        if (isFirstItem) { // Если первый элемент, тогда меняем страницу в родительской карусели
-            const lastCarouselIndex = Number($('.slide__four .header__nav').data('last'));
-            const prevHeaderItemActiveIndex = (Number($('.slide__four .header__nav-item.active')[0].dataset.index) - 1) < 0 ? lastCarouselIndex : Number($('.slide__four .header__nav-item.active')[0].dataset.index) - 1;
-            const headerItem = $(`.slide__four .header__nav-item[data-index=${prevHeaderItemActiveIndex}]`);
-            headerItem.click();
-
-            if (!headerItem.parent().hasClass('active')) {
-                $('.slide__four .header__nav').trigger('prev.owl.carousel');
-            }
-        } else { // Если нет, тогда в этой карусели
-            $(this).parents('.slide__four-main.owl-carousel').trigger('prev.owl.carousel');
-        }
-    });
+    $('.slide__four .header__nav.owl-carousel .owl-nav .owl-next').off('click');
+    $('.slide__four .header__nav.owl-carousel .owl-nav .owl-prev').off('click');
 
     $('.slide__four .header__nav.owl-carousel .owl-nav .owl-next').click(function(e) {
         e.stopPropagation();
         const lastCarouselIndex = Number($('.slide__four .header__nav').data('last'));
-        const nextHeaderItemActiveIndex = (Number($('.slide__four .header__nav-item.active')[0].dataset.index) + 1) > lastCarouselIndex ? 0 : Number($('.slide__four .header__nav-item.active')[0].dataset.index) + 1;
-        const headerItem = $(`.slide__four .header__nav-item[data-index=${nextHeaderItemActiveIndex}]`);
+        const thisHeaderItemActiveDataIndex = Number($('.slide__four .header__nav-item.active').data('index'));
+        let headerItem;
+        
+        headerItem = $(`.slide__four .header__nav-item[data-index=${thisHeaderItemActiveDataIndex}]`).parent().next().find('.header__nav-item');          
         headerItem.click();
 
         if (!headerItem.parent().hasClass('active')) {
@@ -847,8 +809,10 @@ function initSliders() {
     $('.slide__four .header__nav.owl-carousel .owl-nav .owl-prev').click(function(e) {
         e.stopPropagation();
         const lastCarouselIndex = Number($('.slide__four .header__nav').data('last'));
-        const prevHeaderItemActiveIndex = (Number($('.slide__four .header__nav-item.active')[0].dataset.index) - 1) < 0 ? lastCarouselIndex : Number($('.slide__four .header__nav-item.active')[0].dataset.index) - 1;
-        const headerItem = $(`.slide__four .header__nav-item[data-index=${prevHeaderItemActiveIndex}]`);
+        const thisHeaderItemActiveDataIndex = Number($('.slide__four .header__nav-item.active').data('index'));
+        let headerItem;
+        
+        headerItem = $(`.slide__four .header__nav-item[data-index=${thisHeaderItemActiveDataIndex}]`).parent().prev().find('.header__nav-item');          
         headerItem.click();
 
         if (!headerItem.parent().hasClass('active')) {
