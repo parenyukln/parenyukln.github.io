@@ -270,7 +270,7 @@ $(document).ready( function() {
         }
         
         $('.slide__four-header .header__nav-item.active').removeClass('active');
-        $('.slide__four .solition__wrapper.owl-carousel').trigger('to.owl.carousel', [thisDataIndex , 100]);
+        $('.slide__four .solition__wrapper.owl-carousel').trigger('to.owl.carousel', [thisDataIndex , 0]);
         $(`.slide__four-header .header__nav-item[data-cat=${thisDataCat}]`).addClass('active');
     });
 
