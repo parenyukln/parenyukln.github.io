@@ -2644,7 +2644,7 @@ input[type=submit]:hover {
     .slide__one .main__content {
         flex-direction: column;
         padding-left: 50px;
-        margin-top: 40%;
+        margin-top: 35%;
     }
 
     .slide__one .text__block {
@@ -3122,7 +3122,7 @@ input[type=submit]:hover {
     }
 
     .slide__two-wrapper {
-        margin-top: 20%;
+        margin-top: 25%;
     }
 
     .slide__six .footer__text {
@@ -3192,7 +3192,6 @@ input[type=submit]:hover {
 
     .slide__one .main__content {
         padding-left: 30px;
-        margin-top: 50%;
     }
 
     .slide__one .text__block-wrapper .main__title {
@@ -3364,7 +3363,7 @@ input[type=submit]:hover {
 
 @media (max-width: 320px) {
     .slide__one .main__content {
-        margin-top: 55%;
+        margin-top: 45%;
     }
 
     .slide__three .header__text .mobile-hide {
