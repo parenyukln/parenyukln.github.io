@@ -316,6 +316,7 @@ a {
 
 .slide__one .text__block .h1 {
     margin: 6% -3px 1%;
+    display: inline-block;
 }
 
 .slide__one .image__block img {
@@ -3154,6 +3155,20 @@ input[type=submit]:hover {
 
     .slide__four-item .image__wrapper {
         height: 50vh;
+    }
+}
+
+@media (max-width: 414px) and (max-height: 500px) {
+    .slide__five .slide__five-main--right .right__container .right__container-item:nth-child(3) {
+        display: none;
+    }
+
+    .slide__six-footer--wrapper {
+        padding: 20% 10%;
+    }
+
+    .slide__six .footer__social {
+        margin-bottom: 2%;
     }
 }
 
