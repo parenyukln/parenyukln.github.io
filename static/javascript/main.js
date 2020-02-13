@@ -2,8 +2,6 @@ var firstAnchorLoad = true;
 var preloaderHadHide = false;
 var fourOwlCarouselChangeDirection = '';
 
-
-
 $(document).ready( function() {
     window.sr = ScrollReveal();
     
@@ -247,11 +245,16 @@ function checkScroll() {
     if (widthInFact > widthMustBe) {
         $.fn.fullpage.setAutoScrolling(false);
         $.fn.fullpage.setKeyboardScrolling(false, 'down, up'); 
+        $.fn.fullpage.setFitToSection(false);
+        $.fn.fullpage.setLockAnchors(true);
         $('body').children().not('#fullpage').css('position', 'fixed');
+        
     } else {
         $.fn.fullpage.setAutoScrolling(true);
         $.fn.fullpage.setKeyboardScrolling(true, 'down, up');
         $('body').children().not('#fullpage').css('position', 'absolute');
+        $.fn.fullpage.setFitToSection(true);
+        $.fn.fullpage.setLockAnchors(false);
     }
 }
 
