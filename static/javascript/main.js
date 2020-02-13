@@ -47,7 +47,7 @@ $(document).ready( function() {
         $('.owl-carousel').trigger('refresh.owl.carousel');
         $.fn.fullpage.reBuild();
         initSliders();
-        checkScroll();
+        //checkScroll();
     }
 
     // Events
@@ -239,23 +239,18 @@ $(document).ready( function() {
 });
 
 function checkScroll() {
-    const widthMustBe = $(window).height();
+    /*const widthMustBe = $(window).height();
     const widthInFact = Math.max.apply(Math, $('.content__slide').map(function(){ return $(this).height(); }).get());
     
     if (widthInFact > widthMustBe) {
         $.fn.fullpage.setAutoScrolling(false);
         $.fn.fullpage.setKeyboardScrolling(false, 'down, up'); 
-        $.fn.fullpage.setFitToSection(false);
-        $.fn.fullpage.setLockAnchors(true);
         $('body').children().not('#fullpage').css('position', 'fixed');
-        
     } else {
         $.fn.fullpage.setAutoScrolling(true);
         $.fn.fullpage.setKeyboardScrolling(true, 'down, up');
         $('body').children().not('#fullpage').css('position', 'absolute');
-        $.fn.fullpage.setFitToSection(true);
-        $.fn.fullpage.setLockAnchors(false);
-    }
+    }*/
 }
 
 function fullpageInit() {
@@ -269,7 +264,7 @@ function fullpageInit() {
         touchSensitivity: 20,
         scrollOverflow: false,
         animateAnchor: false,
-        scrollOverflowReset: false,
+        scrollOverflowReset: true,
         fitToSection: false,
         recordHistory: false,
         bigSectionsDestination: 'top',
@@ -278,7 +273,7 @@ function fullpageInit() {
             setTimeout(function() {
                 $('#fullpage > .opacity-0, body > .opacity-0:not(".loading__dontshow")').removeClass('opacity-0');                        
             }, timeout);
-            checkScroll();  
+            //checkScroll();  
         },
         onLeave: function(origin, destination, direction) {
             let timeout = 510;
@@ -796,7 +791,7 @@ function initSliders() {
         nav: true,
         mouseDrag: false,
         touchDrag: false,
-        navText: ["<img src='./static/images/left_arrow.png' alt='Left arrow'>","<img src='./static/images/right_arrow.png' alt='Right arrow'>"],
+        navText: ["<img src='./static/images/prev.png' alt='Left arrow'>","<img src='./static/images/next.png' alt='Right arrow'>"],
         responsive: { 
             0: {
                 items:1
