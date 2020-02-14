@@ -776,7 +776,7 @@ function initSliders() {
         dots: false,
         nav: true,
         smartSpeed: 1000,
-        navText: ["<img src='./static/images/left_arrow.png' alt='Left arrow'>","<img src='./static/images/right_arrow.png' alt='Right arrow'>"],
+        navText: ["<img src='./static/images/prev.png' alt='Left arrow'>","<img src='./static/images/next.png' alt='Right arrow'>"],
         loop: true,
         mouseDrag: false,
         touchDrag: false,

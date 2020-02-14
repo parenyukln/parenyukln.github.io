@@ -1325,6 +1325,11 @@ input[type=submit]:hover {
     -webkit-animation: sub_point_anim .5s;
     animation: sub_point_anim .5s;
 }
+
+.slide__four .header__nav .owl-next img, .slide__four .header__nav .owl-prev img {
+    width: 26px;
+    height: 26px;
+}
         
 @-webkit-keyframes spin {
     from {
