@@ -740,7 +740,7 @@ function initSliders() {
         $('.slide__three .owl-carousel').owlCarousel({
             dots: false,
             nav: true,
-            navText: ["<img src='./static/images/left_arrow.png' class='filter--color' alt='Left arrow'>","<img src='./static/images/right_arrow.png' class='filter--color' alt='Right arrow'>"],
+            navText: ["<img src='./static/images/prev.png' class='filter--color' alt='Left arrow'>","<img src='./static/images/next.png' class='filter--color' alt='Right arrow'>"],
             responsive: { 
                 0: {
                     items:1

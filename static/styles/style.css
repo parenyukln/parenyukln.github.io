@@ -1852,7 +1852,7 @@ input[type=submit]:hover {
         right: 0;
     }
 
-    .slide__four .solition__wrapper .owl-next img, .slide__four .solition__wrapper .owl-prev img, .slide__six-main .owl-next img, .slide__six-main .owl-prev img {
+    .slide__four .solition__wrapper .owl-next img, .slide__four .solition__wrapper .owl-prev img, .slide__six-main .owl-next img, .slide__six-main .owl-prev img, .slide__three-main .owl-next img, .slide__three-main .owl-prev img {
         width: 26px;
         height: 26px;
     }
