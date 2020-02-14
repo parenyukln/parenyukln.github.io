@@ -1,6 +1,10 @@
 var firstAnchorLoad = true;
 var preloaderHadHide = false;
 var fourOwlCarouselChangeDirection = '';
+// Internet Explorer 6-11
+var isIE = /*@cc_on!@*/false || !!document.documentMode;
+// Edge 20+
+var isEdge = !isIE && !!window.StyleMedia;
 
 $(document).ready( function() {
     window.sr = ScrollReveal();
@@ -364,8 +368,10 @@ function darkSlide() {
     // Меняем картинку логотипа
     document.querySelector('.logo__link img').src = './static/images/mircod_logo_black.png';
 
-    /*$('.header').addClass('header-dark');
-    $('.main__aside').addClass('aside-dark');*/
+    if (isIE || isEdge) {
+        $('.header').addClass('header-dark');
+        $('.main__aside').addClass('aside-dark');
+    }
 }
 
 function lightSlide() {
@@ -375,8 +381,10 @@ function lightSlide() {
     // Меняем картинку логотипа
     document.querySelector('.logo__link img').src = './static/images/mircod_logo_white.png';
 
-    /*$('.header').removeClass('header-dark');
-    $('.main__aside').removeClass('aside-dark');*/
+    if (isIE || isEdge) {
+        $('.header').removeClass('header-dark');
+        $('.main__aside').removeClass('aside-dark');
+    }
 }
 
 function hidePreloader() {

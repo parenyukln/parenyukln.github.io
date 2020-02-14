@@ -59,7 +59,7 @@ html {
     left: 0;
     width: 100%;
     z-index: 4;
-    font-size: 0.875rem;
+    font-size: 1rem;
     padding-bottom: 0;
 }
 
@@ -258,14 +258,14 @@ a {
 }
 
 .footer__item-head {
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-family: 'Montserrat-Bold', sans-serif;
     text-transform: uppercase;
     margin-bottom: 15%;
 }
 
 .footer__item-text {
-    font-size: 0.8rem;
+    font-size: 0.87rem;
     font-family: 'Montserrat-Regular', sans-serif;
 }
 
@@ -438,7 +438,7 @@ a {
 }
 
 .slide__two-wrapper {
-    padding: 0 10%;
+    padding: 0 5% 0 10%;
 }
 
 .slide__two .img__wrapper {
@@ -457,9 +457,9 @@ a {
 }
 
 .slide__two .description__wrapper {
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-family: 'Montserrat-Light', sans-serif;
-    width: 100%;
+    width: 80%;
     justify-content: flex-end;
 }
 
@@ -540,7 +540,7 @@ a {
 }
 
 .main__item-description h4 {
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     font-family: 'Montserrat-Bold', sans-serif;
     text-transform: uppercase; 
     margin-bottom: 10px;
@@ -552,7 +552,7 @@ a {
 }
 
 .slide__three .main__item-description {
-    font-size: 0.8rem;
+    font-size: 0.875rem;
 }
 
 .slide__three .main__item-description li {
@@ -1754,7 +1754,7 @@ input[type=submit]:hover {
 
 @media (max-width: 1440px) {
     html {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .slide__two .description__wrapper {
@@ -1795,6 +1795,10 @@ input[type=submit]:hover {
 
     .slide__four .header__nav-item {
         white-space: pre-wrap;
+    }
+
+    html {
+        font-size: 14px;
     }
 }
 
