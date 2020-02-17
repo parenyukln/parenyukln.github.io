@@ -1426,10 +1426,6 @@ input[type=submit]:hover {
         width: 95%;
     }
 
-    .slide__three-header {
-        margin-bottom: 0;
-    }
-
     .slide__three .text__steps {
         font-size: 1rem;
     }
