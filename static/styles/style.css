@@ -3369,6 +3369,7 @@ input[type=submit]:hover {
 
     .search__result {
         margin-top: 0;
+        height: 300px;
     }
 
     .slide__four-item .image__wrapper img {
