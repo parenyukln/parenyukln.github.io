@@ -48,10 +48,9 @@ $(document).ready( function() {
     });
 
     function doneResizing(){
-        $('.owl-carousel').trigger('refresh.owl.carousel');
+        $('.owl-carousel').trigger('destroy.owl.carousel');
         $.fn.fullpage.reBuild();
         initSliders();
-        //checkScroll();
     }
 
     // Events
@@ -277,7 +276,7 @@ function fullpageInit() {
             setTimeout(function() {
                 $('#fullpage > .opacity-0, body > .opacity-0:not(".loading__dontshow")').removeClass('opacity-0');                        
             }, timeout);
-            //checkScroll();  
+
         },
         onLeave: function(origin, destination, direction) {
             let timeout = 510;
