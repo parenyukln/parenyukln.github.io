@@ -274,9 +274,14 @@ function fullpageInit() {
         afterLoad: function(origin, destination, direction) {
             let timeout = 500;
             setTimeout(function() {
-                $('#fullpage > .opacity-0, body > .opacity-0:not(".loading__dontshow")').removeClass('opacity-0');                        
+                $('#fullpage > .opacity-0, body > .opacity-0:not(".loading__dontshow")').removeClass('opacity-0'); 
+                if ( firstAnchorLoad ) {
+                    $('.owl-carousel').trigger('destroy.owl.carousel');
+                    $.fn.fullpage.reBuild();
+                    initSliders();  
+                    firstAnchorLoad = false;         
+                }                      
             }, timeout);
-
         },
         onLeave: function(origin, destination, direction) {
             let timeout = 510;
@@ -285,8 +290,7 @@ function fullpageInit() {
             }
                 
             if ( firstAnchorLoad ) {
-                timeout = 0;
-                firstAnchorLoad = false;
+                timeout = 0;            
             }
 
             setTimeout(function() {
