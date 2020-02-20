@@ -342,6 +342,7 @@ a {
     height: 100%;
     background: url('../images/aside_vertical_line.png') no-repeat 50% 60%;
     flex-direction: column;
+    background-size: auto 80vh;
 }
 
 .aside-dark .aside__wrapper {
@@ -1375,6 +1376,12 @@ input[type=submit]:hover {
 /**
 * Laptop with low height
 */
+
+@media (min-height: 1024px) {
+    .aside__wrapper {
+        background-size: auto 85vh;
+    }
+}
 
 @media (max-height: 1024px) {
     .slide__one .image__block, .slide__one .text__block {
