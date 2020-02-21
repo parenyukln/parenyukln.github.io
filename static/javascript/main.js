@@ -235,9 +235,10 @@ $(document).ready( function() {
     $('.slide__six-header .header__item-link').click( function(e) {
         e.preventDefault();
         $('.slide__six-header .header__item').removeClass('header__item--active');
-        const parentElement = $(this).parent();
-        $('.slide__six .owl-carousel').trigger('to.owl.carousel', parentElement.index(), 1000);
-        parentElement.addClass('header__item--active');
+        const parentElement = $(this).parent().parent();
+        $('.slide__six .slide__six-main.owl-carousel').trigger('to.owl.carousel', parentElement.index(), 1000);
+        $('.slide__six .slide__six-header.owl-carousel').trigger('to.owl.carousel', parentElement.index(), 1000);
+        parentElement.find('.header__item').addClass('header__item--active');
     });
 });
 
@@ -257,10 +258,9 @@ function checkScroll() {
 }
 
 function fullpageInit() {
-    // Fullpage init
+  // Fullpage init
 	$('#fullpage').fullpage({
         anchors: ['home', 'technologies', 'platform', 'solutions', 'team', 'contacts'],
-        normalScrollElementTouchThreshold: 1,
         lazyLoading: true,
         css3: false,
         resize: true,
@@ -270,7 +270,6 @@ function fullpageInit() {
         scrollOverflowReset: true,
         fitToSection: false,
         recordHistory: false,
-        bigSectionsDestination: 'top',
         afterLoad: function(origin, destination, direction) {
             let timeout = 500;
             setTimeout(function() {
@@ -783,21 +782,26 @@ function initSliders() {
         loop: true,
         mouseDrag: false,
         touchDrag: false,
+        center: true,
         responsive: { 
             0: {
                 items: 2
             },
             480: {
-                items: 3
+                items: 3,
+                margin: 100
             },
             960: {
-                items: 4
+                items: 5,
+                margin: 150,
+                autoWidth: true
             }
         }
     });
 
     // Slide six
-    $('.slide__six .owl-carousel').owlCarousel({
+    $('.slide__six .slide__six-main.owl-carousel').owlCarousel({
+        smartSpeed: 500,
         dots: false,
         nav: true,
         mouseDrag: false,
@@ -806,6 +810,28 @@ function initSliders() {
         responsive: { 
             0: {
                 items:1
+            }
+        }
+    });
+
+    $('.slide__six .slide__six-header.owl-carousel').owlCarousel({
+        smartSpeed: 500,
+        dots: false,
+        nav: false,
+        mouseDrag: false,
+        touchDrag: false,
+        center: true,
+        responsive: { 
+            0: {
+                items: 3,
+                margin: 50
+            },
+            480: {
+                items: 3,
+                margin: 150
+            },
+            960: {
+                items: 7
             }
         }
     });
@@ -821,10 +847,8 @@ function initSliders() {
         
         if (currentCarouselItemDataCat !== currentHeaderItemDataCat) {
           $('.slide__four-header .header__nav-item.active').removeClass('active');
-          $(`.slide__four-header .header__nav-item[data-cat=${currentCarouselItemDataCat}]`).addClass('active');
-          if (!$('.slide__four-header .header__nav-item.active').parent().hasClass('active')) {     
-            $('.slide__four .header__nav').trigger('to.owl.carousel', [$('.slide__four-header .header__nav-item.active').data('header'), 500]);            
-          }
+          $(`.slide__four-header .header__nav-item[data-cat=${currentCarouselItemDataCat}]`).addClass('active');   
+            $('.slide__four .header__nav').trigger('to.owl.carousel', [$('.slide__four-header .header__nav-item.active').data('header'), 1000]);            
         }  
     });
 
@@ -863,8 +887,7 @@ function initSliders() {
 
     $('.slide__six .owl-carousel').on('changed.owl.carousel', function(event) {
         const slideIndex = event.item.index;
-        $('.slide__six-header .header__item').removeClass('header__item--active');
-        $('.slide__six-header .header__item-link').eq(slideIndex).parent().addClass('header__item--active');
+        $('.slide__six-header .header__item-link').eq(slideIndex).click();
     });
 }
 
@@ -888,3 +911,57 @@ function doAsidePointsAnimation(fromSlideNumber, toSlideNumber, diraction) {
     }
     
 }
+
+function $$(selector, context) {
+    var context = context || document;
+    var elements = context.querySelectorAll(selector);
+    var nodesArr = [].slice.call(elements);
+    return nodesArr.length === 1 ? nodesArr[0] : nodesArr;
+  }
+  
+  var $emotesArr = $$(".fb-emote");
+  var numOfEmotes = $emotesArr.length;
+  
+  var $dragCont = $$(".fb-cont__drag-cont");
+  var $activeEmote = $$(".fb-active-emote");
+  var $leftEye = $$(".fb-active-emote__eye--left");
+  var $rightEye = $$(".fb-active-emote__eye--right");
+  var $smile = $$(".fb-active-emote__smile");
+  
+  var emoteColors = {
+    terrible: "#f8b696",
+    bad: "#f9c686",
+    default: "#ffd68c"
+  };
+  
+  var animTime = 0.5;
+  
+  $emotesArr.forEach(function($emote, i) {
+    var progressStep = i / (numOfEmotes - 1);
+    $emote.dataset.progress = progressStep;
+  
+    $emote.addEventListener("click", function() {
+      var progressTo = +this.dataset.progress;
+      var type = this.dataset.emote;
+      var $target = document.querySelector("#fb-emote-" + type);
+      var $lEye = $target.querySelector(".fb-emote__eye--left");
+      var $rEye = $target.querySelector(".fb-emote__eye--right");
+      var leftEyeTargetD = $lEye.getAttribute("d");
+      var rightEyeTargetD = $rEye.getAttribute("d");
+      var smileTargetD = $target
+        .querySelector(".fb-emote__smile")
+        .getAttribute("d");
+      var bgColor = emoteColors[type];
+      if (!bgColor) bgColor = emoteColors.default;
+  
+      $$(".fb-emote.s--active").classList.remove("s--active");
+      this.classList.add("s--active");
+  
+      TweenMax.to($activeEmote, animTime, { backgroundColor: bgColor });
+      TweenMax.to($dragCont, animTime, { x: progressTo * 100 + "%" });
+      TweenMax.to($leftEye, animTime, { morphSVG: $lEye });
+      TweenMax.to($rightEye, animTime, { morphSVG: $rEye });
+      TweenMax.to($smile, animTime, { attr: { d: smileTargetD } });
+    });
+  });
+  

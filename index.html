@@ -18,6 +18,8 @@
     <script type="text/javascript" src="./static/javascript/vendor/fullpage.min.js"></script>
     <script type="text/javascript" src="./static/javascript/vendor/owl.carousel.min.js"></script>
     <script type="text/javascript" src="./static/javascript/vendor/scrollreveal.min.js"></script>
+    <script async src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin.min.js?r=182"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
     <script src="./static/javascript/main.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATKpQ_PUQAgKcJVhOiDMwad5IbD_kO_Pw&callback=initMap"></script>
 </head>
@@ -78,46 +80,49 @@
     </header>
 
     <aside class="main__aside hidden opacity-0">
-        <div class="aside__wrapper flex-cnt">
-            <div class="aside__content flex-cnt fl-jst-space cl-white">
-                <div class="main__point flex-cnt main__point-active">
+        <div class="aside__wrapper flex-cnt fb-cont">
+            <div class="aside__content flex-cnt fl-jst-space cl-white fb-cont__inner">
+                <div class="main__point flex-cnt main__point-active fb-emote" data-emote="terrible">
                     <div class="point__left">01</div>
-                    <div class="point__right">Главная</div>
+                    <div class="point__right fb-emote__caption">Главная</div>
                 </div>
                 <div class="sub__point"></div>
                 <div class="sub__point"></div>
                 <div class="sub__point"></div>
-                <div class="main__point flex-cnt">
+                <div class="main__point flex-cnt fb-emote" data-emote="bad">
                     <div class="point__left"></div>
-                    <div class="point__right">02</div>
+                    <div class="point__right fb-emote__caption">02</div>
                 </div>
                 <div class="sub__point"></div>
                 <div class="sub__point"></div>
                 <div class="sub__point"></div>
-                <div class="main__point flex-cnt">
+                <div class="main__point flex-cnt fb-emote" data-emote="okay">
                     <div class="point__left"></div>
-                    <div class="point__right">03</div>
+                    <div class="point__right fb-emote__caption">03</div>
                 </div>
                 <div class="sub__point"></div>
                 <div class="sub__point"></div>
                 <div class="sub__point"></div>
-                <div class="main__point flex-cnt">
+                <div class="main__point flex-cnt fb-emote" data-emote="good">
                     <div class="point__left"></div>
-                    <div class="point__right">04</div>
+                    <div class="point__right fb-emote__caption">04</div>
                 </div>
                 <div class="sub__point"></div>
                 <div class="sub__point"></div>
                 <div class="sub__point"></div>
-                <div class="main__point flex-cnt">
+                <div class="main__point flex-cnt fb-emote" data-emote="great">
                     <div class="point__left"></div>
-                    <div class="point__right">05</div>
+                    <div class="point__right fb-emote__caption">05</div>
                 </div>
                 <div class="sub__point"></div>
                 <div class="sub__point"></div>
                 <div class="sub__point"></div>
-                <div class="main__point flex-cnt">
+                <div class="main__point flex-cnt fb-emote" data-emote="greatest">
                     <div class="point__left"></div>
-                    <div class="point__right">06</div>
+                    <div class="point__right fb-emote__caption">06</div>
+                </div>
+                <div class="fb-cont__drag-cont">
+                    <div class="fb-active-emote"></div>
                 </div>
             </div>
         </div>
@@ -392,12 +397,8 @@
                     <div class="text__block-wrapper">
                         <h1 class="h1"><span class="main__title">MIRCOD</span><span class="sub__title">IoTaaS</span></h1>
                         <div class="description__wrapper">
-                            <p class="description">MIRCOD предоставляет сервис для создания IoT-продуктов, решений «под ключ» и
-                                брендирования под каждого клиента</p>
-                            <p class="description">Мы создаём платформу, которая позволит автоматизировать процесс разработки IoT-
-                                устройств и сервисов от идеи до запуска в серийное производство для представителей
-                                любой профессии и независимо от их квалификации и знаний в области проектирования
-                                электроники и программного обеспечения</p>
+                            <p class="description">Сервис для создания IoT-продуктов и решений «под ключ»</p>
+                            <p class="description">Мы создаём платформу, которая позволит автоматизировать процесс разработки IoT-устройств и сервисов от идеи до запуска в серийное производство независимо от вашей квалификации в области проектирования электроники и программного обеспечения</p>
                         </div>
                     </div>
                 </div>
@@ -483,7 +484,7 @@
                 <div class="slide__two-main flex-cnt">
                     <div class="main-container flex-cnt fl-dir-col fl-alg-end pd-right-50 left-container">
                         <div class="description__wrapper flex-cnt description__wrapper--active">
-                            <div class="description__wrapper-text pd-right-30">
+                            <div class="description__wrapper-text pd-right-30" data-header="Сенсоры">
                                 Разработка датчиков для измерений любой сложности
                             </div>
                             <div class="description__wrapper-img flex-cnt">
@@ -493,23 +494,23 @@
                             </div>
                         </div>
                         <div class="description__wrapper flex-cnt">
-                            <div class="description__wrapper-text pd-right-30">
+                            <div class="description__wrapper-text pd-right-30" data-header="Микросхемы">
                                 Обеспечение обработки данных и их шифрования
                             </div>
                             <div class="description__wrapper-img flex-cnt">
                                 <div class="img__wrapper flex-cnt fl-jst-center">
-                                    <img data-src="./static/images/slide_two/computer-processor.png" alt="Circles">
+                                    <img data-src="./static/images/slide_two/computer-processor.png" alt="computer">
                                 </div>
                             </div>
                         </div>
                         <div class="description__wrapper flex-cnt">
-                            <div class="description__wrapper-text pd-right-30">
+                            <div class="description__wrapper-text pd-right-30" data-header="Передача Данных">
                                 Использование таких интерфейсов и технологий, как 4G, 5G, Wi-Fi, Sigfox, LoRaWAN,
 NB-IoT и др.
                             </div>
                             <div class="description__wrapper-img flex-cnt">
                                 <div class="img__wrapper flex-cnt fl-jst-center">
-                                    <img data-src="./static/images/slide_two/wifi.png" alt="Circles">
+                                    <img data-src="./static/images/slide_two/wifi.png" alt="wifi">
                                 </div>
                             </div>
                         </div>
@@ -521,29 +522,29 @@ NB-IoT и др.
                     </div>
                     <div class="main-container flex-cnt fl-dir-col fl-alg-st pd-left-50 right-container">
                         <div class="description__wrapper flex-cnt fl-row-reverse">
-                            <div class="description__wrapper-text pd-left-30">
+                            <div class="description__wrapper-text pd-left-30" data-header="Machine Learning">
                                 MIRCOD разрабатывает алгоритмы для заказчика с использованием технологии
 машинного обучения
                             </div>
                             <div class="description__wrapper-img flex-cnt">
                                 <div class="img__wrapper flex-cnt fl-jst-center">
-                                    <img data-src="./static/images/slide_two/artificial_intelligence.png" alt="Circles">
+                                    <img data-src="./static/images/slide_two/artificial-intelligence.png" alt="artificial intelligence">
                                 </div>
                             </div>
                         </div>
                         <div class="description__wrapper flex-cnt fl-row-reverse">
-                            <div class="description__wrapper-text pd-left-30">
+                            <div class="description__wrapper-text pd-left-30" data-header="Безопасность">
                                 MIRCOD обеспечивает защиту от перехвата данных и несанкционированного
 доступа
                             </div>
                             <div class="description__wrapper-img flex-cnt">
                                 <div class="img__wrapper flex-cnt fl-jst-center">
-                                    <img data-src="./static/images/slide_two/shield.png" alt="Circles">
+                                    <img data-src="./static/images/slide_two/shield.png" alt="shield">
                                 </div>
                             </div>
                         </div>
                         <div class="description__wrapper flex-cnt fl-row-reverse">
-                            <div class="description__wrapper-text pd-left-30">
+                            <div class="description__wrapper-text pd-left-30" data-header="Облако">
                                 MIRCOD может работать как с собственным облачным решением, так и с другими
 сервисам: Microsoft Azure, Google, Amazon и пр.
                             </div>
@@ -563,14 +564,10 @@ NB-IoT и др.
 
         <section class="slide__three flex-cnt fl-jst-center content__slide section hidden opacity-0" data-anchor="platform">
             <div class="slide__three-wrapper flex-cnt fl-dir-col">
-                <div class="slide__three-header flex-cnt fl-alg-st fl-jst-space">
+                <div class="slide__three-header flex-cnt fl-alg-end fl-jst-space">
                     <div class="header__description-container flex-cnt width-60">
                         <div class="header__text cl-white">
-                            <h2 class="header__title">Платформа для создания IoT-устройств</h2>
-                            <p class="mobile-hide">Команда MIRCOD занимается разработкой IoTaaS-платформы для быстрого
-                                прототипирования IoT-продуктов и решений. Сервис будет полезен всем, кому
-                                необходимо создать своё уникальное IoT-устройство с существенным сокращением
-                                издержек и времени на разработку.</p>
+                            <h2 class="header__title">Платформа для создания IoT-устройств</h2>                   
                             <p class="text__steps">4 простых шага для создания своего устройства на MIRCOD IoTaaS</p>
                         </div>
                     </div>
@@ -1506,7 +1503,7 @@ NB-IoT и др.
 
         <section class="slide__six flex-cnt fl-jst-center content__slide section hidden opacity-0" data-anchor="contacts">
             <div class="slide__six-wrapper flex-cnt fl-dir-col">
-                <div class="slide__six-header flex-cnt">
+                <div class="slide__six-header flex-cnt owl-carousel owl-theme">
                     <div class="header__item header__item--active">
                         <a href="#" class="header__item-link cl-black">Казань</a>
                     </div>
