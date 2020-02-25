@@ -420,7 +420,7 @@ function initMap() {
         markerDirection = './static/images/slide_six/m-48.png';
     }
     var kazanCoordinates = {lat: 55.8020059, lng: 49.1175269},
-        moscowCoordinates = {lat: 55.8761989, lng: 37.3036923},
+        moscowCoordinates = {lat: 55.6938141, lng: 37.3390018},
         canadaCoordinates = {lat: 43.7687117, lng: -79.4765708},
         statesCoordinates = {lat: 26.355489, lng: -80.0877275},
         mapMarkerIcon = markerDirection,
