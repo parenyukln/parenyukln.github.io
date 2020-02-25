@@ -1413,7 +1413,7 @@ input[type=submit]:hover {
 }
 
 .slide__six-main.owl-theme .owl-nav [class*='owl-']:hover, .solition__wrapper.owl-theme .owl-nav [class*='owl-']:hover, .header__nav.owl-theme .owl-nav [class*='owl-']:hover, .slide__three-main.owl-theme .owl-nav [class*='owl-']:hover {
-    opacity: 1;
+    opacity: .7;
 }
 
 .google__map {
