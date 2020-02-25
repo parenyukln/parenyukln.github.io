@@ -405,7 +405,7 @@ function hidePreloader() {
                 viewFactor : 0,
                 delay: 50
             });
-        }, 500);
+        }, 505);
     } 
 }
 

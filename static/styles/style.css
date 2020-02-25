@@ -582,6 +582,7 @@ a {
     right: 30px;
     font-weight: bold;
     font-size: 1.1rem;
+    white-space: nowrap;
 }
 
 .slide__two .right-container .description__wrapper-text::before {
@@ -2003,6 +2004,11 @@ input[type=submit]:hover {
 
     html {
         font-size: 14px;
+    }
+
+    .slide__two .image__container {
+        text-align: center;
+        width: 350px;
     }
 }
 
