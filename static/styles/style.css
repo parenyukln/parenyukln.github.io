@@ -2150,6 +2150,10 @@ input[type=submit]:hover {
         padding-bottom: 10%;
     }
 
+    .slide__three .text__steps {
+        margin: 2rem 0;
+    }
+
     .slide__one .text__block-wrapper {
         margin-top: 0;
     }
@@ -3137,7 +3141,7 @@ input[type=submit]:hover {
     }
 
     .slide__three .main__item-header {
-        margin-bottom: 10%;
+        margin-bottom: 5%;
     }
 
     .slide__three-main {
@@ -3156,7 +3160,7 @@ input[type=submit]:hover {
     .slide__three .text__steps {
         font-size: 1rem;
         width: 99%;
-        margin: 2rem 0;
+        margin: 1rem 0;
     }
 
     .slide__three-main::after {
@@ -3500,12 +3504,8 @@ input[type=submit]:hover {
         display: block;
     }
 
-    .slide__three .main__item-header {
-        margin-bottom: 5%;
-    }
-
     .slide__three .text__steps {
-        margin: 2rem 0;
+        margin: 1rem 0;
     }
 
     .slide__four-main_top .main__description, .slide__four .item__title {

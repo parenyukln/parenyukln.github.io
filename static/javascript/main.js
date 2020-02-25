@@ -332,25 +332,20 @@ function changeSlide(slideNumber, doMove = true, fromSlideNumber) {
     });
 
     const currentPageNumber = slideNumber.toString();
-    let currentPageText = 'Главная';
+    const currentPageText = $('.content__slide').eq(slideNumber).data('translate');
 
     if (slideNumber === 1) {
         setTimeout(lightSlide, DEFAULT_SLIDE_TIME);
     } else if (slideNumber === 2) {
         setTimeout(darkSlide, DEFAULT_SLIDE_TIME);
-        currentPageText = 'Технологии';
     } else if (slideNumber === 3) {
         setTimeout(lightSlide, DEFAULT_SLIDE_TIME);
-        currentPageText = 'Платформа';
     } else if (slideNumber === 4) {
         setTimeout(darkSlide, DEFAULT_SLIDE_TIME);
-        currentPageText = 'Решения';
     } else if (slideNumber === 5) {
         setTimeout(lightSlide, DEFAULT_SLIDE_TIME);
-        currentPageText = 'Команда';
     } else if (slideNumber === 6) {
         setTimeout(darkSlide, DEFAULT_SLIDE_TIME);
-        currentPageText = 'Контакты';
     }
 
     $('.main__point-active .point__left').text('0' + currentPageNumber);
