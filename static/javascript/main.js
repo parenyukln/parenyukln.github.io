@@ -240,6 +240,14 @@ $(document).ready( function() {
         $('.slide__six .slide__six-header.owl-carousel').trigger('to.owl.carousel', parentElement.index(), 1000);
         parentElement.find('.header__item').addClass('header__item--active');
     });
+
+    var $pagesArr = $$('.fb-page');  
+    var numOfPages = $pagesArr.length;
+
+    $pagesArr.forEach(function($page, i) {
+      var progressStep = i / (numOfPages - 1);
+      $page.dataset.progress = progressStep;
+    });
 });
 
 function checkScroll() {
@@ -317,9 +325,6 @@ function changeSlide(slideNumber, doMove = true, fromSlideNumber) {
         $('.header__link-active').removeClass('header__link-active');
     }
 
-    $('.main__point-active .point__left, .main__point-active .point__right').addClass('opacity-0');
-    $('.main__point-active').removeClass('main__point-active');
-    document.querySelectorAll('.main__point')[slideNumber-1].classList.add('main__point-active');
     $('.main__point .point__left').text('');
     document.querySelectorAll('.main__point .point__right').forEach( function(item,i) {
         const text = i + 1;
@@ -348,7 +353,6 @@ function changeSlide(slideNumber, doMove = true, fromSlideNumber) {
         currentPageText = 'Контакты';
     }
 
-    $('.main__point-active .point__left, .main__point-active .point__right').addClass('opacity-0');
     $('.main__point-active .point__left').text('0' + currentPageNumber);
     $('.main__point-active .point__right').text(currentPageText);
     $('.point__left.opacity-0, .point__right.opacity-0').removeClass('opacity-0');
@@ -893,24 +897,29 @@ function initSliders() {
 }
 
 function doAsidePointsAnimation(fromSlideNumber, toSlideNumber, diraction) { 
-    const intervalTimeout = 25;
-    
-    if (diraction === 'down') {
-        $('.main__aside .main__point').eq(fromSlideNumber-1).nextUntil($('.main__aside .main__point').eq(toSlideNumber-1), '.sub__point').each(function(i, item) {
-            const $this = $(this);
-            setTimeout(function() {
-                $this.addClass('sub__point-animate');
-            }, intervalTimeout * i);
-        });
-    } else if (diraction === 'up') {
-        $('.main__aside .main__point').eq(fromSlideNumber-1).prevUntil($('.main__aside .main__point').eq(toSlideNumber-1), '.sub__point').each(function(i, item) {
-            const $this = $(this);
-            setTimeout(function() {
-                $this.addClass('sub__point-animate');
-            }, intervalTimeout * i);
-        });
+    var $this = document.querySelectorAll('.main__point')[toSlideNumber-1];
+    var $dragCont = $$('.fb-cont__drag-cont');
+    var $activePage = $$('.fb-active-page');
+    var pageColors = {
+        default: '#0f33ff'
     }
+    var animTime = diraction === 'up' ? 0.4 : 0.7;
+    var progressTo = +$this.dataset.progress;
+    var type = $this.dataset.page;
+    var bgColor = pageColors[type];
+    if (!bgColor) bgColor = pageColors.default;
     
+    $('.main__point-active .point__left, .main__point-active .point__right').addClass('opacity-0');
+    $('.main__point-active').removeClass('main__point-active');
+    document.querySelectorAll('.main__point')[toSlideNumber-1].classList.add('main__point-active');
+    $('.main__point-active .point__left, .main__point-active .point__right').addClass('opacity-0');
+    $$('.fb-page.s--active').classList.remove('s--active');
+    $this.classList.add('s--active');
+    
+    TweenMax.to($activePage, animTime, {backgroundColor: bgColor});
+    TweenMax.to($dragCont, animTime, {y: progressTo * 100 + '%'});
+
+    $('.fb-active-page').css('margin-top', `-${toSlideNumber/2}px`);
 }
 
 function $$(selector, context) {
@@ -918,51 +927,5 @@ function $$(selector, context) {
     var elements = context.querySelectorAll(selector);
     var nodesArr = [].slice.call(elements);
     return nodesArr.length === 1 ? nodesArr[0] : nodesArr;
-  }
-  
-  var $emotesArr = $$(".fb-emote");
-  var numOfEmotes = $emotesArr.length;
-  
-  var $dragCont = $$(".fb-cont__drag-cont");
-  var $activeEmote = $$(".fb-active-emote");
-  var $leftEye = $$(".fb-active-emote__eye--left");
-  var $rightEye = $$(".fb-active-emote__eye--right");
-  var $smile = $$(".fb-active-emote__smile");
-  
-  var emoteColors = {
-    terrible: "#f8b696",
-    bad: "#f9c686",
-    default: "#ffd68c"
-  };
-  
-  var animTime = 0.5;
-  
-  $emotesArr.forEach(function($emote, i) {
-    var progressStep = i / (numOfEmotes - 1);
-    $emote.dataset.progress = progressStep;
-  
-    $emote.addEventListener("click", function() {
-      var progressTo = +this.dataset.progress;
-      var type = this.dataset.emote;
-      var $target = document.querySelector("#fb-emote-" + type);
-      var $lEye = $target.querySelector(".fb-emote__eye--left");
-      var $rEye = $target.querySelector(".fb-emote__eye--right");
-      var leftEyeTargetD = $lEye.getAttribute("d");
-      var rightEyeTargetD = $rEye.getAttribute("d");
-      var smileTargetD = $target
-        .querySelector(".fb-emote__smile")
-        .getAttribute("d");
-      var bgColor = emoteColors[type];
-      if (!bgColor) bgColor = emoteColors.default;
-  
-      $$(".fb-emote.s--active").classList.remove("s--active");
-      this.classList.add("s--active");
-  
-      TweenMax.to($activeEmote, animTime, { backgroundColor: bgColor });
-      TweenMax.to($dragCont, animTime, { x: progressTo * 100 + "%" });
-      TweenMax.to($leftEye, animTime, { morphSVG: $lEye });
-      TweenMax.to($rightEye, animTime, { morphSVG: $rEye });
-      TweenMax.to($smile, animTime, { attr: { d: smileTargetD } });
-    });
-  });
+};
   
