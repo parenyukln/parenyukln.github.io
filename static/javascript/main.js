@@ -324,21 +324,21 @@ function changeSlide(slideNumber, doMove = true, fromSlideNumber) {
     if (document.querySelector('.header__link-active') !== null) {
         $('.header__link-active').removeClass('header__link-active');
     }
-
-    $('.main__point .point__left').text('');
-    document.querySelectorAll('.main__point .point__right').forEach( function(item,i) {
+    $('.overlay').removeClass('bg-black');
+    $('.main__point .point__right').text('');
+    document.querySelectorAll('.main__point .point__left').forEach( function(item,i) {
         const text = i + 1;
         item.innerHTML = '0' + text.toString();
     });
 
     const currentPageNumber = slideNumber.toString();
-    const currentPageText = $('.content__slide').eq(slideNumber).data('translate');
 
     if (slideNumber === 1) {
         setTimeout(lightSlide, DEFAULT_SLIDE_TIME);
     } else if (slideNumber === 2) {
         setTimeout(darkSlide, DEFAULT_SLIDE_TIME);
     } else if (slideNumber === 3) {
+        $('.overlay').addClass('bg-black');
         setTimeout(lightSlide, DEFAULT_SLIDE_TIME);
     } else if (slideNumber === 4) {
         setTimeout(darkSlide, DEFAULT_SLIDE_TIME);
@@ -348,8 +348,8 @@ function changeSlide(slideNumber, doMove = true, fromSlideNumber) {
         setTimeout(darkSlide, DEFAULT_SLIDE_TIME);
     }
 
-    $('.main__point-active .point__left').text('0' + currentPageNumber);
-    $('.main__point-active .point__right').text(currentPageText);
+    $('.main__point-active .point__left').text('');
+    $('.main__point-active .point__right').text('0' + currentPageNumber);
     $('.point__left.opacity-0, .point__right.opacity-0').removeClass('opacity-0');
 
     if (doMove) {
@@ -793,7 +793,7 @@ function initSliders() {
             },
             960: {
                 items: 5,
-                margin: 150,
+                margin: 100,
                 autoWidth: true
             }
         }
@@ -923,4 +923,29 @@ function $$(selector, context) {
     var nodesArr = [].slice.call(elements);
     return nodesArr.length === 1 ? nodesArr[0] : nodesArr;
 };
+
+// reCaptcha
+var verifyCallback = function(response) {
+    alert(response);
+};
+
+var widgetId1;
+var widgetId2;
+
+var onloadCallbackForCaptcha = function () {
+    widgetId1 = grecaptcha.render('captcha1', {
+        'sitekey' : '6LeobdwUAAAAAM9SJIy1NdZkC_L6KxjUNTn4tIzq',
+        'theme' : 'light'
+    });
+
+    widgetId2 = grecaptcha.render(document.getElementById('captcha2'), {
+        'sitekey' : '6LeobdwUAAAAAM9SJIy1NdZkC_L6KxjUNTn4tIzq'
+    });
+
+    grecaptcha.render('captcha3', {
+        'sitekey' : '6LeobdwUAAAAAM9SJIy1NdZkC_L6KxjUNTn4tIzq',
+        'callback' : verifyCallback,
+        'theme' : 'dark'
+    });
+}
   
