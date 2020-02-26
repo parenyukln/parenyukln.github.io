@@ -934,16 +934,16 @@ var widgetId2;
 
 var onloadCallbackForCaptcha = function () {
     widgetId1 = grecaptcha.render('captcha1', {
-        'sitekey' : '6LckcNwUAAAAACYyK-00ipwCrB6SsCuDuA6VYvaf',
+        'sitekey' : '6LeobdwUAAAAAM9SJIy1NdZkC_L6KxjUNTn4tIzq',
         'theme' : 'light'
     });
 
     widgetId2 = grecaptcha.render(document.getElementById('captcha2'), {
-        'sitekey' : '6LckcNwUAAAAACYyK-00ipwCrB6SsCuDuA6VYvaf'
+        'sitekey' : '6LeobdwUAAAAAM9SJIy1NdZkC_L6KxjUNTn4tIzq'
     });
 
     grecaptcha.render('captcha3', {
-        'sitekey' : '6LckcNwUAAAAACYyK-00ipwCrB6SsCuDuA6VYvaf',
+        'sitekey' : '6LeobdwUAAAAAM9SJIy1NdZkC_L6KxjUNTn4tIzq',
         'callback' : verifyCallback,
         'theme' : 'dark'
     });
