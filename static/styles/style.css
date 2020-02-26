@@ -2497,7 +2497,6 @@ input[type=submit]:hover {
 
     .slide__four-item .image__wrapper img {
         width: 100%;
-        align-self: flex-end;
     }
 
     .slide__four .header__nav {
