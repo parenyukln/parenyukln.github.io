@@ -347,6 +347,7 @@ body .bg-black {
     z-index: 1;
     justify-content: flex-end;
     align-items: flex-start;
+    transition: all 1s;
 }
 
 .footer__item-head {
@@ -766,7 +767,7 @@ input[type=submit]:hover {
 
 .registration__form .form__item, .contact__form .form__item, .vacancies__form .form__item  {
     width: 100%;
-    margin-bottom: 35px;
+    margin-bottom: 1.875rem;
 }
 
 .registration__form .form__item label, .contact__form .form__item label, .vacancies__form .form__item label {
@@ -800,7 +801,7 @@ input[type=submit]:hover {
 
 .registration__form .form__label, .contact__form .form__label, .search__form .form__label, .vacancies__form .form__label {
     font-size: 1.125rem;
-    margin-bottom: 35px;
+    margin-bottom: 1.875rem;
 }
 
 .registration__form input, .contact__form input, .contact__form textarea, .search__form input, .vacancies__form input {
@@ -1472,6 +1473,11 @@ input[type=submit]:hover {
     opacity: 0;
 }
 
+.animation-from-bottom {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
 .animation-opacity {
     opacity: 0 !important;
 }
@@ -1598,6 +1604,10 @@ input[type=submit]:hover {
 
     .slide__two .image__container img {
         width: 100%;
+    }
+
+    .registration__form .form__label, .contact__form .form__label, .search__form .form__label, .vacancies__form .form__label, .registration__form .form__item, .contact__form .form__item, .vacancies__form .form__item {
+        margin-bottom: 0.875rem;
     }
 }
 
@@ -2085,7 +2095,7 @@ input[type=submit]:hover {
     }
 
     .registration__form .form__label, .contact__form .form__label, .search__form .form__label, .vacancies__form .form__label {
-        margin-bottom: 10px;
+        margin-bottom: 0.625rem;
     }
 
     .slide__four-main--item, .slide__four-item {
@@ -3581,12 +3591,12 @@ input[type=submit]:hover {
 
     .registration__form .form__label, .contact__form .form__label, .search__form .form__label, .vacancies__form .form__label {
         font-size: 1rem;
-        margin-bottom: 15px;
+        margin-bottom: 0.9375rem;
     }
 
     .registration__form .form__item, .contact__form .form__item, .vacancies__form .form__item {
         width: 100%;
-        margin-bottom: 15px;
+        margin-bottom: 0.9375rem;
     }
 
     .registration__form input[type=text], .search__form input[type=text], .registration__form input[type=email], .vacancies__form input[type=email], .contact__form input[type=text], .contact__form input[type=tel], .contact__form input[type=email], .contact__form textarea {

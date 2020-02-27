@@ -7,7 +7,7 @@ var isIE = /*@cc_on!@*/false || !!document.documentMode;
 var isEdge = !isIE && !!window.StyleMedia;
 
 $(document).ready( function() {
-    window.sr = ScrollReveal();
+    //window.sr = ScrollReveal();
     
     fullpageInit();
     // Preloader 
@@ -286,7 +286,8 @@ function fullpageInit() {
                     $('.owl-carousel').trigger('destroy.owl.carousel');
                     $.fn.fullpage.reBuild();
                     initSliders();  
-                    firstAnchorLoad = false;         
+                    firstAnchorLoad = false;  
+                    doAnimation(destination);       
                 }                      
             }, timeout);
         },
@@ -396,16 +397,16 @@ function hidePreloader() {
     
         setTimeout(function() {
             $('.slide__loading').addClass('hidden');
-            sr.reveal('.footer__wrapper', {
-                duration   : 600,
-                distance   : '100px',
-                easing     : 'ease-out',
-                origin     : 'bottom',
-                scale      : 1,
-                viewFactor : 0,
-                delay: 50
-            });
-        }, 505);
+            /*sr.reveal('.footer__wrapper', {
+                reset: false,
+                duration: 600,
+                distance: '6.25rem',
+                easing: 'ease-out',
+                origin: 'bottom',
+                viewFactor: 0.2,
+                opacity: 0
+            });*/
+        }, 1000);
     } 
 }
 
@@ -693,6 +694,12 @@ function initMap() {
 
 function doAnimation(destination) {
      // Анимации по слайдам
+    if (destination === 1) {
+        setTimeout(function() {
+            $('.footer__wrapper').removeClass('animation-from-bottom');
+        }, 200);
+    }
+
      if (destination === 3) {
         setTimeout(function() {
             $('.slide__three-main').removeClass('animation-from-left');
