@@ -712,10 +712,16 @@ body .bg-black {
 }
 
 .slide__three-main::after {
-    content: url('../images/slide_three/horizontal_dots.png');
+    content: "";
     position: absolute;
-    top: 17%;
-    left: 3%;
+    top: 18%;
+    left: 5%;
+    width: 80%;
+    height: 2px;
+    background-image: linear-gradient(to right, gray 20%, rgba(255, 255, 255, 0) 0%);
+    background-position: left;
+    background-size: 10px 2px;
+    background-repeat: repeat-x;
     z-index: -1;
 }
 
@@ -2521,7 +2527,6 @@ input[type=submit]:hover {
 
     .slide__three-main::after {
         left: 25%;
-        top: 25%;
     }
 
     .slide__three .main__item-wrapper .circle__wrapper img {
@@ -2590,8 +2595,7 @@ input[type=submit]:hover {
     .slide__five-wrapper {
         width: 100%;
         flex-direction: column;
-        background-image: url(../images/slide_four/horizontal_line.png);
-        background-size: 60%;
+        background: none;
         padding: 0;
         height: 75vh;
     }
@@ -2615,6 +2619,7 @@ input[type=submit]:hover {
 
     .slide__five .slide__five-main--left {
         width: 80%;
+        margin-bottom: 5vh;
     }
 
     .slide__five .slide__five-main--right {
@@ -2764,6 +2769,10 @@ input[type=submit]:hover {
 
     .header__nav .owl-stage-outer {
         height: unset;
+    }
+
+    .slide__five .slide__five-main--right .right__container-item {
+        margin-bottom: 15%;
     }
 }
 
@@ -3253,7 +3262,6 @@ input[type=submit]:hover {
 
     .slide__three-main::after {
         left: 50%;
-        top: 25%;
     }
 
     /**
@@ -3343,9 +3351,7 @@ input[type=submit]:hover {
         justify-content: center;
     }
 
-    .slide__five .slide__five-main--right .right__container-item {
-        margin-bottom: 1%;
-    }
+    
 
     .slide__five .right__container .image__container {
         width: 70px;
@@ -3490,6 +3496,10 @@ input[type=submit]:hover {
     .main__title::after {
         content: none;
     }
+
+    .slide__three-main::after {
+        top: 22%;
+    }
 }
 
 @media (max-width: 414px) and (max-height: 500px) {
@@ -3568,10 +3578,6 @@ input[type=submit]:hover {
 
     .slide__three .main__item-wrapper .circle__wrapper img {
         width: 95%;
-    }
-
-    .slide__three-main::after {
-        top: 16%;
     }
 
     .slide__three-header {
@@ -3836,3 +3842,15 @@ input[type=submit]:hover {
     background: #0f33ff;
     border-radius: 50%;
   }
+
+/* Products */
+
+.product__section {
+    background: #1e1e1e;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
