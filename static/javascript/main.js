@@ -1,6 +1,7 @@
 var firstAnchorLoad = true;
 var preloaderHadHide = false;
 var fourOwlCarouselChangeDirection = '';
+var COOCKIE_NAME = 'privacy_cookie';
 // Internet Explorer 6-11
 var isIE = /*@cc_on!@*/false || !!document.documentMode;
 // Edge 20+
@@ -248,6 +249,8 @@ $(document).ready( function() {
       var progressStep = i / (numOfPages - 1);
       $page.dataset.progress = progressStep;
     });
+
+    checkPrivacyCoockieState();
 });
 
 function checkScroll() {
@@ -933,26 +936,50 @@ function $$(selector, context) {
 
 // reCaptcha
 var verifyCallback = function(response) {
-    alert(response);
+    console.log(response);
 };
 
 var widgetId1;
 var widgetId2;
 
 var onloadCallbackForCaptcha = function () {
+    const SITE_KEY = '6LeobdwUAAAAAM9SJIy1NdZkC_L6KxjUNTn4tIzq';
     widgetId1 = grecaptcha.render('captcha1', {
-        'sitekey' : '6LeobdwUAAAAAM9SJIy1NdZkC_L6KxjUNTn4tIzq',
-        'theme' : 'light'
+        'sitekey': SITE_KEY,
+        'callback': verifyCallback
     });
 
     widgetId2 = grecaptcha.render(document.getElementById('captcha2'), {
-        'sitekey' : '6LeobdwUAAAAAM9SJIy1NdZkC_L6KxjUNTn4tIzq'
+        'sitekey': SITE_KEY,
+        'callback': verifyCallback
     });
 
     grecaptcha.render('captcha3', {
-        'sitekey' : '6LeobdwUAAAAAM9SJIy1NdZkC_L6KxjUNTn4tIzq',
-        'callback' : verifyCallback,
-        'theme' : 'dark'
+        'sitekey': SITE_KEY,
+        'callback': verifyCallback,
     });
+}
+
+function checkPrivacyCoockieState() {
+    if (!$.cookie(COOCKIE_NAME)) {
+        $('.cookies__btn-wrapper button').click(function() {
+            privacyCookiesAlert($('.cookies__attention'), false);
+        });
+
+        setTimeout(function() {
+            privacyCookiesAlert($('.cookies__attention'), true);
+        }, 5000);
+    }
+}
+
+function privacyCookiesAlert(block, show) {
+    if (show) {
+        $('.overlay').addClass('bg-black').removeClass('hidden');
+        block.removeClass('animation-from-bottom');
+    } else {
+        $('.overlay').addClass('hidden').removeClass('bg-black');
+        block.addClass('animation-from-bottom');
+        $.cookie(COOCKIE_NAME, '1', { expires: 365 });
+    }
 }
   
