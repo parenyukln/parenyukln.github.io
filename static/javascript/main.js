@@ -8,8 +8,6 @@ var isIE = /*@cc_on!@*/false || !!document.documentMode;
 var isEdge = !isIE && !!window.StyleMedia;
 
 $(document).ready( function() {
-    //window.sr = ScrollReveal();
-    
     fullpageInit();
     // Preloader 
     let imagesCount  = $('img').length, // количество изображений
@@ -249,8 +247,6 @@ $(document).ready( function() {
       var progressStep = i / (numOfPages - 1);
       $page.dataset.progress = progressStep;
     });
-
-    checkPrivacyCoockieState();
 });
 
 function checkScroll() {
@@ -400,15 +396,7 @@ function hidePreloader() {
     
         setTimeout(function() {
             $('.slide__loading').addClass('hidden');
-            /*sr.reveal('.footer__wrapper', {
-                reset: false,
-                duration: 600,
-                distance: '6.25rem',
-                easing: 'ease-out',
-                origin: 'bottom',
-                viewFactor: 0.2,
-                opacity: 0
-            });*/
+            checkPrivacyCoockieState();
         }, 1000);
     } 
 }
@@ -968,7 +956,7 @@ function checkPrivacyCoockieState() {
 
         setTimeout(function() {
             privacyCookiesAlert($('.cookies__attention'), true);
-        }, 5000);
+        }, 1000);
     }
 }
 
