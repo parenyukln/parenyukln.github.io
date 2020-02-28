@@ -3953,3 +3953,48 @@ input[type=submit]:hover {
         height: 400px;
     }
 }
+
+@media (max-height: 800px) {
+    .product__image-wrapper {
+        width: 450px;
+        height: 400px;
+    }
+}
+
+@media (max-height: 750px) {
+    .product__text {
+        font-size: 14px;
+    }
+}
+
+@media (max-height: 700px) {
+    .product__image-wrapper {
+        width: 350px;
+        height: 300px;
+    }
+
+    .product__text-description {
+        margin-top: 2rem;
+    }
+}
+
+@media (max-height: 650px) {
+    .product__image-wrapper {
+        width: 350px;
+        height: 300px;
+    }
+}
+
+@media (max-height: 550px) {
+    .product__image-wrapper {
+        width: 300px;
+        height: 250px;
+    }
+}
+
+@media (max-height: 500px) {
+    .product__image-wrapper {
+        width: 250px;
+        height: 200px;
+    }
+}
